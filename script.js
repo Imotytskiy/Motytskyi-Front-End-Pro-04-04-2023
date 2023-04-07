@@ -1,71 +1,32 @@
 "use strict";
-// First level
+//first level
+function getResult() {
+  const numRegex = /^-?\d*\.?\d+$/; // не треба використовувати числа 34+EX453;
 
-// const someName =  window.prompt("What is your name","");
-// window.alert("Hello, "+ someName +"! How are you?"); 
+  let firstNum = prompt("Введіть перше число", "");
+  let secondNum = prompt("Введіть друге число", "");
 
-// Second level
+  if (numRegex.test(firstNum) && numRegex.test(secondNum)) {
+    const num1 = Number(firstNum);   // приводим до типу Number
+    const num2 = Number(secondNum);
 
-// const nameRegex = /^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/;
-// const someName = prompt("What is your name", "");
+    const plus = num1 + num2;
+    const minus = num1 - num2;
+    const multy = num1 * num2;
+    let div = num1 / num2;   // якщо поділимо но ноль то в div зайде Infinity
 
-// if (nameRegex.test(someName)) {
-//   alert("Hello, " + someName + "! How are you?");
-// } else {
-//   alert("Wrong name");
-// }
-
-// Third level
-// https://www.webpages.uidaho.edu/cte419/Offline-Modules/M6/ARMA-12_Filing_Rules.htm
-
-function getName() {
-  const nameRegex = /^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/;
-
-  let someName = prompt("What is your name?", "");
-  let lowercaseName = someName.toLowerCase();
-
-  if (nameRegex.test(someName) && lowercaseName.length < 30) {
-    const upsomeName = lowercaseName.charAt(0).toUpperCase() + lowercaseName.slice(1);
-    return upsomeName;
+    if (!isFinite(div)){
+      div = "на нуль ділити неможна";
+    }else{
+      div = `${firstNum} / ${secondNum} = ${div}`;
+    }
+    
+    return (`Користувач ввів ${firstNum} і ${secondNum}:\n ${firstNum} + ${secondNum} = ${plus}\n ${firstNum} - ${secondNum} = ${minus}\n ${firstNum} * ${secondNum} = ${multy}\n ${div}`);
   } else {
-    alert("Wrong name. Please try again.");
-    return getName();
+    alert("Введіть будь-ласка два числа");
+    return getResult();
   }
 }
 
-let username = getName();
-alert("Hello, " + username + "! How are you?");
-
-// Fourth level
-// use API and service which check it is could be human name
-// async function main() {
-//   const { name, gender } = await getName();
-//   alert(`Hello, ${name}! How are you?`);
-// }
-
-// async function getName() {
-//   const nameRegex = /^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/;
-//   let someName = prompt("What is your name?", "");
-//   let lowercaseName = someName.toLowerCase();
-
-//   if (nameRegex.test(someName) && lowercaseName.length < 30) {
-//     const upsomeName = lowercaseName.charAt(0).toUpperCase() + lowercaseName.slice(1);
-
-//     //  API  genderize.io
-//     const response = await fetch(`https://api.genderize.io/?name=${upsomeName}`);
-//     const data = await response.json();
-
-//     //  OK from service 
-//     if (data.gender) {
-//       return { name: upsomeName, gender: data.gender };
-//     } else {
-//       alert("Please use human name. Try again.");
-//       return getName();
-//     }
-//   } else {
-//     alert("Wrong name. Please try again.");
-//     return getName();
-//   }
-// }
-
-// main();
+let decision = getResult();
+alert(decision);s
