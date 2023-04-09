@@ -1,32 +1,13 @@
 "use strict";
-//first level
-function getResult() {
-  const numRegex = /^-?\d*\.?\d+$/; // не треба використовувати числа 34+EX453;
-
-  let firstNum = prompt("Введіть перше число", "");
-  let secondNum = prompt("Введіть друге число", "");
-
-  if (numRegex.test(firstNum) && numRegex.test(secondNum)) {
-    const num1 = Number(firstNum);   // приводим до типу Number
-    const num2 = Number(secondNum);
-
-    const plus = num1 + num2;
-    const minus = num1 - num2;
-    const multy = num1 * num2;
-    let div = num1 / num2;   // якщо поділимо но ноль то в div зайде Infinity
-
-    if (!isFinite(div)){
-      div = "на нуль ділити неможна";
-    }else{
-      div = `${firstNum} / ${secondNum} = ${div}`;
-    }
-    
-    return (`Користувач ввів ${firstNum} і ${secondNum}:\n ${firstNum} + ${secondNum} = ${plus}\n ${firstNum} - ${secondNum} = ${minus}\n ${firstNum} * ${secondNum} = ${multy}\n ${div}`);
+//second level
+function secCount() {
+  let hourStr = document.getElementById("hours").value;
+  hourStr = hourStr.replace(/,/g, ".");
+  if (/^\d+(\.\d+)?$/.test(hourStr)) {
+    const hoursNum = Number(hourStr);
+    const sec = hoursNum * 3600;
+    alert(`${hoursNum} годин складає ${sec} секунд`);
   } else {
-    alert("Введіть будь-ласка два числа");
-    return getResult();
+    alert(`Вкажіть кількість годин: 4, 5.5`);
   }
 }
-
-let decision = getResult();
-alert(decision);
