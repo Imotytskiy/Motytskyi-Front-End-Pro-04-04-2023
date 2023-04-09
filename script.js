@@ -29,4 +29,4 @@ function getResult() {
 }
 
 let decision = getResult();
-alert(decision);s
+alert(decision);
