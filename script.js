@@ -1,71 +1,48 @@
 "use strict";
-// First level
+const sports = [
+  { kind: 'футбол', sportsmen: '"Ліонель Мессі", "Кріштіану Роналду", "Неймар"' },
+  { kind: 'тенніс', sportsmen: '"Рафаель Надаль", "Роджер Федерер", "Новак Джокович"' },
+  { kind: 'плавання', sportsmen: '"Майкл Фелпс", "Кейт Ледекі", "Місі Франклін"' },
+];
 
-// const someName =  window.prompt("What is your name","");
-// window.alert("Hello, "+ someName +"! How are you?"); 
 
-// Second level
-
-// const nameRegex = /^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/;
-// const someName = prompt("What is your name", "");
-
-// if (nameRegex.test(someName)) {
-//   alert("Hello, " + someName + "! How are you?");
-// } else {
-//   alert("Wrong name");
-// }
-
-// Third level
-// https://www.webpages.uidaho.edu/cte419/Offline-Modules/M6/ARMA-12_Filing_Rules.htm
-
-function getName() {
-  const nameRegex = /^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/;
-
-  let someName = prompt("What is your name?", "");
-  let lowercaseName = someName.toLowerCase();
-
-  if (nameRegex.test(someName) && lowercaseName.length < 30) {
-    const upsomeName = lowercaseName.charAt(0).toUpperCase() + lowercaseName.slice(1);
-    return upsomeName;
+function findSport(sport) {
+  const kindOfSport = sports.find(item => item.kind === sport);
+  if (kindOfSport) {
+    return `Круто! Хочеш стати ${kindOfSport.sportsmen}?`;
   } else {
-    alert("Wrong name. Please try again.");
-    return getName();
+    return `Шкода, що Ви не захотіли обрати вид спорту`;
   }
 }
 
-let username = getName();
-alert("Hello, " + username + "! How are you?");
+const countriesAndCapitals = [
+  { country: 'України', capital: 'Київ' },
+  { country: 'США', capital: 'Вашингтон' },
+  { country: 'Великої Британії', capital: 'Лондон' },
+];
 
-// Fourth level
-// use API and service which check it is could be human name
-// async function main() {
-//   const { name, gender } = await getName();
-//   alert(`Hello, ${name}! How are you?`);
-// }
+function findCapital(city) {
+  const capital = countriesAndCapitals.find(item => item.capital === city);
+  if (capital) {
+    return `Ти живеш у столиці ${capital.country}`;
+  } else {
+    if (city === "") {
+      return "Шкода, що Ви не захотіли ввести назву міста";
+    } else {
+      return `Ти живеш у місті ${city}, але нам не відомо, яка є його столиця`;
+    }
+}
+}
 
-// async function getName() {
-//   const nameRegex = /^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/;
-//   let someName = prompt("What is your name?", "");
-//   let lowercaseName = someName.toLowerCase();
-
-//   if (nameRegex.test(someName) && lowercaseName.length < 30) {
-//     const upsomeName = lowercaseName.charAt(0).toUpperCase() + lowercaseName.slice(1);
-
-//     //  API  genderize.io
-//     const response = await fetch(`https://api.genderize.io/?name=${upsomeName}`);
-//     const data = await response.json();
-
-//     //  OK from service 
-//     if (data.gender) {
-//       return { name: upsomeName, gender: data.gender };
-//     } else {
-//       alert("Please use human name. Try again.");
-//       return getName();
-//     }
-//   } else {
-//     alert("Wrong name. Please try again.");
-//     return getName();
-//   }
-// }
-
-// main();
+function userPortrait() {
+  let birthYear = document.getElementById("year").value;
+  let city = document.getElementById("city").value;
+  let sport = document.getElementById("sport").value;
+  const now = new Date();
+  let realYear = now.getFullYear() - birthYear;
+  const age = realYear !== now.getFullYear()  ? `Вам ${realYear} років` : "Шкода, що Ви не захотіли ввести дату народження";
+  city = city.charAt(0).toUpperCase() + city.slice(1).toLowerCase();
+  // city = city === "" ? "Шкода, що Ви не захотіли ввести назву міста" : city;
+  sport = sport.toLowerCase();
+  alert(`${age} ${findCapital(city)} ${findSport(sport)}`);
+}
