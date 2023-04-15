@@ -16,10 +16,13 @@
             padding-bottom: 10px;
             font-size: x-large;
             font-weight: 800;
+            width: 80%;
         }
         .form-container {
             display: flex;
+            gap: 30px;
             justify-content: space-around;
+
         }
         .form-group {
             margin-bottom: 10px;
@@ -28,24 +31,28 @@
             display: block;
             margin-bottom: 5px;
         }
-         input[type="number"], textarea {
-            width: 100%;
+        input[type="number"], textarea {
+            width: 80%;
             padding: 5px;
         }
         input[type="number"], textarea {
-            width: 100%;
+            width: 80%;
             padding: 10px;
         }
         button {
-            width: 100%;
+            width: 25%;
             padding: 5px;
             background-color: #4CAF50;
             color: white;
             border: none;
             text-align: center;
+            margin: auto;
         }
         button:hover {
             background-color: #45A049;
+        }
+        output{
+            font-size: larger;
         }
     </style>
 </head>
@@ -147,7 +154,7 @@
                             <span>5. Дане деяке число. Визначити, чи можна одержати це число
                                  шляхом зведення числа 3 у деякий ступінь. (Наприклад, числа 9, 81 можна отримати, а 13 - не можна).</span>
                             <label>Вести число: </label>
-                            <input id="exponent" type="number" value="1">
+                            <input id="exponent" type="number" min="3" value="3">
                        </div>
                         <label for="output">Результат</label>
                         <output type="text" id="outExponent" readonly>

@@ -71,7 +71,7 @@ function primeNum(event) {
    let num = parseFloat(document.getElementById("exponent").value);
    let answer = `можна`;
    while(num !== 1 || num % 1 !== 0){
-         if ( num % 3 !== 0 || num === 3 ){
+         if ( num % 3 !== 0  ){
            answer = `не можна`;
            break;
          }
