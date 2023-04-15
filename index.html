@@ -6,10 +6,12 @@
     <title>HOME WORK 8</title>
     <script src="script.js" defer></script>
     <style>
-        .span{
+        span{
             display: block;
-            padding-top: 10px;
+            padding-top: 40px;
             padding-bottom: 10px;
+            font-size: large;
+            font-weight: 800;
         }
         .form-container {
             display: flex;
@@ -26,10 +28,9 @@
             width: 100%;
             padding: 5px;
         }
-        input[type="number"], input[type="number"], textarea {
+        input[type="number"], textarea {
             width: 100%;
-            height: fit-content;
-            padding: 5px;
+            padding: 10px;
         }
         button {
             width: 100%;
@@ -37,6 +38,7 @@
             background-color: #4CAF50;
             color: white;
             border: none;
+            text-align: center;
         }
         button:hover {
             background-color: #45A049;
@@ -45,20 +47,20 @@
 </head>
 <body>
     <div class="form-container">
-        <form onsubmit="outNumbers()">
+        <form onsubmit="outNumbers(event)">
             <div class="form-group">
                 <div>
                     <span>1. Вивести числа від 20 до 30 через пропуск,
                         використовуючи крок 0,5 (20 20,5 21 21,5….).</span>
-                    <label for="input1">Вести число від: </label>
-                    <input id="start" type="number" name="input1" value="20">
+                    <label>Вести число від: </label>
+                    <input id="from" type="number" name="input1" value="20">
                </div>
             <div class="form-group">
-                <label for="input2">Ввести число до:</label>
-                <input type="number" id="stop" name="input2"  value="30">
+                <label>Ввести число до:</label>
+                <input type="number" id="to" name="input2"  value="30">
             </div>
             <div class="form-group">
-                <label for="input3">ввести крок</label>
+                <label>ввести крок</label>
                 <select id="step" name="sport" placeholder="0">
                 <option value="0.5">0.5</option>
                 <option value="1">1</option>
@@ -69,9 +71,35 @@
             <div class="form-group">
                 <label for="output">Результат</label>
                 <output type="number" id="output" name="output" readonly>
-            </div>
-            <button type="submit">Submit</button>
-        </form>
-    </div>
-</body>
-</html>
+                </div>
+                <button type="submit">Submit</button>
+            </form>
+            <form onsubmit="dollarCost(event)">
+                <div class="form-group">
+                    <div>
+                        <span>2. Один долар коштує 27 гривень. Вивести дані з розрахунком 
+                              вартості 10, 20, 30... 100 доларів.</span>
+                        <label>Один долар коштує: </label>
+                        <input id="kurs" type="number" value="27">
+                   </div>
+                <div class="form-group">
+                    <label>Ввести максимальну кількість долларів: (кратну 10)</label>
+                    <input type="number" id="max"  pattern="^-?\d*[0]$"  value="100">
+                </div>
+                <div class="form-group">
+                    <label>ввести крок</label>
+    <select id="stepDollar" name="sport" placeholder="0">
+        <option value="10">10</option>
+        <option value="5">5</option>
+        <option value="1">1</option>
+    </select>
+</div>
+<div class="form-group">
+    <label for="output">Результат</label>
+    <output type="number" id="out" name="output" readonly>
+</div>
+<button type="submit">Submit</button>
+</form>
+        </div>
+    </body>
+    </html>

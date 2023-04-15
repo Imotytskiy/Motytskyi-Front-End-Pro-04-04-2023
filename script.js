@@ -1,29 +1,32 @@
 // Перше завдання 
 
-function outNumbers() {
-    let i = 20;
-    let arr = [];
-    while (i <= 30) {
-        arr.push(i);
-        i+=0.5;
-    }
-  return alert(arr);
-}
-outNumbers();
+function outNumbers(event) {
+  event.preventDefault(); 
 
+  let from = parseFloat(document.getElementById("from").value);
+  const to = parseFloat(document.getElementById("to").value);
+  const step = parseFloat(document.getElementById("step").value);
+  let arr = [];
+  while (from <= to) {
+      arr.push(from);
+      from += step;
+  }
+  document.getElementById("output").value = arr.join(', ');
+}
 // Друге завдання
 
-// function dollarCost() {
-//     let kurs = 27;
-//     let arr = [];
-//     for (let i = 10; i <= 100; i+=10){
-//         let res = i*kurs;
-//         arr.push(res);
-//     }
-//     return alert(arr);
-// }
-// dollarCost();
-
+function dollarCost(event) {
+    event.preventDefault();
+    let kurs = parseFloat(document.getElementById("kurs").value);
+    const max = parseFloat(document.getElementById("max").value);
+    const stepDollar = parseFloat(document.getElementById("stepDollar").value);
+    let arrDol = [];
+    for (let i = stepDollar; i <= max; i+=stepDollar){
+        let res = i*kurs;
+        arrDol.push(res);
+    }
+    document.getElementById("out").value = arrDol.join(', ');
+}
 // Третє завдання
 
 // Дане ціле число. Вивести всі цілі числа від 1 до 100, 
