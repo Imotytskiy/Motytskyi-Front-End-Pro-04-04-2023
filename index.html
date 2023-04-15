@@ -6,11 +6,15 @@
     <title>HOME WORK 8</title>
     <script src="script.js" defer></script>
     <style>
+        body{
+            padding-top: 50px;
+            padding-bottom: 100px;
+        }
         span{
             display: block;
             padding-top: 40px;
             padding-bottom: 10px;
-            font-size: large;
+            font-size: x-large;
             font-weight: 800;
         }
         .form-container {
@@ -101,5 +105,54 @@
 <button type="submit">Submit</button>
 </form>
         </div>
+        <form onsubmit="intOut(event)">
+            <div class="form-group">
+                <div>
+                    <span>3. Дане ціле число. Вивести всі цілі числа від 1 до 100,
+                         квадрат яких не перевищує числа N.</span>
+                    <label>Вести число від: </label>
+                    <input id="input" type="number" value="1">
+               </div>
+            <div class="form-group">
+                <label>Ввести число до:</label>
+                <input type="number" id="toNumber" name="input2"  value="100">
+            </div>
+            <div class="form-group">
+                <label>Ввести число N:</label>
+                <input type="number" id="NumberN" name="input2"  value="1">
+            </div>
+            <div class="form-group">
+                <label for="output">Результат</label>
+                <output type="number" id="outNumber" readonly>
+                </div>
+                <button type="submit">Submit</button>
+            </form>
+            <form onsubmit="primeNum(event)">
+                <div class="form-group">
+                    <div>
+                        <span>4. Дане ціле число. З'ясувати, чи є воно простим
+                             (простим називається число, більше 1, які не мають інших дільників крім 1 і себе).</span>
+                        <label>Вести число: </label>
+                        <input id="prNum" type="number" min="1" value="1">
+                   </div>
+                <div class="form-group">
+                    <label for="output">Результат</label>
+                    <output type="text" id="primeNumber" readonly>
+                    </div>
+                    <button type="submit">Submit</button>
+                </form>
+                <form onsubmit="exponentNum(event)">
+                    <div class="form-group">
+                        <div>
+                            <span>5. Дане деяке число. Визначити, чи можна одержати це число
+                                 шляхом зведення числа 3 у деякий ступінь. (Наприклад, числа 9, 81 можна отримати, а 13 - не можна).</span>
+                            <label>Вести число: </label>
+                            <input id="exponent" type="number" value="1">
+                       </div>
+                        <label for="output">Результат</label>
+                        <output type="text" id="outExponent" readonly>
+                        </div>
+                        <button type="submit">Submit</button>
+                    </form>
     </body>
     </html>

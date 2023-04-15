@@ -29,55 +29,53 @@ function dollarCost(event) {
 }
 // Третє завдання
 
-// Дане ціле число. Вивести всі цілі числа від 1 до 100, 
-// квадрат яких не перевищує числа N
-// function intOut() {
-//     let max = +prompt("Введіть число не більше 100", "");
-//     let i = 1;
-//     let arr = [];
-//     while (i <= 100) {
-//          if ((i*i) <=  max) {
-//             arr.push(i);
-//             i++;
-//          }
-//          else{
-//             break;
-//          }
-//     }
-//     return(arr);
-// }
-// alert(intOut());
-
+function intOut(event) {
+  event.preventDefault();
+  let max = parseFloat(document.getElementById("NumberN").value);
+  let toNumber = parseFloat(document.getElementById("toNumber").value);
+  let i = parseFloat(document.getElementById("input").value);
+    let arrSqr = [];
+    while (i <= toNumber) {
+         if ((i*i) <=  max) {
+            arrSqr.push(i);
+            i++;
+         }
+         else{
+            break;
+         }
+    }
+    document.getElementById("outNumber").value = arrSqr.join(', ');
+}
 // Четверте завдання
 
-// function primeNum() {
-//    let num = +prompt("Введіть число", "");
-//    let answer = `${num}, є простим числом`;
-//    if (num === 1 || num === 0) {
-//       answer = `${num}, не є простим числом`;
-//    } else {
-//       for(let i = 2; i < num; ++i ){
-//          if (num % i === 0){
-//             answer = `${num}, не є простим числом`;
-//             break;
-//          }
-//       }
-//    }
-//    return answer; 
-// }
-// alert(primeNum());
+function primeNum(event) {
+  event.preventDefault();
+  let num = parseFloat(document.getElementById("prNum").value);
+  let answer = `${num}, є простим числом`;
+   if (num === 1 || num === 0) {
+      answer = `${num}, не є простим числом`;
+   } else {
+      for(let i = 2; i < num; ++i ){
+         if (num % i === 0){
+            answer = `${num}, не є простим числом`;
+            break;
+         }
+      }
+   }
+   document.getElementById("primeNumber").value = answer; 
+}
 //  П'яте завдання
-// 
-//  function exponentNum() {
-//    let num = +prompt("Введіть число", "");
-//    let answer = `можна`;
-//    while(num !== 1 || num % 1 !== 0){
-//          if (num % 3 !== 0){
-//            answer = `не можна`;
-//            break;
-//          }
-//           num = num / 3;
-//    }
-//    return answer;
-//  }
-//  alert(exponentNum());
+
+ function exponentNum(event) {
+   event.preventDefault();
+   let num = parseFloat(document.getElementById("exponent").value);
+   let answer = `можна`;
+   while(num !== 1 || num % 1 !== 0){
+         if ( num % 3 !== 0 || num === 3 ){
+           answer = `не можна`;
+           break;
+         }
+          num = num / 3;
+   }
+   document.getElementById("outExponent").value = answer; 
+ }
