@@ -1,15 +1,15 @@
 // Перше завдання 
 
-// function outNumbers() {
-//     let i = 20;
-//     let arr = [];
-//     while (i <= 30) {
-//         arr.push(i);
-//         i+=0.5;
-//     }
-//   return alert(arr);
-// }
-// outNumbers();
+function outNumbers() {
+    let i = 20;
+    let arr = [];
+    while (i <= 30) {
+        arr.push(i);
+        i+=0.5;
+    }
+  return alert(arr);
+}
+outNumbers();
 
 // Друге завдання
 
@@ -65,16 +65,16 @@
 // alert(primeNum());
 //  П'яте завдання
 // 
- function exponentNum() {
-   let num = +prompt("Введіть число", "");
-   let answer = `можна`;
-   while(num !== 1 || num % 1 !== 0){
-         if (num % 3 !== 0){
-           answer = `не можна`;
-           break;
-         }
-          num = num / 3;
-   }
-   return answer;
- }
- alert(exponentNum());
+//  function exponentNum() {
+//    let num = +prompt("Введіть число", "");
+//    let answer = `можна`;
+//    while(num !== 1 || num % 1 !== 0){
+//          if (num % 3 !== 0){
+//            answer = `не можна`;
+//            break;
+//          }
+//           num = num / 3;
+//    }
+//    return answer;
+//  }
+//  alert(exponentNum());
