@@ -14,15 +14,16 @@
             background-color: rgba(46,130,167,.5); 
             justify-content: center; 
             align-items:center;
-            height: 50vh;
+            height: 15vh;
         }
+        label
         input[type="number"] {
             height: 60px; height: 60px;
             border-top-left-radius: 10px;
             border-bottom-left-radius: 10px;
             font-size: 2em;
             border: none;
-            width: 245px;
+            width: 50px;
         }
         input[type="text"] {
             height: 60px; height: 60px;
@@ -57,7 +58,65 @@
 </head>
 <body>
     <div>
-        <form onsubmit="userPortrait()">
+        <form onsubmit="">
+
+            <label for="">Вказати від:</label><br>
+            <input  type="number" id="year" placeholder="Рік народження" min="1901" max="2023">
+
+            <label for="">Вказати до:</label><br>
+            <input type="text" id="city" placeholder="Місто в якому проживаєте">
+            
+            <label for="fname">КРОК</label><br>
+            <select id="sport" name="sport" placeholder="0.5">
+                <option value="0.5">0.5</option>
+                <option value="1">1</option>
+                <option value="1.5">1.5</option>
+                <option value="2">2</option>
+              </select>
+            <input type="submit">
+        </form>
+    </div>
+    <div>
+        <form onsubmit="">
+            <input  type="number" id="year" placeholder="Рік народження" min="1901" max="2023">
+            <input type="text" id="city" placeholder="Місто в якому проживаєте">
+            <select id="sport" name="sport" placeholder="Улюблений вид спорту">
+                <option value=""></option>
+                <option value="футбол">Футбол</option>
+                <option value="тенніс">Тенніс</option>
+                <option value="плавання">Плавання</option>
+              </select>
+            <input type="submit">
+        </form>
+    </div>
+    <div>
+        <form onsubmit="">
+            <input  type="number" id="year" placeholder="Рік народження" min="1901" max="2023">
+            <input type="text" id="city" placeholder="Місто в якому проживаєте">
+            <select id="sport" name="sport" placeholder="Улюблений вид спорту">
+                <option value=""></option>
+                <option value="футбол">Футбол</option>
+                <option value="тенніс">Тенніс</option>
+                <option value="плавання">Плавання</option>
+              </select>
+            <input type="submit">
+        </form>
+    </div>
+    <div>
+        <form onsubmit="">
+            <input  type="number" id="year" placeholder="Рік народження" min="1901" max="2023">
+            <input type="text" id="city" placeholder="Місто в якому проживаєте">
+            <select id="sport" name="sport" placeholder="Улюблений вид спорту">
+                <option value=""></option>
+                <option value="футбол">Футбол</option>
+                <option value="тенніс">Тенніс</option>
+                <option value="плавання">Плавання</option>
+              </select>
+            <input type="submit">
+        </form>
+    </div>
+    <div>
+        <form onsubmit="">
             <input  type="number" id="year" placeholder="Рік народження" min="1901" max="2023">
             <input type="text" id="city" placeholder="Місто в якому проживаєте">
             <select id="sport" name="sport" placeholder="Улюблений вид спорту">
