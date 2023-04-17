@@ -9,19 +9,19 @@
 //доповнення видаляємо елемент (5)
 // Перший варіант 
 
-const array = [1, 2, 3, 4, 5, 6, 7];
+// const array = [1, 2, 3, 4, 5, 6, 7];
 
-function removeElement(array, arg = 5) {
-  let indexDel = undefined; 
-  array.forEach((element, index) => {
-    if (element === arg) {
-      indexDel = index;
-    }
-  });
-  array.splice(indexDel, 1);
-  return array;
-}
-console.log(removeElement(array));
+// function removeElement(array, arg = 5) {
+//   let indexDel = undefined; 
+//   array.forEach((element, index) => {
+//     if (element === arg) {
+//       indexDel = index;
+//     }
+//   });
+//   array.splice(indexDel, 1);
+//   return array;
+// }
+// console.log(removeElement(array));
 
 
 // Другий варіант
@@ -36,3 +36,17 @@ console.log(removeElement(array));
 // }
 
 // console.log(removeElement(array));
+
+// Третій варіант
+
+const array = [1, 2, 3, 4, 5, 6, 7];
+
+function removeElement(array, arg = 5) {
+  var indexDel = array.indexOf(arg);
+  array.splice(indexDel, 1);
+  return array;
+}
+
+console.log(removeElement(array));
+
+
