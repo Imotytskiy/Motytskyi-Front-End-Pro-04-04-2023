@@ -15,8 +15,8 @@
 //     alert(funcExponent(num, degree));
 
 
-    function funcExponent (num, degree) {
-        return (degree == 1) ? num : (num * funcExponent(num, degree - 1));
+    function pow (num, degree) {
+        return (degree == 1) ? num : (num * pow (num, degree - 1));
       }
     alert(funcExponent(+prompt("Число, яке підноситься до ступеня",""), +prompt("Ступінь","")));
 
