@@ -73,14 +73,14 @@ let users = [
     
                             // через forEach
 
-    // function sumAllUsersBalance(users){
-    // let sumAllUsersBalance = 0;
+    function sumAllUsersBalance(users){
+    let sumAllUsersBalance = 0;
 
-    // users.forEach(function(user) {
-    //     sumAllUsersBalance += Number(user["balance"].replace(/,|\$|\s/g, ""));
-    //   });
-    //   return (sumAllUsersBalance.toFixed(2));
-    // };
+    users.forEach(function(user) {
+        sumAllUsersBalance += Number(user["balance"].replace(/,|\$|\s/g, ""));
+      });
+      return (sumAllUsersBalance.toFixed(2));
+    };
 
     // Повернемо  все, що більше 2000, використаємо filter
     function telNumUsers() {
