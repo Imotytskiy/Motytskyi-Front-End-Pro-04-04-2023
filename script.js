@@ -73,14 +73,14 @@ let users = [
     
                             // через forEach
 
-    function sumAllUsersBalance(users){
-    let sumAllUsersBalance = 0;
+    // function sumAllUsersBalance(users){
+    // let sumAllUsersBalance = 0;
 
-    users.forEach(function(user) {
-        sumAllUsersBalance += Number(user["balance"].replace(/,|\$|\s/g, ""));
-      });
-      return (sumAllUsersBalance.toFixed(2));
-    };
+    // users.forEach(function(user) {
+    //     sumAllUsersBalance += Number(user["balance"].replace(/,|\$|\s/g, ""));
+    //   });
+    //   return (sumAllUsersBalance.toFixed(2));
+    // };
 
     // Повернемо  все, що більше 2000, використаємо filter
     function telNumUsers() {
@@ -92,11 +92,22 @@ let users = [
       }
    
     // запишемо всі тел. номера в масив викаристаємо map
-     function phonesArr(){
+     function phoneArr(){
          const arrayPhones = telNumUsers();
          const savePhones = arrayPhones.map(Users => Users.phone); 
          return savePhones;
      }
+                                    // зроблю через замикання другу частину, тут в CHATGPT підглядав
 
-alert(`Телефонні номери користувачів з балансом більше 2000 доларів: ${phonesArr()} 
+// function phoneArr(users) {
+//     let phoneNumbers = [];
+//     users.forEach(function(user) {
+//         if (Number(user["balance"].replace(/,|\$|\s/g, "")) > 2000) {
+//             phoneNumbers.push(user["phone"]);
+//         }
+//     });
+//     return phoneNumbers;
+// }
+
+alert(`Телефонні номери користувачів з балансом більше 2000 доларів: ${phoneArr()} 
 \n Сума всіх балансів користувачів: ${sumAllUsersBalance(users)} долларів США.`);
