@@ -60,7 +60,7 @@ let users = [
     // Зроблю дублікат users, в першій частині задачі будемо змінювати массив, послідовність
     // послідовність виконання задачі, якщо є можливість треба зберегти.
 
-    const workUsers = JSON.parse(JSON.stringify(users));
+    const dublicateUsers = JSON.parse(JSON.stringify(users));
 
     // Спочатку знайду суму всіх балансів користувачів
     
@@ -73,7 +73,7 @@ let users = [
     
                             // через forEach
 
-    function sumAllUsersBalance(){
+    function sumAllUsersBalance(users){
     let sumAllUsersBalance = 0;
 
     users.forEach(function(user) {
@@ -84,7 +84,7 @@ let users = [
 
     // Повернемо  все, що більше 2000, використаємо filter
     function telNumUsers() {
-        let newArrayTel = workUsers.filter(function(user) {
+        let newArrayTel = dublicateUsers.filter(function(user) {
           let balance = Number(user.balance.replace(/,|\$|\s/g, ''));
           return balance > 2000;
         });
@@ -94,9 +94,9 @@ let users = [
     // запишемо всі тел. номера в масив викаристаємо map
      function phonesArr(){
          const arrayPhones = telNumUsers();
-         const savePhones = arrayPhones.map(workUsers => workUsers.phone); 
+         const savePhones = arrayPhones.map(Users => Users.phone); 
          return savePhones;
      }
 
 alert(`Телефонні номери користувачів з балансом більше 2000 доларів: ${phonesArr()} 
-\n Сума всіх балансів користувачів: ${sumAllUsersBalance()} долларів США.`);
+\n Сума всіх балансів користувачів: ${sumAllUsersBalance(users)} долларів США.`);
