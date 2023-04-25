@@ -97,7 +97,7 @@ let users = [
          const savePhones = arrayPhones.map(Users => Users.phone); 
          return savePhones;
      }
-                                    // зроблю через замикання другу частину, тут в CHATGPT підглядав
+                                    // зроблю другу частину, не мутуючи array
 
 // function phoneArr(users) {
 //     let phoneNumbers = [];
