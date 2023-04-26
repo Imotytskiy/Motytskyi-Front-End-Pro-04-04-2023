@@ -57,11 +57,10 @@ let users = [{
  // дублируется функционал (Fixed)
  // стиль обращения к свойствам обьекта (Fixed)
 
-function formatBalance(str) {
-    return Number(str.replace(/,|\$|\s/g, ""));
-  }
+
+const formatBalance = str => {return Number(str.replace(/,|\$|\s/g, ""))};
  
-function sumAllUsersBalance(users) {
+const sumAllUsersBalance = users => {
     let sumAllUsersBalance = 0;
 
     users.forEach(function (user) {
@@ -70,7 +69,7 @@ function sumAllUsersBalance(users) {
     return (sumAllUsersBalance.toFixed(2));
 };
 
-function phoneArr(users) {
+const phoneArr = users => {
     let phoneNumbers = [];
     users.forEach(function (user) {
         if (formatBalance(user.balance) > 2000) {
