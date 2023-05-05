@@ -49,6 +49,7 @@ const secondCar = new Car({
 
 
 firstCar.saveHuman(firstHuman);
-
 secondCar.saveHuman(secondHuman);
 
+console.log(firstCar.carOwner);
+console.log(secondCar.carOwner);
