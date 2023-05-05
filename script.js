@@ -5,7 +5,7 @@ class Human {
         this.age = age;
     }
     outputInfo() {
-        return (console.log(`ім'я ${this.firstName} вік ${this.age} власник автомобіля`));
+        return (console.log(`ім'я ${this.firstName} вік ${this.age} власник автомобіля \n\n`));
     }
 }
 
@@ -48,6 +48,7 @@ const secondCar = new Car({
 });
 
 
-firstCar.saveHuman(secondHuman);
+firstCar.saveHuman(firstHuman);
 
-// secondCar.saveHuman(firstHuman);
+secondCar.saveHuman(secondHuman);
+
