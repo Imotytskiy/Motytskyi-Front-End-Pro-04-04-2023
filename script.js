@@ -5,7 +5,7 @@ class Human {
         this.age = age;
     }
     outputInfo() {
-        return (console.log(`ім'я ${this.firstName} вік ${this.age} власник автомобіля \n`));
+        console.log(`ім'я ${this.firstName} вік ${this.age} власник автомобіля \n`);
     }
 }
 
