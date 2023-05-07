@@ -32,7 +32,7 @@ class Student {
     }
 
     summary() {
-        const sum = this.arrScore.reduce((acc, curr) => acc + (curr ? 1 : 0), 0);
+        const sum = this.arrScore.reduce((acc, curr) => acc + curr);
         const avg = sum / this.arrScore.length;
 
         if (avg >= 0.9) {
