@@ -1,4 +1,3 @@
-
 const now = new Date();
 const currentYear = now.getFullYear();
 
@@ -7,46 +6,41 @@ class Student {
         this.name = identity.name;
         this.surname = identity.surname;
         this.birthYear = identity.birthYear;
-        this.arrScore = new Array(25);                    // масив з оцінками, це також властивість, є масив 25 довжиною
+        this.arrScore = new Array(25);
         this.bornYear = this.determinateAge(); 
         this.everageScore = this.summary();
     }
 
-
-    determinateAge() {                                    // вік студента метод
+    determinateAge() {
         return currentYear - this.birthYear;
     }
 
     present(){
         const index = this.arrScore.findIndex((element) => element === undefined); 
         if (index !== -1) {
-            this.arrScore[index]= true;
-        // } else {
-        //     console.log("Використані всі 25");
+            this.arrScore[index] = true;
         }
-
+        return this;
     }
 
     absent(){
         const index = this.arrScore.findIndex((element) => element === undefined); 
         if (index !== -1) {
             this.arrScore[index] = false;
-        // } else {
-        //     console.log("Використані всі 25");
         }
+        return this;
     }
 
-        summary() {                                                            // середній бал метод  90% від 25 дорівнює 22.5 округлюємо
-            const sum = this.arrScore.reduce((acc, curr) => acc + curr);
-            switch(true) {
-              case (Math.round((sum / this.arrScore.length) * 25) <= 0.9 ):
-                return "Молодець";
-              case (Math.round((sum / this.arrScore.length) * 25) > 0.9 ):
-                return "Добре, але можна краще ";
-              default:
-                return "Error";
-            }
-      }
+    summary() {
+        const sum = this.arrScore.reduce((acc, curr) => acc + (curr ? 1 : 0), 0);
+        const avg = sum / this.arrScore.length;
+
+        if (avg >= 0.9) {
+            return "Молодець";
+        } else {
+            return "Добре, але можна краще";
+        }
+    }
 }
 
 const firstStudent = new Student({
@@ -54,3 +48,29 @@ const firstStudent = new Student({
     surname : "Smith",
     birthYear : 1985
 });
+
+const secondStudent = new Student({
+    name : "Eva",
+    surname : "Smith",
+    birthYear : 1995
+});
+
+firstStudent
+.absent().absent().absent().absent().absent()
+.present().present().present().present().present()
+.present().present().present().present().present()
+.present().present().present().present().present()
+.present().present().present().present().present();
+
+console.log(firstStudent.everageScore);
+console.log(firstStudent.bornYear);
+
+firstStudent
+.absent().present().present().present().present()
+.present().present().present().present().present()
+.present().present().present().present().present()
+.present().present().present().present().present()
+.present().present().present().present().present();
+
+console.log(firstStudent.everageScore);
+console.log(firstStudent.bornYear);
