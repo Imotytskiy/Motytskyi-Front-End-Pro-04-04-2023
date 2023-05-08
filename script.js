@@ -8,10 +8,10 @@ class Student {
         this.birthYear = identity.birthYear;
         this.arrScore = identity.arrScore;                       // масив з оцінками, це також властивість
         this.arrVisit = new Array(25);                          // у всіх Студентів є по масиву однакової довжини, у ньому 25 елементів                                  
-        this.bornYear = this.determinateAge();
+        this.bornYear = Student.determinateAge(this.birthYear);
     }
 
-    determinateAge() {
+    static determinateAge() {
         return currentYear - this.birthYear;
     }
 
