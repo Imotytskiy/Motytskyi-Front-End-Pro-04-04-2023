@@ -8,8 +8,7 @@ class Student {
         this.birthYear = identity.birthYear;
         this.arrScore = identity.arrScore;                       // масив з оцінками, це також властивість
         this.arrVisit = new Array(25);                          // у всіх Студентів є по масиву однакової довжини, у ньому 25 елементів                                  
-        this.bornYear = this.determinateAge(); 
-        this.everageScore = this.summary();
+        this.bornYear = this.determinateAge();
     }
 
     determinateAge() {
@@ -84,7 +83,7 @@ console.log(firstStudent.summary());
 console.log(firstStudent.bornYear);
 
 secondStudent
-.absent().present().present().present().present()
+.present().present().present().present().present()
 .present().present().present().present().present()
 .present().present().present().present().present()
 .present().present().present().present().present()
