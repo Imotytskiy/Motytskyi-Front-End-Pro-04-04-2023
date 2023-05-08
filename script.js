@@ -63,8 +63,8 @@ const secondStudent = new Student({
 });
 
 const thirdStudent = new Student({
-    name : "Eva",
-    surname : "Smith",
+    name : "Steven",
+    surname : "Gates",
     birthYear : 1995,
     arrScore : [80,70,60,89,50]
 });
@@ -91,3 +91,11 @@ console.log(firstStudent.summary());
 console.log(firstStudent.bornYear);
 
 thirdStudent
+.absent().present().present().present().present()
+.present().present().present().present().present()
+.present().present().present().present().present()
+.present().present().present().present().present()
+.present().present().present().present().present();
+
+console.log(firstStudent.summary());
+console.log(firstStudent.bornYear);
