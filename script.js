@@ -34,10 +34,10 @@ class Student {
 
     summary() {
         const sum = this.arrVisit.reduce((acc, curr) => acc + (curr ? 1 : 0),0);   // undefined не рахую 
-        const avg = sum / this.arrVisit.length;
+        const avg = Number((sum / this.arrVisit.length).toFixed(1));
 
-        const sumScore = this.arrScore.reduce((acc, curr) => acc + (curr ? 1 : 0),0);   // undefined не рахую 
-        const avgScore = sumScore / this.arrScore.length;
+        const sumScore = this.arrScore.reduce((acc, curr) => acc + curr,0); 
+        const avgScore = Math.round(sumScore / this.arrScore.length);
 
         if (avg >= 0.9 && avgScore >= 90) {                       
             return "Молодець";
@@ -68,13 +68,13 @@ const secondStudent = new Student({
 const thirdStudent = new Student({
     name : "Steven",
     surname : "Gates",
-    birthYear : 1995,
+    birthYear : 1975,
     arrScore : [80,70,60,89,50]
 });
 
 
 firstStudent
-.absent().absent().absent().absent().absent()
+.present().present().present().present().present()
 .present().present().present().present().present()
 .present().present().present().present().present()
 .present().present().present().present().present()
@@ -90,15 +90,15 @@ secondStudent
 .present().present().present().present().present()
 .present().present().present().present().present();
 
-console.log(firstStudent.summary());
-console.log(firstStudent.bornYear);
+console.log(secondStudent.summary());
+console.log(secondStudent.bornYear);
 
 thirdStudent
-.absent().present().present().present().present()
+.absent().absent().absent().absent().absent()
 .present().present().present().present().present()
 .present().present().present().present().present()
 .present().present().present().present().present()
 .present().present().present().present().present();
 
-console.log(firstStudent.summary());
-console.log(firstStudent.bornYear);
+console.log(thirdStudent.summary());
+console.log(thirdStudent.bornYear);
