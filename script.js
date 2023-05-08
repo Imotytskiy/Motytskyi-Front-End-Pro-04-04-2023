@@ -36,6 +36,9 @@ class Student {
         const sum = this.arrVisit.reduce((acc, curr) => acc + (curr ? 1 : 0),0);   // undefined не рахую 
         const avg = sum / this.arrVisit.length;
 
+        const sumScore = this.arrScore.reduce((acc, curr) => acc + (curr ? 1 : 0),0);   // undefined не рахую 
+        const avgScore = sumScore / this.arrScore.length;
+
         if (avg >= 0.9 && avgScore >= 90) {                       
             return "Молодець";
         }else if (avg >= 0.9 && avgScore < 90 || avg < 0.9 && avgScore > 90) {
