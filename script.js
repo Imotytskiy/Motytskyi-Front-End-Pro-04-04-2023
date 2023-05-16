@@ -14,11 +14,13 @@ function makeColumnsRows(Columns = 10, Rows = 10) {
     table.style.transform = 'translate(-50%, -50%)';
     table.style.border = `2px solid blue`;
 
-        for (let i = 0; i < Rows; i++) {
+    let k = 0;
+
+        for (let i = 0; i < Rows; ++i) {
                 setTimeout(() => {
                     const tr = document.createElement('tr');
                     table.appendChild(tr);
-                        for (let j = 0; j < Columns; j++) {
+                        for (let j = 0; j < Columns; ++j) {
                             setTimeout(() => {
                                 const td = document.createElement('td');
                                 tr.appendChild(td);
@@ -26,11 +28,10 @@ function makeColumnsRows(Columns = 10, Rows = 10) {
                                 td.style.fontSize = '22px';
                                 td.style.border = `2px solid blue`;
                                 td.style.padding = '10px';
-                                td.textContent = 'CELL';    
+                                k++;
+                                td.textContent = k;
                             }, 100 * j);
                         }
                 },100 * i);
         }
 }
-
-makeColumnsRows();
