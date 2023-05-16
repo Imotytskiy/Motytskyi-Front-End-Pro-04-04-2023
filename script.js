@@ -20,12 +20,11 @@ function takeRandomImg() {
   return pathToTheFile;
 }
 
-const randomImagePath = takeRandomImg();
 
 function displayImg() {
 
 const newImg = document.createElement('img');
-newImg.setAttribute('src', randomImagePath);
+newImg.setAttribute('src', takeRandomImg());
 firstDiv.appendChild(newImg);
 
 }
