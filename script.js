@@ -35,3 +35,5 @@ function makeColumnsRows(Columns = 10, Rows = 10) {
                 },100 * i);
         }
 }
+
+makeColumnsRows();
