@@ -10,19 +10,23 @@ function makeColumnsRows(Columns = 10, Rows = 10) {
   parentElement.appendChild(table);
   table.style.border = `2px solid blue`;
 
-    for (let i = 0; i < Rows; i++) {
-        const tr = document.createElement('tr');
-        table.appendChild(tr);
-        for (let j = 0; j < Columns; j++) {
-            const td = document.createElement('td');
-            tr.appendChild(td);
-            td.style.color = 'white';
-            td.style.fontSize = '22px';
-            td.style.border = `2px solid blue`;
-            td.style.padding = '10px';
-            td.textContent = 'CELL';    
+        for (let i = 0; i < Rows; i++) {
+                setTimeout(() => {
+                    const tr = document.createElement('tr');
+                    table.appendChild(tr);
+                        for (let j = 0; j < Columns; j++) {
+                            setTimeout(() => {
+                            const td = document.createElement('td');
+                            tr.appendChild(td);
+                            td.style.color = 'white';
+                            td.style.fontSize = '22px';
+                            td.style.border = `2px solid blue`;
+                            td.style.padding = '10px';
+                            td.textContent = 'CELL';    
+                            }, 100 * j);
+                        }
+                },100 * i);
         }
-    }
 }
 
 makeColumnsRows();
