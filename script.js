@@ -14,7 +14,7 @@ function makeColumnsRows(Columns = 10, Rows = 10) {
     table.style.transform = 'translate(-50%, -50%)';
     table.style.border = `2px solid blue`;
 
-    let k = 0;
+    let cellNumber = 0;
 
         for (let i = 0; i < Rows; ++i) {
                 setTimeout(() => {
@@ -28,8 +28,8 @@ function makeColumnsRows(Columns = 10, Rows = 10) {
                                 td.style.fontSize = '22px';
                                 td.style.border = `2px solid blue`;
                                 td.style.padding = '10px';
-                                k++;
-                                td.textContent = k;
+                                cellNumber++;
+                                td.textContent = cellNumber;
                             }, 100 * j);
                         }
                 },100 * i);
