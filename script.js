@@ -9,11 +9,17 @@ function takeRandomImg() {
   return pathToTheFile;
 }
 
+
 const randomImagePath = takeRandomImg();
 
 const firstDiv = document.createElement('div');
+firstDiv.style.marginTop = '15%';
+firstDiv.style.display = 'flex';
+firstDiv.style.justifyContent = 'center';
+firstDiv.style.alignItems = 'center';
 
 const parentElement = document.querySelector('body');
+parentElement.style.backgroundColor = 'black';
 parentElement.appendChild(firstDiv);
 
 const newImg = document.createElement('img');
