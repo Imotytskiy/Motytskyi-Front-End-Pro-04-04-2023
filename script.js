@@ -8,7 +8,7 @@ parentElement.style.alignItems = 'center';
 function makeColumnsRows(Columns = 10, Rows = 10) {
   const table = document.createElement('table');
   parentElement.appendChild(table);
-  table.style.border = `1px solid blue`;
+  table.style.border = `2px solid blue`;
 
     for (let i = 0; i < Rows; i++) {
         const tr = document.createElement('tr');
@@ -18,7 +18,7 @@ function makeColumnsRows(Columns = 10, Rows = 10) {
             tr.appendChild(td);
             td.style.color = 'white';
             td.style.fontSize = '22px';
-            td.style.border = `1px solid blue`;
+            td.style.border = `2px solid blue`;
             td.style.padding = '10px';
             td.textContent = 'CELL';    
         }
