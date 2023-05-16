@@ -16,7 +16,7 @@ function makeColumnsRows(Columns = 10, Rows = 10) {
             const td = document.createElement('td');
             tr.appendChild(td);
             td.style.color = 'white';
-            td.style.fontSize = '16';
+            td.style.fontSize = '22px';
             td.textContent = 'CELL';
         }
     }
