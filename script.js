@@ -13,7 +13,7 @@ function takeRandomImg() {
 const randomImagePath = takeRandomImg();
 
 const firstDiv = document.createElement('div');
-firstDiv.style.marginTop = '15%';
+firstDiv.style.marginTop = '8%';
 firstDiv.style.display = 'flex';
 firstDiv.style.justifyContent = 'center';
 firstDiv.style.alignItems = 'center';
