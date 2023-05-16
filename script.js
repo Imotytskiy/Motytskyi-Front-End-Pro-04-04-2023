@@ -16,13 +16,13 @@ function makeColumnsRows(Columns = 10, Rows = 10) {
                     table.appendChild(tr);
                         for (let j = 0; j < Columns; j++) {
                             setTimeout(() => {
-                            const td = document.createElement('td');
-                            tr.appendChild(td);
-                            td.style.color = 'white';
-                            td.style.fontSize = '22px';
-                            td.style.border = `2px solid blue`;
-                            td.style.padding = '10px';
-                            td.textContent = 'CELL';    
+                                const td = document.createElement('td');
+                                tr.appendChild(td);
+                                td.style.color = 'white';
+                                td.style.fontSize = '22px';
+                                td.style.border = `2px solid blue`;
+                                td.style.padding = '10px';
+                                td.textContent = 'CELL';    
                             }, 100 * j);
                         }
                 },100 * i);
