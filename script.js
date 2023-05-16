@@ -27,6 +27,7 @@ function makeColumnsRows(Columns = 10, Rows = 10) {
                                 td.style.color = 'white';
                                 td.style.fontSize = '22px';
                                 td.style.border = `2px solid blue`;
+                                td.style.width = '50px';
                                 td.style.padding = '10px';
                                 cellNumber++;
                                 td.textContent = cellNumber;
