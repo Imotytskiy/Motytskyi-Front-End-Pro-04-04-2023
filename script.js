@@ -5,7 +5,7 @@ parentElement.style.display = 'flex';
 parentElement.style.justifyContent = 'center';
 parentElement.style.alignItems = 'center';
 
-function makeColumnsRows(Columns = 10, Rows = 10) {
+function makeColumnsRows( columns = 10, rows = 10) {
   const table = document.createElement('table');
     parentElement.appendChild(table);
     table.style.position = 'absolute';
@@ -16,11 +16,11 @@ function makeColumnsRows(Columns = 10, Rows = 10) {
 
     let cellNumber = 0;
 
-        for (let i = 0; i < Rows; ++i) {
+        for (let i = 0; i < rows; ++i) {
                 setTimeout(() => {
                     const tr = document.createElement('tr');
                     table.appendChild(tr);
-                        for (let j = 0; j < Columns; ++j) {
+                        for (let j = 0; j < columns; ++j) {
                             setTimeout(() => {
                                 const td = document.createElement('td');
                                 tr.appendChild(td);
