@@ -10,7 +10,7 @@ firstDiv.style.justifyContent = 'center';
 firstDiv.style.alignItems = 'center';
 
 
-function getRandomInt(max = 9) {              //  8 because include 0.jpg (real 9) Expected output: max
+function getRandomInt(max = 9) {             
   return Math.floor(Math.random() * max) + 1; // exclude 0.jpg use +1
 }
 
