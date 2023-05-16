@@ -7,8 +7,12 @@ parentElement.style.alignItems = 'center';
 
 function makeColumnsRows(Columns = 10, Rows = 10) {
   const table = document.createElement('table');
-  parentElement.appendChild(table);
-  table.style.border = `2px solid blue`;
+    parentElement.appendChild(table);
+    table.style.position = 'absolute';
+    table.style.top = '50%';
+    table.style.left = '50%';
+    table.style.transform = 'translate(-50%, -50%)';
+    table.style.border = `2px solid blue`;
 
         for (let i = 0; i < Rows; i++) {
                 setTimeout(() => {
