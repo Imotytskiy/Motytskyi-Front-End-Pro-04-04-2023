@@ -24,8 +24,6 @@ function makeColumnsRows( columns = 10, rows = 10) {
     table.style.transform = 'translate(-50%, -50%)';
     table.style.border = `2px solid blue`;
 
-    let cellNumber = 0;
-
         for (let i = 0; i < rows; ++i) {
                 setTimeout(() => {
                     const tr = document.createElement('tr');
