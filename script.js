@@ -5,15 +5,7 @@ parentElement.style.display = 'flex';
 parentElement.style.justifyContent = 'center';
 parentElement.style.alignItems = 'center';
 
-function countCells() {
-    let cellNumber = 0;
-    return function cell() {
-      cellNumber++;
-      return cellNumber;
-    };
-  }
-
-const cellCounter = countCells();
+let cellCounter = 0;
 
 function makeColumnsRows( columns = 10, rows = 10) {
   const table = document.createElement('table');
@@ -37,7 +29,8 @@ function makeColumnsRows( columns = 10, rows = 10) {
                                 td.style.border = `2px solid blue`;
                                 td.style.width = '50px';
                                 td.style.padding = '10px';
-                                td.textContent = cellCounter();
+                                cellCounter++;
+                                td.textContent = cellCounter;
                             }, 100 * j);
                         }
                 },100 * i);
