@@ -1,15 +1,7 @@
-function sum(){
-    let  all = 0;
-         return function(num){
-             all =  all + num;
-             return all;
-         }
-}
+const parentElement = document.querySelector('body');
+parentElement.style.backgroundColor = '#89CFF0';
+parentElement.style.marginTop = '10%';
+parentElement.style.display = 'flex';
+parentElement.style.justifyContent = 'center';
+parentElement.style.alignItems = 'center';
 
-const sumFn = sum();  
-
-console.log (sumFn(3)); 
-
-console.log (sumFn(5)); 
-
-console.log (sumFn(20));
