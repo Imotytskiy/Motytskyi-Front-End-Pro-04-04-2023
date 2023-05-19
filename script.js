@@ -15,7 +15,7 @@ inputElement.setAttribute('type', 'url');
 inputElement.setAttribute('name', 'url');
 inputElement.setAttribute('id', 'url');
 inputElement.setAttribute('placeholder', 'www.example.com');
-inputElement.setAttribute('size', '30');
+inputElement.setAttribute('size', '0');
 parentElement.appendChild(inputElement);
 
 const secondButton = document.createElement('button');
@@ -45,6 +45,6 @@ firstButton.addEventListener('click', function () {
 });
 
 secondButton.addEventListener('click', function () {
-  window.open( url, "width=300,height=300" );
+  window.open( url, "hello", "width=300,height=300" );
 });
 
