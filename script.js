@@ -10,16 +10,18 @@ firstDiv.style.justifyContent = 'center';
 firstDiv.style.alignItems = 'center';
 
 
-
-
-
 function getRandomInt(max = 9) {             
   return Math.floor(Math.random() * max) + 1; // exclude 0.jpg use +1
+}
+function nextPrev (){
+
 }
 
 
 
-function takeRandomImg() {
+
+
+function nextPrev () {
   let img = getRandomInt();
   const pathToTheFile = `images/${img}.jpg`;
   return pathToTheFile;
