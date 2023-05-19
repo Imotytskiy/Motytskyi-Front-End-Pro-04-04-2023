@@ -1,6 +1,6 @@
 const parentElement = document.querySelector('body');
 parentElement.style.backgroundColor = '#89CFF0';
-parentElement.style.marginTop = '10%';
+parentElement.style.marginTop = '20%';
 parentElement.style.display = 'flex';
 parentElement.style.justifyContent = 'space-around';
 parentElement.style.alignItems = 'center';
