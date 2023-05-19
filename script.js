@@ -12,7 +12,6 @@ let currentImageIndex = 4;
 
 const prevButton = document.createElement('button');
 prevButton.textContent = 'PREV';
-prevButton.setAttribute('type', 'button');
 firstDiv.appendChild(prevButton);
 
 const newImg = document.createElement('img');
@@ -46,4 +45,19 @@ nextButton.addEventListener('click', () => {
   }
 });
 
+const buttons = document.querySelectorAll('button');
+buttons.forEach(function(button) {
+  button.setAttribute('type', 'button');
+  button.style.border = "none";
+  button.style.color = "black";
+  button.style.padding = "15px 32px";
+  button.style.textAlign = "center";
+  button.style.textDecoration = "none";
+  button.style.display = "inline-block";
+  button.style.fontSize = "16px";
+  button.style.margin = "4px 2px";
+  button.style.cursor = "pointer";
+});
+
 displayImg();
+
