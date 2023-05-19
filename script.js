@@ -42,3 +42,4 @@ function validRedirect(urlFromInput) {
 // });
 
 console.log(validRedirect("www.example.com"));
+
