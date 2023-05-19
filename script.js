@@ -15,7 +15,7 @@ prevButton.textContent = 'PREV';
 firstDiv.appendChild(prevButton);
 
 const newImg = document.createElement('img');
-newImg.style.width = "400px";
+newImg.style.maxWidth = "500px";
 newImg.style.height = "400px";
 firstDiv.appendChild(newImg);
 
