@@ -16,27 +16,35 @@ inputElement.setAttribute('name', 'url');
 inputElement.setAttribute('id', 'url');
 inputElement.setAttribute('placeholder', 'www.example.com');
 inputElement.setAttribute('size', '30');
-inputElement.setAttribute('required', '');
 parentElement.appendChild(inputElement);
 
 const secondButton = document.createElement('button');
 secondButton.textContent = 'Переадресовується на інший сайт';
 secondButton.setAttribute('type', 'button');
+
 parentElement.appendChild(secondButton);
 
 let url = "";
 
 function validRedirect(urlFromInput) {
+  if (urlFromInput === null || urlFromInput === " "){
+    alert("Ведіть коректно URL наприклад www.amazon.com");
+  }
   if (!urlFromInput.startsWith('http://') && !urlFromInput.startsWith('https://')) {
     url = "http://" + urlFromInput;
   } else {
     url = urlFromInput;
   }
+  inputElement.value = url;
   return url;
 }
 
 firstButton.addEventListener('click', function () {
     const urlFromInput = inputElement.value;
     validRedirect(urlFromInput);
-    console.log(url);
 });
+
+secondButton.addEventListener('click', function () {
+  window.open( url, "width=300,height=300" );
+});
+
