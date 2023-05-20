@@ -22,7 +22,6 @@ firstDiv.appendChild(newImg);
 
 const nextButton = document.createElement('button');
 nextButton.textContent = 'NEXT';
-nextButton.setAttribute('type', 'button');
 firstDiv.appendChild(nextButton);
 
 function displayImg() {
