@@ -45,6 +45,6 @@ firstButton.addEventListener('click', function () {
 });
 
 secondButton.addEventListener('click', function () {
-  window.open( url, "hello", "width=300,height=300" );
+  window.open( url );
 });
 
