@@ -51,6 +51,7 @@ dataShop.forEach((category) => {
     initForSecondBlock = category.name;
     currentCategory = dataShop.find((cat) => cat.name === initForSecondBlock);
     block2.innerHTML = blockTitles[1];
+    block3.innerHTML = blockTitles[2];
     currentCategory.products.forEach((product) => {
       let productElement = document.createElement("div");
       productElement.style.padding = "10px 40px";
@@ -66,9 +67,7 @@ dataShop.forEach((category) => {
       productElement.textContent = product.name;
       block2.appendChild(productElement);
       productElement.addEventListener("click", function (event) {
-        currentDescription = currentCategory.products.find(
-          (product) => product.name === initForThirdBlock
-        );
+        initForThirdBlock = product.description;
         block3.innerHTML = blockTitles[2];
         let descriptionElement = document.createElement("div");
         descriptionElement.style.padding = "10px 40px";
@@ -81,7 +80,13 @@ dataShop.forEach((category) => {
         descriptionElement.style.border = "none";
         descriptionElement.style.transitionDuration = "0.4s";
         descriptionElement.style.display = "block";
-        // descriptionElement.textContent = ;
+        console.log(
+          product.name,
+          currentDescription,
+          initForThirdBlock,
+          initForSecondBlock
+        );
+        descriptionElement.textContent = product.description;
         block3.appendChild(descriptionElement);
       });
     });
