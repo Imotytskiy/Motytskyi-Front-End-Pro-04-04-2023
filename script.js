@@ -26,7 +26,7 @@ import { blockTitles, dataShop } from "./categories.js";
 
   let block1 = flexContainer.children[0];
   // let block2 = flexContainer.children[1];
-  // let block2 = flexContainer.children[2];
+  // let block3 = flexContainer.children[2];
 
   let currentCategory = null;
   let initForSecondBlock = null;
