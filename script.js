@@ -25,7 +25,7 @@ import { blockTitles, dataShop } from "./categories.js";
   document.body.appendChild(flexContainer);
 
   let block1 = flexContainer.children[0];
-  // let block2 = flexContainer.children[1];
+  let block2 = flexContainer.children[1];
   // let block3 = flexContainer.children[2];
 
   let currentCategory = null;
@@ -53,6 +53,20 @@ import { blockTitles, dataShop } from "./categories.js";
         (category) => category.name === initForSecondBlock
       );
       console.log(`TEST`, category);
+      category.products.forEach((products) => {
+        let productElement = document.createElement("div");
+        productElement.style.padding = "10px 40px";
+        productElement.style.margin = "10px 20px";
+        productElement.style.background = "grey";
+        productElement.style.color = "white";
+        productElement.style.cursor = "pointer";
+        productElement.style.textAlign = "center";
+        productElement.style.borderRadius = "5px";
+        productElement.style.border = "none";
+        productElement.style.transitionDuration = "0.4s";
+        productElement.style.display = "block";
+        productElement.textContent = products.name;
+        block2.appendChild(productElement);
     });
   });
 })();
