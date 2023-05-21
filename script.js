@@ -1,7 +1,19 @@
 import { blockTitles, dataShop } from "./categories.js";
 
-// (function () {
-var flexContainer = document.createElement("div");
+function applyStyles(element) {
+  element.style.padding = "10px 40px";
+  element.style.margin = "10px 20px";
+  element.style.background = "grey";
+  element.style.color = "white";
+  element.style.cursor = "pointer";
+  element.style.textAlign = "center";
+  element.style.borderRadius = "5px";
+  element.style.border = "none";
+  element.style.transitionDuration = "0.4s";
+  element.style.display = "block";
+}
+
+let flexContainer = document.createElement("div");
 
 flexContainer.id = "root";
 
@@ -29,22 +41,12 @@ let block2 = flexContainer.children[1];
 let block3 = flexContainer.children[2];
 
 let currentCategory = null;
-let currentDescription = null;
 let initForSecondBlock = null;
 let initForThirdBlock = null;
 
 dataShop.forEach((category) => {
   let categoryElement = document.createElement("div");
-  categoryElement.style.padding = "10px 40px";
-  categoryElement.style.margin = "10px 20px";
-  categoryElement.style.background = "grey";
-  categoryElement.style.color = "white";
-  categoryElement.style.cursor = "pointer";
-  categoryElement.style.textAlign = "center";
-  categoryElement.style.borderRadius = "5px";
-  categoryElement.style.border = "none";
-  categoryElement.style.transitionDuration = "0.4s";
-  categoryElement.style.display = "block";
+  applyStyles(categoryElement);
   categoryElement.textContent = category.name;
   block1.appendChild(categoryElement);
   categoryElement.addEventListener("click", function (event) {
@@ -54,40 +56,27 @@ dataShop.forEach((category) => {
     block3.innerHTML = blockTitles[2];
     currentCategory.products.forEach((product) => {
       let productElement = document.createElement("div");
-      productElement.style.padding = "10px 40px";
-      productElement.style.margin = "10px 20px";
+      applyStyles(productElement);
       productElement.style.background = "grey";
-      productElement.style.color = "white";
-      productElement.style.cursor = "pointer";
-      productElement.style.textAlign = "center";
-      productElement.style.borderRadius = "5px";
-      productElement.style.border = "none";
-      productElement.style.transitionDuration = "0.4s";
-      productElement.style.display = "block";
       productElement.textContent = product.name;
       block2.appendChild(productElement);
       productElement.addEventListener("click", function (event) {
         initForThirdBlock = product.description;
         block3.innerHTML = blockTitles[2];
         let descriptionElement = document.createElement("div");
-        descriptionElement.style.padding = "10px 40px";
-        descriptionElement.style.margin = "10px 20px";
+        applyStyles(descriptionElement);
         descriptionElement.style.background = "grey";
-        descriptionElement.style.color = "white";
-        descriptionElement.style.cursor = "pointer";
-        descriptionElement.style.textAlign = "center";
-        descriptionElement.style.borderRadius = "5px";
-        descriptionElement.style.border = "none";
-        descriptionElement.style.transitionDuration = "0.4s";
-        descriptionElement.style.display = "block";
-        console.log(
-          product.name,
-          currentDescription,
-          initForThirdBlock,
-          initForSecondBlock
-        );
         descriptionElement.textContent = product.description;
         block3.appendChild(descriptionElement);
+        let buttonElement = document.createElement("button");
+        buttonElement.addEventListener("click", function (event) {
+          block2.innerHTML = blockTitles[1];
+          block3.innerHTML = blockTitles[2];
+        });
+        applyStyles(buttonElement);
+        buttonElement.style.background = "#00d2ff";
+        buttonElement.textContent = "КУПИТИ";
+        block3.appendChild(buttonElement);
       });
     });
   });
