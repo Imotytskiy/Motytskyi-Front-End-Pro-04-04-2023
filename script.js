@@ -32,7 +32,7 @@ import { blockTitles, dataShop } from "./categories.js";
   let initForSecondBlock = null;
 
   dataShop.forEach((category) => {
-    var categoryElement = document.createElement("div");
+    let categoryElement = document.createElement("div");
     categoryElement.style.padding = "10px 40px";
     categoryElement.style.margin = "10px 20px";
     categoryElement.style.background = "grey";
