@@ -68,7 +68,7 @@ dataShop.forEach((category) => {
         block3.appendChild(descriptionElement);
         let buttonElement = document.createElement("button");
         buttonElement.addEventListener("click", function (event) {
-          alert("товар куплений");
+          alert("ТОВАР КУПЛЕНИЙ");
           block2.innerHTML = blockTitles[1];
           block3.innerHTML = blockTitles[2];
         });
