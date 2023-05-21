@@ -15,8 +15,6 @@ function applyStyles(element) {
 
 let flexContainer = document.createElement("div");
 
-flexContainer.id = "root";
-
 flexContainer.style.display = "flex";
 flexContainer.style.flexDirection = "row";
 flexContainer.style.justifyContent = "space-around";
