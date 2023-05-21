@@ -27,7 +27,7 @@ parentElement.appendChild(secondButton);
 let url = "";
 
 function validRedirect(urlFromInput) {
-  if (urlFromInput === null || urlFromInput === " ") {
+  if (urlFromInput.trim() === "") {
     alert("Ведіть коректно URL наприклад www.amazon.com");
   }
   if (
@@ -48,5 +48,5 @@ firstButton.addEventListener("click", function () {
 });
 
 secondButton.addEventListener("click", function () {
-  window.open(url);
+  window.open(url, "_blank");
 });
