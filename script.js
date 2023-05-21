@@ -13,14 +13,8 @@ function applyStyles(element) {
   element.style.display = "block";
 }
 
-let flexContainer = document.createElement("div");
-
-flexContainer.style.display = "flex";
-flexContainer.style.flexDirection = "row";
-flexContainer.style.justifyContent = "space-around";
-
 let widthBlock = 15;
-for (var i = 1; i <= 3; i++) {
+for (let i = 1; i <= 3; i++) {
   widthBlock += widthBlock;
   let childBlock = document.createElement("div");
   childBlock.textContent = blockTitles[i - 1];
@@ -29,14 +23,12 @@ for (var i = 1; i <= 3; i++) {
   childBlock.style.border = "1px solid black";
   childBlock.style.padding = "10px";
   childBlock.style.margin = "10px";
-  flexContainer.appendChild(childBlock);
+  document.getElementById("root").appendChild(childBlock);
 }
 
-document.body.appendChild(flexContainer);
-
-let block1 = flexContainer.children[0];
-let block2 = flexContainer.children[1];
-let block3 = flexContainer.children[2];
+let block1 = document.getElementById("root").children[0];
+let block2 = document.getElementById("root").children[1];
+let block3 = document.getElementById("root").children[2];
 
 let currentCategory = null;
 let initForSecondBlock = null;
