@@ -1,7 +1,9 @@
-export let blockTitles = [
+export let textTitles = [
   "ПЕРЕЛІК КАТЕГОРІЙ",
   "СПИСОК ТОВАРІВ",
   "ІНФОРМАЦІЯ ПРО ТОВАР",
+  "КУПИТИ",
+  "ТОВАР КУПЛЕНИЙ",
 ];
 
 export let dataShop = [

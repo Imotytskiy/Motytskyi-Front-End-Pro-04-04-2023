@@ -1,6 +1,6 @@
-import { blockTitles, dataShop } from "./data.js";
+import { textTitles, dataShop } from "./data.js";
 
-function applyStyles(element) {
+function applyStyles(element, elementButton) {
   element.style.padding = "10px 40px";
   element.style.margin = "10px 20px";
   element.style.background = "grey";
@@ -17,7 +17,7 @@ let widthBlock = 15;
 for (let i = 1; i <= 3; i++) {
   widthBlock += widthBlock;
   let childBlock = document.createElement("div");
-  childBlock.textContent = blockTitles[i - 1];
+  childBlock.textContent = textTitles[i - 1];
   childBlock.style.width = `${widthBlock}%`;
   childBlock.style.textAlign = "center";
   childBlock.style.border = "1px solid black";
@@ -38,8 +38,8 @@ dataShop.forEach((category) => {
   categoryElement.addEventListener("click", function (event) {
     initForSecondBlock = category.name;
     currentCategory = dataShop.find((cat) => cat.name === initForSecondBlock);
-    document.getElementById("root").children[1].innerHTML = blockTitles[1];
-    document.getElementById("root").children[2].innerHTML = blockTitles[2];
+    document.getElementById("root").children[1].innerHTML = textTitles[1];
+    document.getElementById("root").children[2].innerHTML = textTitles[2];
     currentCategory.products.forEach((product) => {
       let productElement = document.createElement("div");
       applyStyles(productElement);
@@ -47,7 +47,7 @@ dataShop.forEach((category) => {
       document.getElementById("root").children[1].appendChild(productElement);
       productElement.addEventListener("click", function (event) {
         initForThirdBlock = product.description;
-        document.getElementById("root").children[2].innerHTML = blockTitles[2];
+        document.getElementById("root").children[2].innerHTML = textTitles[2];
         let descriptionElement = document.createElement("div");
         applyStyles(descriptionElement);
         descriptionElement.textContent = product.description;
@@ -57,16 +57,14 @@ dataShop.forEach((category) => {
         let buttonElement = document.createElement("button");
         buttonElement.addEventListener("click", function (event) {
           setTimeout(function () {
-            alert("ТОВАР КУПЛЕНИЙ");
+            alert(textTitles[4]);
           });
-          document.getElementById("root").children[1].innerHTML =
-            blockTitles[1];
-          document.getElementById("root").children[2].innerHTML =
-            blockTitles[2];
+          document.getElementById("root").children[1].innerHTML = textTitles[1];
+          document.getElementById("root").children[2].innerHTML = textTitles[2];
         });
         applyStyles(buttonElement);
         buttonElement.style.background = "#00d2ff";
-        buttonElement.textContent = "КУПИТИ";
+        buttonElement.textContent = textTitles[3];
         document.getElementById("root").children[2].appendChild(buttonElement);
       });
     });
