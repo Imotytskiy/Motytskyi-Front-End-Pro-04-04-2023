@@ -44,7 +44,6 @@ dataShop.forEach((category) => {
       productElement.textContent = product.name;
       document.getElementById("root").children[1].appendChild(productElement);
       productElement.addEventListener("click", function (event) {
-        let initForThirdBlock = product.description;
         document.getElementById("root").children[2].innerHTML = textTitles[2];
         let descriptionElement = document.createElement("div");
         applyStyles(descriptionElement);
