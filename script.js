@@ -1,4 +1,4 @@
-import { blockTitles, dataShop } from "./categories.js";
+import { blockTitles, dataShop } from "./data.js";
 
 function applyStyles(element) {
   element.style.padding = "10px 40px";
