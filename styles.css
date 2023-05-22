@@ -23,3 +23,7 @@
   transition-duration: 0.4s;
   display: block;
 }
+
+.button-color {
+  background-color: #00d2ff;
+}
