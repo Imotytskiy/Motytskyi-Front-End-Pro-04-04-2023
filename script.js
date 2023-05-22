@@ -12,9 +12,6 @@ function applyStyles(element) {
   element.style.transitionDuration = "0.4s";
   element.style.display = "block";
 }
-// function applyStyles(element){
-//   element.style.background = "grey";
-// }
 
 let widthBlock = 15;
 for (let i = 1; i <= 3; i++) {
