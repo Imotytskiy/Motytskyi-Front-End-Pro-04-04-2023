@@ -62,7 +62,7 @@ dataShop.forEach((category) => {
         buttonElement.addEventListener("click", function (event) {
           setTimeout(function () {
             alert("ТОВАР КУПЛЕНИЙ");
-          }, 0);
+          });
           block2.innerHTML = blockTitles[1];
           block3.innerHTML = blockTitles[2];
         });
