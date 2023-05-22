@@ -26,10 +26,6 @@ for (let i = 1; i <= 3; i++) {
   document.getElementById("root").appendChild(childBlock);
 }
 
-let block1 = document.getElementById("root").children[0];
-let block2 = document.getElementById("root").children[1];
-let block3 = document.getElementById("root").children[2];
-
 let currentCategory = null;
 let initForSecondBlock = null;
 let initForThirdBlock = null;
@@ -38,38 +34,42 @@ dataShop.forEach((category) => {
   let categoryElement = document.createElement("div");
   applyStyles(categoryElement);
   categoryElement.textContent = category.name;
-  block1.appendChild(categoryElement);
+  document.getElementById("root").children[0].appendChild(categoryElement);
   categoryElement.addEventListener("click", function (event) {
     initForSecondBlock = category.name;
     currentCategory = dataShop.find((cat) => cat.name === initForSecondBlock);
-    block2.innerHTML = blockTitles[1];
-    block3.innerHTML = blockTitles[2];
+    document.getElementById("root").children[1].innerHTML = blockTitles[1];
+    document.getElementById("root").children[2].innerHTML = blockTitles[2];
     currentCategory.products.forEach((product) => {
       let productElement = document.createElement("div");
       applyStyles(productElement);
       productElement.style.background = "grey";
       productElement.textContent = product.name;
-      block2.appendChild(productElement);
+      document.getElementById("root").children[1].appendChild(productElement);
       productElement.addEventListener("click", function (event) {
         initForThirdBlock = product.description;
-        block3.innerHTML = blockTitles[2];
+        document.getElementById("root").children[2].innerHTML = blockTitles[2];
         let descriptionElement = document.createElement("div");
         applyStyles(descriptionElement);
         descriptionElement.style.background = "grey";
         descriptionElement.textContent = product.description;
-        block3.appendChild(descriptionElement);
+        document
+          .getElementById("root")
+          .children[2].appendChild(descriptionElement);
         let buttonElement = document.createElement("button");
         buttonElement.addEventListener("click", function (event) {
           setTimeout(function () {
             alert("ТОВАР КУПЛЕНИЙ");
           });
-          block2.innerHTML = blockTitles[1];
-          block3.innerHTML = blockTitles[2];
+          document.getElementById("root").children[1].innerHTML =
+            blockTitles[1];
+          document.getElementById("root").children[2].innerHTML =
+            blockTitles[2];
         });
         applyStyles(buttonElement);
         buttonElement.style.background = "#00d2ff";
         buttonElement.textContent = "КУПИТИ";
-        block3.appendChild(buttonElement);
+        document.getElementById("root").children[2].appendChild(buttonElement);
       });
     });
   });
