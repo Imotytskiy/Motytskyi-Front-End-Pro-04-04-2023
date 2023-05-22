@@ -1,6 +1,6 @@
 import { textTitles, dataShop } from "./data.js";
 
-function applyStyles(element, elementButton) {
+function applyStyles(element) {
   element.style.padding = "10px 40px";
   element.style.margin = "10px 20px";
   element.style.background = "grey";
