@@ -26,18 +26,16 @@ for (let i = 1; i <= 3; i++) {
   document.getElementById("root").appendChild(childBlock);
 }
 
-let currentCategory = null;
-let initForSecondBlock = null;
-let initForThirdBlock = null;
-
 dataShop.forEach((category) => {
   let categoryElement = document.createElement("div");
   applyStyles(categoryElement);
   categoryElement.textContent = category.name;
   document.getElementById("root").children[0].appendChild(categoryElement);
   categoryElement.addEventListener("click", function (event) {
-    initForSecondBlock = category.name;
-    currentCategory = dataShop.find((cat) => cat.name === initForSecondBlock);
+    let initForSecondBlock = category.name;
+    let currentCategory = dataShop.find(
+      (cat) => cat.name === initForSecondBlock
+    );
     document.getElementById("root").children[1].innerHTML = textTitles[1];
     document.getElementById("root").children[2].innerHTML = textTitles[2];
     currentCategory.products.forEach((product) => {
@@ -46,7 +44,7 @@ dataShop.forEach((category) => {
       productElement.textContent = product.name;
       document.getElementById("root").children[1].appendChild(productElement);
       productElement.addEventListener("click", function (event) {
-        initForThirdBlock = product.description;
+        let initForThirdBlock = product.description;
         document.getElementById("root").children[2].innerHTML = textTitles[2];
         let descriptionElement = document.createElement("div");
         applyStyles(descriptionElement);
