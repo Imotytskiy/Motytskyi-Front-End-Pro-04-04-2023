@@ -1,10 +1,11 @@
 import { textTitles, dataShop } from "./data.js";
 
+const getId = document.getElementById("root");
+const createDiv = document.createElement("div");
+
 function applyStyles(element) {
   element.classList.add("block");
 }
-
-const getId = document.getElementById("root");
 
 (function () {
   let widthBlock = 15;
@@ -20,9 +21,10 @@ const getId = document.getElementById("root");
 
 (function () {
   dataShop.forEach((category) => {
-    let categoryElement = document.createElement("div");
+    const categoryElement = document.createElement("div");
     applyStyles(categoryElement);
     categoryElement.textContent = category.name;
+
     getId.children[0].appendChild(categoryElement);
     categoryElement.addEventListener("click", function (event) {
       let initForSecondBlock = category.name;
@@ -31,10 +33,12 @@ const getId = document.getElementById("root");
       );
       getId.children[1].innerHTML = textTitles[1];
       getId.children[2].innerHTML = textTitles[2];
+
       currentCategory.products.forEach((product) => {
         let productElement = document.createElement("div");
         applyStyles(productElement);
         productElement.textContent = product.name;
+
         getId.children[1].appendChild(productElement);
         productElement.addEventListener("click", function (event) {
           getId.children[2].innerHTML = textTitles[2];
