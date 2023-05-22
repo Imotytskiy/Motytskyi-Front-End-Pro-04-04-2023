@@ -1,7 +1,7 @@
 import { textTitles, dataShop } from "./data.js";
 
 const getId = document.getElementById("root");
-const createDiv = document.createElement("div");
+
 function clearBlock() {
   getId.children[1].innerHTML = textTitles[1];
   getId.children[2].innerHTML = textTitles[2];
@@ -23,25 +23,20 @@ function applyStyles(element) {
   }
 })();
 
-(function () {
-  dataShop.forEach((category) => {
-    const categoryElement = document.createElement("div");
-    applyStyles(categoryElement);
-    categoryElement.textContent = category.name;
+dataShop.forEach((category) => {
+  const categoryElement = document.createElement("div");
+  applyStyles(categoryElement);
+  categoryElement.textContent = category.name;
+  getId.children[0].appendChild(categoryElement);
+  categoryElement.addEventListener("click", function (event) {
+    clearBlock();
 
-    getId.children[0].appendChild(categoryElement);
-    categoryElement.addEventListener("click", function (event) {
-      let initForSecondBlock = category.name;
-      let currentCategory = dataShop.find(
-        (cat) => cat.name === initForSecondBlock
-      );
-      clearBlock();
-
-      currentCategory.products.forEach((product) => {
+    dataShop
+      .find((cat) => cat.name === category.name)
+      .products.forEach((product) => {
         let productElement = document.createElement("div");
         applyStyles(productElement);
         productElement.textContent = product.name;
-
         getId.children[1].appendChild(productElement);
         productElement.addEventListener("click", function (event) {
           getId.children[2].innerHTML = textTitles[2];
@@ -52,9 +47,8 @@ function applyStyles(element) {
           createButton();
         });
       });
-    });
   });
-})();
+});
 
 function createButton() {
   let buttonElement = document.createElement("button");
