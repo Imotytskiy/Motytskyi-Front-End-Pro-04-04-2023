@@ -12,6 +12,9 @@ function applyStyles(element) {
   element.style.transitionDuration = "0.4s";
   element.style.display = "block";
 }
+// function applyStyles(element){
+//   element.style.background = "grey";
+// }
 
 let widthBlock = 15;
 for (let i = 1; i <= 3; i++) {
@@ -43,7 +46,6 @@ dataShop.forEach((category) => {
     currentCategory.products.forEach((product) => {
       let productElement = document.createElement("div");
       applyStyles(productElement);
-      productElement.style.background = "grey";
       productElement.textContent = product.name;
       document.getElementById("root").children[1].appendChild(productElement);
       productElement.addEventListener("click", function (event) {
@@ -51,7 +53,6 @@ dataShop.forEach((category) => {
         document.getElementById("root").children[2].innerHTML = blockTitles[2];
         let descriptionElement = document.createElement("div");
         applyStyles(descriptionElement);
-        descriptionElement.style.background = "grey";
         descriptionElement.textContent = product.description;
         document
           .getElementById("root")
