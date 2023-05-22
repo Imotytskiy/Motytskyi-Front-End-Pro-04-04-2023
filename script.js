@@ -2,6 +2,10 @@ import { textTitles, dataShop } from "./data.js";
 
 const getId = document.getElementById("root");
 const createDiv = document.createElement("div");
+function clearBlock() {
+  getId.children[1].innerHTML = textTitles[1];
+  getId.children[2].innerHTML = textTitles[2];
+}
 
 function applyStyles(element) {
   element.classList.add("block");
@@ -31,8 +35,7 @@ function applyStyles(element) {
       let currentCategory = dataShop.find(
         (cat) => cat.name === initForSecondBlock
       );
-      getId.children[1].innerHTML = textTitles[1];
-      getId.children[2].innerHTML = textTitles[2];
+      clearBlock();
 
       currentCategory.products.forEach((product) => {
         let productElement = document.createElement("div");
@@ -59,8 +62,7 @@ function createButton() {
     setTimeout(function () {
       alert(textTitles[4]);
     });
-    getId.children[1].innerHTML = textTitles[1];
-    getId.children[2].innerHTML = textTitles[2];
+    clearBlock();
   });
   applyStyles(buttonElement);
   buttonElement.classList.add("button-color");
