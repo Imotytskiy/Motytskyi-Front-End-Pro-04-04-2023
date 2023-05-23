@@ -4,7 +4,7 @@
   justify-content: space-around;
 }
 
-span {
+section {
   display: block;
   text-align: center;
   border: 1px solid black;
@@ -13,7 +13,7 @@ span {
   width: 25%;
 }
 
-span:nth-child(3) {
+section:nth-child(3) {
   width: 50%;
 }
 
