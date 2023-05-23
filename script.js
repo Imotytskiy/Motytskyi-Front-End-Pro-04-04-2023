@@ -1,14 +1,6 @@
 import { textTitles, dataShop } from "./data.js";
 
-const appContainer = document.getElementById("root");
-
-const catContainer = appContainer.appendChild(document.createElement("div"));
-const prodContainer = appContainer.appendChild(document.createElement("div"));
-const descrContainer = appContainer.appendChild(document.createElement("div"));
-
-catContainer.textContent = textTitles[0];
-prodContainer.textContent = textTitles[1];
-descrContainer.textContent = textTitles[2];
+const getId = document.getElementById("root");
 
 const createNode = (teg) => {
   return document.createElement(teg);
@@ -32,44 +24,49 @@ const applyStyles = (element) => {
 const allForButton = (element) => {
   element.textContent = textTitles[3];
   element.classList.add("button");
-  descrContainer.appendChild(element);
+  getId.children[2].appendChild(element);
 };
 
 const clearBlock = () => {
-  prodContainer.innerHTML = textTitles[1];
-  descrContainer.innerHTML = textTitles[2];
+  getId.children[1].innerHTML = textTitles[1];
+  getId.children[2].innerHTML = textTitles[2];
 };
+const skeleton = () => {
+  for (let i = 1; i <= 3; i++) {
+    let childBlock = createNode("span");
+    childBlock.textContent = textTitles[i - 1];
+    childBlock.classList.add("span");
+    getId.appendChild(childBlock);
+  }
+};
+skeleton();
 
 dataShop.forEach((category) => {
   const categoryElement = createNode("div");
   applyStyles(categoryElement);
   categoryElement.textContent = category.name;
-  catContainer.appendChild(categoryElement);
-  categoryElement.addEventListener("click", makeCategory);
-});
+  getId.children[0].appendChild(categoryElement);
+  categoryElement.addEventListener("click", function (event) {
+    let initForSecondBlock = category.name;
+    let currentCategory = dataShop.find(
+      (cat) => cat.name === initForSecondBlock
+    );
+    clearBlock();
 
-function makeCategory(event) {
-  let initForSecondBlock = event.target.innerText;
-  let currentCategory = dataShop.find((cat) => cat.name === initForSecondBlock);
-  clearBlock();
+    currentCategory.products.forEach((product) => {
+      const productElement = createNode("div");
+      applyStyles(productElement);
+      productElement.textContent = product.name;
+      getId.children[1].appendChild(productElement);
+      productElement.addEventListener("click", function (event) {
+        getId.children[2].innerHTML = textTitles[2];
 
-  currentCategory.products.forEach((product) => {
-    const productElement = createNode("div");
-    applyStyles(productElement);
-    productElement.textContent = product.name;
-    prodContainer.appendChild(productElement);
-    productElement.addEventListener("click", productSelect(product));
+        let descriptionElement = createNode("div");
+        applyStyles(descriptionElement);
+        descriptionElement.textContent = product.description;
+        getId.children[2].appendChild(descriptionElement);
+        createButton();
+      });
+    });
   });
-}
-
-function productSelect(product) {
-  return function (event) {
-    descrContainer.innerHTML = textTitles[2];
-
-    let descriptionElement = createNode("div");
-    applyStyles(descriptionElement);
-    descriptionElement.textContent = product.description;
-    descrContainer.appendChild(descriptionElement);
-    createButton();
-  };
-}
+});
