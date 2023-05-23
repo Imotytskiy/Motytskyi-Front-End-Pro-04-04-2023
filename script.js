@@ -8,11 +8,11 @@ const createNode = (teg) => {
 
 const applyStyles = (element) => {
   element.classList.add("block");
-  if (element.tagName === "BUTTON") {
-    element.textContent = textTitles[3];
-    element.classList.add("button");
-    getId.children[2].appendChild(element);
-  }
+};
+const allForButton = () => {
+  element.textContent = textTitles[3];
+  element.classList.add("button");
+  getId.children[2].appendChild(element);
 };
 
 const clearBlock = () => {
@@ -42,7 +42,6 @@ dataShop.forEach((category) => {
   const categoryElement = createNode("div");
   applyStyles(categoryElement);
   categoryElement.textContent = category.name;
-
   getId.children[0].appendChild(categoryElement);
   categoryElement.addEventListener("click", function (event) {
     let initForSecondBlock = category.name;
@@ -50,21 +49,22 @@ dataShop.forEach((category) => {
       (cat) => cat.name === initForSecondBlock
     );
     clearBlock();
-
-    currentCategory.products.forEach((product) => {
-      let productElement = createNode("div");
-      applyStyles(productElement);
-      productElement.textContent = product.name;
-
-      getId.children[1].appendChild(productElement);
-      productElement.addEventListener("click", function (event) {
-        getId.children[2].innerHTML = textTitles[2];
-        let descriptionElement = createNode("div");
-        applyStyles(descriptionElement);
-        descriptionElement.textContent = product.description;
-        getId.children[2].appendChild(descriptionElement);
-        createButton();
-      });
-    });
   });
+});
+
+currentCategory.products.forEach((product) => {
+  const productElement = createNode("div");
+  applyStyles(productElement);
+  productElement.textContent = product.name;
+  getId.children[1].appendChild(productElement);
+  productElement.addEventListener("click", function (event) {
+    getId.children[2].innerHTML = textTitles[2];
+  });
+
+  let descriptionElement = createNode("div");
+  applyStyles(descriptionElement);
+  descriptionElement.textContent = product.description;
+  getId.children[2].appendChild(descriptionElement);
+  createButton();
+  allForButton();
 });
