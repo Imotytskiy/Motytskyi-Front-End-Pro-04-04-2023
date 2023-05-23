@@ -4,6 +4,9 @@ const getId = document.getElementById("root");
 
 const applyStyles = (element) => {
   element.classList.add("block");
+  if (element === "button") {
+    buttonElement.classList.add("button");
+  }
 };
 
 const clearBlock = () => {
@@ -11,17 +14,12 @@ const clearBlock = () => {
   getId.children[2].innerHTML = textTitles[2];
 };
 
-(function () {
-  let widthBlock = 15;
-  for (let i = 1; i <= 3; i++) {
-    widthBlock += widthBlock;
-    let childBlock = document.createElement("div");
-    childBlock.textContent = textTitles[i - 1];
-    childBlock.style.width = `${widthBlock}%`;
-    childBlock.classList.add("newdiv");
-    getId.appendChild(childBlock);
-  }
-})();
+for (let i = 1; i <= 3; i++) {
+  let childBlock = document.createElement("span");
+  childBlock.textContent = textTitles[i - 1];
+  childBlock.classList.add("span");
+  document.getElementById("root").appendChild(childBlock);
+}
 
 dataShop.forEach((category) => {
   const categoryElement = document.createElement("div");
@@ -63,7 +61,7 @@ const createButton = () => {
     clearBlock();
   });
   applyStyles(buttonElement);
-  buttonElement.classList.add("button-color");
   buttonElement.textContent = textTitles[3];
+  buttonElement.classList.add("button");
   getId.children[2].appendChild(buttonElement);
 };
