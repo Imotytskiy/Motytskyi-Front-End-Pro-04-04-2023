@@ -1,4 +1,4 @@
-let textTitles = {
+export let textTitles = {
   categories: "ПЕРЕЛІК КАТЕГОРІЙ",
   goodsList: "СПИСОК ТОВАРІВ",
   arcticleInfo: "ІНФОРМАЦІЯ ПРО ТОВАР",
