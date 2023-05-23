@@ -1,5 +1,3 @@
-import { textTitles, dataShop } from "./data.js";
-
 const getId = document.getElementById("root");
 
 const clearBlock = () => {
@@ -22,7 +20,6 @@ const applyStyles = (element) => {
     getId.appendChild(childBlock);
   }
 })();
-
 dataShop.forEach((category) => {
   const categoryElement = document.createElement("div");
   applyStyles(categoryElement);
@@ -30,7 +27,6 @@ dataShop.forEach((category) => {
   getId.children[0].appendChild(categoryElement);
   categoryElement.addEventListener("click", function (event) {
     clearBlock();
-
     dataShop
       .find((cat) => cat.name === category.name)
       .products.forEach((product) => {
@@ -49,7 +45,6 @@ dataShop.forEach((category) => {
       });
   });
 });
-
 function createButton() {
   let buttonElement = document.createElement("button");
   buttonElement.addEventListener("click", function (event) {

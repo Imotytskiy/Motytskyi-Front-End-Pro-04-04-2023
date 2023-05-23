@@ -5,7 +5,6 @@ export let textTitles = [
   "КУПИТИ",
   "ТОВАР КУПЛЕНИЙ",
 ];
-
 export let dataShop = [
   {
     name: "DELL",
