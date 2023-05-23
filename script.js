@@ -4,9 +4,11 @@ const getId = document.getElementById("root");
 
 const applyStyles = (element) => {
   element.classList.add("block");
-  // if (element === "button") {
-  //   buttonElement.classList.add("button");
-  // }
+  if (element.tagName === "BUTTON") {
+    element.textContent = textTitles[3];
+    element.classList.add("button");
+    getId.children[2].appendChild(element);
+  }
 };
 
 const clearBlock = () => {
@@ -14,11 +16,23 @@ const clearBlock = () => {
   getId.children[2].innerHTML = textTitles[2];
 };
 
+const createButton = () => {
+  const buttonElement = document.createElement("button");
+  console.log(buttonElement);
+  buttonElement.addEventListener("click", function (event) {
+    setTimeout(() => {
+      alert(textTitles[4]);
+    });
+    clearBlock();
+  });
+  applyStyles(buttonElement);
+};
+
 for (let i = 1; i <= 3; i++) {
   let childBlock = document.createElement("span");
   childBlock.textContent = textTitles[i - 1];
   childBlock.classList.add("span");
-  document.getElementById("root").appendChild(childBlock);
+  getId.appendChild(childBlock);
 }
 
 dataShop.forEach((category) => {
@@ -51,17 +65,3 @@ dataShop.forEach((category) => {
     });
   });
 });
-
-const createButton = () => {
-  let buttonElement = document.createElement("button");
-  buttonElement.addEventListener("click", function (event) {
-    setTimeout(() => {
-      alert(textTitles[4]);
-    });
-    clearBlock();
-  });
-  applyStyles(buttonElement);
-  buttonElement.textContent = textTitles[3];
-  buttonElement.classList.add("button");
-  getId.children[2].appendChild(buttonElement);
-};
