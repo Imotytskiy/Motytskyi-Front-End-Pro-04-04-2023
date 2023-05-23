@@ -4,9 +4,9 @@ const getId = document.getElementById("root");
 
 const applyStyles = (element) => {
   element.classList.add("block");
-  if (element === "button") {
-    buttonElement.classList.add("button");
-  }
+  // if (element === "button") {
+  //   buttonElement.classList.add("button");
+  // }
 };
 
 const clearBlock = () => {
