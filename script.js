@@ -2,14 +2,14 @@ import { textTitles, dataShop } from "./data.js";
 
 const getId = document.getElementById("root");
 
-function clearBlock() {
+const clearBlock = () => {
   getId.children[1].innerHTML = textTitles[1];
   getId.children[2].innerHTML = textTitles[2];
-}
+};
 
-function applyStyles(element) {
+const applyStyles = (element) => {
   element.classList.add("block");
-}
+};
 
 (function () {
   let widthBlock = 15;
