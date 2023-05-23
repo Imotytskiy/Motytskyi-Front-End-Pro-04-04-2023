@@ -2,6 +2,10 @@ import { textTitles, dataShop } from "./data.js";
 
 const getId = document.getElementById("root");
 
+const createNode = (teg) => {
+  return document.createElement(teg);
+};
+
 const applyStyles = (element) => {
   element.classList.add("block");
   if (element.tagName === "BUTTON") {
@@ -17,8 +21,7 @@ const clearBlock = () => {
 };
 
 const createButton = () => {
-  const buttonElement = document.createElement("button");
-  console.log(buttonElement);
+  const buttonElement = createNode("button");
   buttonElement.addEventListener("click", function (event) {
     setTimeout(() => {
       alert(textTitles[4]);
@@ -29,14 +32,14 @@ const createButton = () => {
 };
 
 for (let i = 1; i <= 3; i++) {
-  let childBlock = document.createElement("span");
+  let childBlock = createNode("span");
   childBlock.textContent = textTitles[i - 1];
   childBlock.classList.add("span");
   getId.appendChild(childBlock);
 }
 
 dataShop.forEach((category) => {
-  const categoryElement = document.createElement("div");
+  const categoryElement = createNode("div");
   applyStyles(categoryElement);
   categoryElement.textContent = category.name;
 
@@ -49,14 +52,14 @@ dataShop.forEach((category) => {
     clearBlock();
 
     currentCategory.products.forEach((product) => {
-      let productElement = document.createElement("div");
+      let productElement = createNode("div");
       applyStyles(productElement);
       productElement.textContent = product.name;
 
       getId.children[1].appendChild(productElement);
       productElement.addEventListener("click", function (event) {
         getId.children[2].innerHTML = textTitles[2];
-        let descriptionElement = document.createElement("div");
+        let descriptionElement = createNode("div");
         applyStyles(descriptionElement);
         descriptionElement.textContent = product.description;
         getId.children[2].appendChild(descriptionElement);
