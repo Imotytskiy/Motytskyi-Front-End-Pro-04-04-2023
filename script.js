@@ -2,23 +2,25 @@ import { textTitles, dataShop } from "./data.js";
 
 const appContainer = document.getElementById("root");
 
-const catContainer = appContainer.appendChild(document.createElement("span"));
-const prodContainer = appContainer.appendChild(document.createElement("span"));
-const descrContainer = appContainer.appendChild(document.createElement("span"));
+const catContainer = appContainer.appendChild(
+  document.createElement("section")
+);
+const prodContainer = appContainer.appendChild(
+  document.createElement("section")
+);
+const descrContainer = appContainer.appendChild(
+  document.createElement("section")
+);
 
-catContainer.textContent = textTitles[0];
-prodContainer.textContent = textTitles[1];
-descrContainer.textContent = textTitles[2];
-
-const createNode = (teg) => {
-  return document.createElement(teg);
-};
+catContainer.textContent = textTitles.categories;
+prodContainer.textContent = textTitles.goodsList;
+descrContainer.textContent = textTitles.arcticleInfo;
 
 const createButton = () => {
-  const buttonElement = createNode("button");
+  const buttonElement = document.createElement("button");
   buttonElement.addEventListener("click", function (event) {
     setTimeout(() => {
-      alert(textTitles[4]);
+      alert(textTitles.buyed);
     });
     clearBlock();
   });
@@ -30,18 +32,18 @@ const applyStyles = (element) => {
   element.classList.add("block");
 };
 const allForButton = (element) => {
-  element.textContent = textTitles[3];
+  element.textContent = textTitles.buy;
   element.classList.add("button");
   descrContainer.appendChild(element);
 };
 
 const clearBlock = () => {
-  prodContainer.innerHTML = textTitles[1];
-  descrContainer.innerHTML = textTitles[2];
+  prodContainer.innerHTML = textTitles.goodsList;
+  descrContainer.innerHTML = textTitles.arcticleInfo;
 };
 
 dataShop.forEach((category) => {
-  const categoryElement = createNode("div");
+  const categoryElement = document.createElement("div");
   applyStyles(categoryElement);
   categoryElement.textContent = category.name;
   catContainer.appendChild(categoryElement);
@@ -54,7 +56,7 @@ function makeCategory(event) {
   clearBlock();
 
   currentCategory.products.forEach((product) => {
-    const productElement = createNode("div");
+    const productElement = document.createElement("div");
     applyStyles(productElement);
     productElement.textContent = product.name;
     prodContainer.appendChild(productElement);
@@ -64,9 +66,9 @@ function makeCategory(event) {
 
 function productSelect(product) {
   return function (event) {
-    descrContainer.innerHTML = textTitles[2];
+    descrContainer.innerHTML = textTitles.arcticleInfo;
 
-    let descriptionElement = createNode("div");
+    let descriptionElement = document.createElement("div");
     applyStyles(descriptionElement);
     descriptionElement.textContent = product.description;
     descrContainer.appendChild(descriptionElement);
