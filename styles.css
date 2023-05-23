@@ -1,0 +1,29 @@
+#root {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.newdiv {
+  text-align: center;
+  border: 1px solid black;
+  padding: 10px;
+  margin: 10px;
+}
+
+.block {
+  padding: 10px 40px;
+  margin: 10px 20px;
+  background: grey;
+  color: white;
+  cursor: pointer;
+  text-align: center;
+  border-radius: 5px;
+  border: none;
+  transition-duration: 0.4s;
+  display: block;
+}
+
+.button-color {
+  background-color: #00d2ff;
+}

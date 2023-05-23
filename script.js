@@ -1,71 +1,60 @@
-"use strict";
-// First level
+const getId = document.getElementById("root");
 
-// const someName =  window.prompt("What is your name","");
-// window.alert("Hello, "+ someName +"! How are you?"); 
+const clearBlock = () => {
+  getId.children[1].innerHTML = textTitles[1];
+  getId.children[2].innerHTML = textTitles[2];
+};
 
-// Second level
+const applyStyles = (element) => {
+  element.classList.add("block");
+};
 
-// const nameRegex = /^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/;
-// const someName = prompt("What is your name", "");
-
-// if (nameRegex.test(someName)) {
-//   alert("Hello, " + someName + "! How are you?");
-// } else {
-//   alert("Wrong name");
-// }
-
-// Third level
-// https://www.webpages.uidaho.edu/cte419/Offline-Modules/M6/ARMA-12_Filing_Rules.htm
-
-function getName() {
-  const nameRegex = /^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/;
-
-  let someName = prompt("What is your name?", "");
-  let lowercaseName = someName.toLowerCase();
-
-  if (nameRegex.test(someName) && lowercaseName.length < 30) {
-    const upsomeName = lowercaseName.charAt(0).toUpperCase() + lowercaseName.slice(1);
-    return upsomeName;
-  } else {
-    alert("Wrong name. Please try again.");
-    return getName();
+(function () {
+  let widthBlock = 15;
+  for (let i = 1; i <= 3; i++) {
+    widthBlock += widthBlock;
+    let childBlock = document.createElement("div");
+    childBlock.textContent = textTitles[i - 1];
+    childBlock.style.width = `${widthBlock}%`;
+    childBlock.classList.add("newdiv");
+    getId.appendChild(childBlock);
   }
+})();
+dataShop.forEach((category) => {
+  const categoryElement = document.createElement("div");
+  applyStyles(categoryElement);
+  categoryElement.textContent = category.name;
+  getId.children[0].appendChild(categoryElement);
+  categoryElement.addEventListener("click", function (event) {
+    clearBlock();
+    dataShop
+      .find((cat) => cat.name === category.name)
+      .products.forEach((product) => {
+        let productElement = document.createElement("div");
+        applyStyles(productElement);
+        productElement.textContent = product.name;
+        getId.children[1].appendChild(productElement);
+        productElement.addEventListener("click", function (event) {
+          getId.children[2].innerHTML = textTitles[2];
+          let descriptionElement = document.createElement("div");
+          applyStyles(descriptionElement);
+          descriptionElement.textContent = product.description;
+          getId.children[2].appendChild(descriptionElement);
+          createButton();
+        });
+      });
+  });
+});
+function createButton() {
+  let buttonElement = document.createElement("button");
+  buttonElement.addEventListener("click", function (event) {
+    setTimeout(function () {
+      alert(textTitles[4]);
+    });
+    clearBlock();
+  });
+  applyStyles(buttonElement);
+  buttonElement.classList.add("button-color");
+  buttonElement.textContent = textTitles[3];
+  getId.children[2].appendChild(buttonElement);
 }
-
-let username = getName();
-alert("Hello, " + username + "! How are you?");
-
-// Fourth level
-// use API and service which check it is could be human name
-// async function main() {
-//   const { name, gender } = await getName();
-//   alert(`Hello, ${name}! How are you?`);
-// }
-
-// async function getName() {
-//   const nameRegex = /^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/;
-//   let someName = prompt("What is your name?", "");
-//   let lowercaseName = someName.toLowerCase();
-
-//   if (nameRegex.test(someName) && lowercaseName.length < 30) {
-//     const upsomeName = lowercaseName.charAt(0).toUpperCase() + lowercaseName.slice(1);
-
-//     //  API  genderize.io
-//     const response = await fetch(`https://api.genderize.io/?name=${upsomeName}`);
-//     const data = await response.json();
-
-//     //  OK from service 
-//     if (data.gender) {
-//       return { name: upsomeName, gender: data.gender };
-//     } else {
-//       alert("Please use human name. Try again.");
-//       return getName();
-//     }
-//   } else {
-//     alert("Wrong name. Please try again.");
-//     return getName();
-//   }
-// }
-
-// main();
