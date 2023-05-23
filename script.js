@@ -1,11 +1,15 @@
 import { textTitles, dataShop } from "./data.js";
 
 const getId = document.getElementById("root");
-const createDiv = document.createElement("div");
 
-function applyStyles(element) {
+const applyStyles = (element) => {
   element.classList.add("block");
-}
+};
+
+const clearBlock = () => {
+  getId.children[1].innerHTML = textTitles[1];
+  getId.children[2].innerHTML = textTitles[2];
+};
 
 (function () {
   let widthBlock = 15;
@@ -19,51 +23,47 @@ function applyStyles(element) {
   }
 })();
 
-(function () {
-  dataShop.forEach((category) => {
-    const categoryElement = document.createElement("div");
-    applyStyles(categoryElement);
-    categoryElement.textContent = category.name;
+dataShop.forEach((category) => {
+  const categoryElement = document.createElement("div");
+  applyStyles(categoryElement);
+  categoryElement.textContent = category.name;
 
-    getId.children[0].appendChild(categoryElement);
-    categoryElement.addEventListener("click", function (event) {
-      let initForSecondBlock = category.name;
-      let currentCategory = dataShop.find(
-        (cat) => cat.name === initForSecondBlock
-      );
-      getId.children[1].innerHTML = textTitles[1];
-      getId.children[2].innerHTML = textTitles[2];
+  getId.children[0].appendChild(categoryElement);
+  categoryElement.addEventListener("click", function (event) {
+    let initForSecondBlock = category.name;
+    let currentCategory = dataShop.find(
+      (cat) => cat.name === initForSecondBlock
+    );
+    clearBlock();
 
-      currentCategory.products.forEach((product) => {
-        let productElement = document.createElement("div");
-        applyStyles(productElement);
-        productElement.textContent = product.name;
+    currentCategory.products.forEach((product) => {
+      let productElement = document.createElement("div");
+      applyStyles(productElement);
+      productElement.textContent = product.name;
 
-        getId.children[1].appendChild(productElement);
-        productElement.addEventListener("click", function (event) {
-          getId.children[2].innerHTML = textTitles[2];
-          let descriptionElement = document.createElement("div");
-          applyStyles(descriptionElement);
-          descriptionElement.textContent = product.description;
-          getId.children[2].appendChild(descriptionElement);
-          createButton();
-        });
+      getId.children[1].appendChild(productElement);
+      productElement.addEventListener("click", function (event) {
+        getId.children[2].innerHTML = textTitles[2];
+        let descriptionElement = document.createElement("div");
+        applyStyles(descriptionElement);
+        descriptionElement.textContent = product.description;
+        getId.children[2].appendChild(descriptionElement);
+        createButton();
       });
     });
   });
-})();
+});
 
-function createButton() {
+const createButton = () => {
   let buttonElement = document.createElement("button");
   buttonElement.addEventListener("click", function (event) {
-    setTimeout(function () {
+    setTimeout(() => {
       alert(textTitles[4]);
     });
-    getId.children[1].innerHTML = textTitles[1];
-    getId.children[2].innerHTML = textTitles[2];
+    clearBlock();
   });
   applyStyles(buttonElement);
   buttonElement.classList.add("button-color");
   buttonElement.textContent = textTitles[3];
   getId.children[2].appendChild(buttonElement);
-}
+};
