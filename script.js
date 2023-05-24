@@ -19,7 +19,6 @@ descrContainer.textContent = textTitles.arcticleInfo;
 const applyStyles = (element) => {
   element.classList.add("block");
   if (element.tagName === "BUTTON") {
-    element.textContent = textTitles.buy;
     element.classList.add("button");
     descrContainer.appendChild(element);
   }
@@ -27,13 +26,14 @@ const applyStyles = (element) => {
 
 const createButton = () => {
   const buttonElement = document.createElement("button");
+  buttonElement.textContent = textTitles.buy;
+  applyStyles(buttonElement);
   buttonElement.addEventListener("click", function (event) {
     setTimeout(() => {
       alert(textTitles.buyed);
     });
     clearBlock();
   });
-  applyStyles(buttonElement);
 };
 
 const clearBlock = () => {
