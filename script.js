@@ -51,8 +51,9 @@ dataShop.forEach((category) => {
 });
 
 function makeCategory(event) {
-  let initForSecondBlock = event.target.innerText;
-  let currentCategory = dataShop.find((cat) => cat.name === initForSecondBlock);
+  let currentCategory = dataShop.find(
+    (category) => category.name === event.target.innerText
+  );
   clearBlock();
 
   currentCategory.products.forEach((product) => {
