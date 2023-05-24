@@ -16,8 +16,6 @@ catContainer.textContent = textTitles.categories;
 prodContainer.textContent = textTitles.goodsList;
 descrContainer.textContent = textTitles.arcticleInfo;
 
-catContainer.addEventListener("click", makeCategory);
-
 const applyStyles = (element) => {
   element.classList.add("block");
   if (element.tagName === "BUTTON") {
@@ -48,6 +46,7 @@ dataShop.forEach((category) => {
   applyStyles(categoryElement);
   categoryElement.textContent = category.name;
   catContainer.appendChild(categoryElement);
+  categoryElement.addEventListener("click", makeCategory);
 });
 
 function makeCategory(event) {
