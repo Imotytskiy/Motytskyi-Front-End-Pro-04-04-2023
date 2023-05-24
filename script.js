@@ -16,6 +16,20 @@ catContainer.textContent = textTitles.categories;
 prodContainer.textContent = textTitles.goodsList;
 descrContainer.textContent = textTitles.arcticleInfo;
 
+catContainer.addEventListener("click", makeCategory);
+prodContainer.addEventListener("click", productSelect(product));
+descrContainer.addEventListener("click", function (event) {
+  setTimeout(() => {
+    alert(textTitles.buyed);
+  });
+  clearBlock();
+});
+
+const clearBlock = () => {
+  prodContainer.innerHTML = textTitles.goodsList;
+  descrContainer.innerHTML = textTitles.arcticleInfo;
+};
+
 const applyStyles = (element) => {
   element.classList.add("block");
   if (element.tagName === "BUTTON") {
@@ -28,17 +42,6 @@ const createButton = () => {
   buttonElement.textContent = textTitles.buy;
   applyStyles(buttonElement);
   descrContainer.appendChild(buttonElement);
-  buttonElement.addEventListener("click", function (event) {
-    setTimeout(() => {
-      alert(textTitles.buyed);
-    });
-    clearBlock();
-  });
-};
-
-const clearBlock = () => {
-  prodContainer.innerHTML = textTitles.goodsList;
-  descrContainer.innerHTML = textTitles.arcticleInfo;
 };
 
 dataShop.forEach((category) => {
@@ -46,8 +49,9 @@ dataShop.forEach((category) => {
   applyStyles(categoryElement);
   categoryElement.textContent = category.name;
   catContainer.appendChild(categoryElement);
-  categoryElement.addEventListener("click", makeCategory);
 });
+
+catContainer.addEventListener("click", makeCategory);
 
 function makeCategory(event) {
   let currentCategory = dataShop.find(
@@ -60,13 +64,11 @@ function makeCategory(event) {
     applyStyles(productElement);
     productElement.textContent = product.name;
     prodContainer.appendChild(productElement);
-    productElement.addEventListener("click", productSelect(product));
   });
 }
 function productSelect(product) {
   return function (event) {
     descrContainer.innerHTML = textTitles.arcticleInfo;
-
     let descriptionElement = document.createElement("div");
     applyStyles(descriptionElement);
     descriptionElement.textContent = product.description;
