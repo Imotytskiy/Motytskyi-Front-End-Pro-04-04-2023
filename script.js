@@ -20,7 +20,6 @@ const applyStyles = (element) => {
   element.classList.add("block");
   if (element.tagName === "BUTTON") {
     element.classList.add("button");
-    descrContainer.appendChild(element);
   }
 };
 
@@ -28,6 +27,7 @@ const createButton = () => {
   const buttonElement = document.createElement("button");
   buttonElement.textContent = textTitles.buy;
   applyStyles(buttonElement);
+  descrContainer.appendChild(buttonElement);
   buttonElement.addEventListener("click", function (event) {
     setTimeout(() => {
       alert(textTitles.buyed);
