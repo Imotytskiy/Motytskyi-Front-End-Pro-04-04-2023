@@ -32,6 +32,6 @@ section:nth-child(3) {
 
 .button {
   background-color: #00d2ff;
-  margin-left: 70%;
-  margin-top: 4%;
+  margin-left: auto;
+  margin-top: 30px;
 }
