@@ -25,16 +25,15 @@ const createButton = () => {
     clearBlock();
   });
   applyStyles(buttonElement);
-  allForButton(buttonElement);
 };
 
 const applyStyles = (element) => {
   element.classList.add("block");
-};
-const allForButton = (element) => {
-  element.textContent = textTitles.buy;
-  element.classList.add("button");
-  descrContainer.appendChild(element);
+  if (element.tagName === "BUTTON") {
+    element.textContent = textTitles.buy;
+    element.classList.add("button");
+    descrContainer.appendChild(element);
+  }
 };
 
 const clearBlock = () => {
