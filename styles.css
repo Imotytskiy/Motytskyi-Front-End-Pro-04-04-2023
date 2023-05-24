@@ -1,0 +1,32 @@
+body {
+  background-color: #89cff0;
+  margin-top: 20%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+button {
+  padding: 10px 40px;
+  margin: 10px 20px;
+  background: grey;
+  color: white;
+  cursor: pointer;
+  text-align: center;
+  border-radius: 5px;
+  border: none;
+  transition-duration: 0.4s;
+  display: block;
+}
+
+input {
+  padding: 10px 40px;
+  margin: 10px 20px;
+  background: white;
+  color: black;
+  cursor: pointer;
+  text-align: center;
+  border-radius: 5px;
+  border: none;
+  transition-duration: 0.4s;
+  display: block;
+}
