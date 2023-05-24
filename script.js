@@ -16,6 +16,15 @@ catContainer.textContent = textTitles.categories;
 prodContainer.textContent = textTitles.goodsList;
 descrContainer.textContent = textTitles.arcticleInfo;
 
+const applyStyles = (element) => {
+  element.classList.add("block");
+  if (element.tagName === "BUTTON") {
+    element.textContent = textTitles.buy;
+    element.classList.add("button");
+    descrContainer.appendChild(element);
+  }
+};
+
 const createButton = () => {
   const buttonElement = document.createElement("button");
   buttonElement.addEventListener("click", function (event) {
@@ -25,15 +34,6 @@ const createButton = () => {
     clearBlock();
   });
   applyStyles(buttonElement);
-};
-
-const applyStyles = (element) => {
-  element.classList.add("block");
-  if (element.tagName === "BUTTON") {
-    element.textContent = textTitles.buy;
-    element.classList.add("button");
-    descrContainer.appendChild(element);
-  }
 };
 
 const clearBlock = () => {
@@ -63,7 +63,6 @@ function makeCategory(event) {
     productElement.addEventListener("click", productSelect(product));
   });
 }
-
 function productSelect(product) {
   return function (event) {
     descrContainer.innerHTML = textTitles.arcticleInfo;
