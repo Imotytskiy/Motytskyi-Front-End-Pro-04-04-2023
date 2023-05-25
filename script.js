@@ -27,7 +27,7 @@ const validRedirect = (urlFromInput) => {
     inputElement.value = "http://" + urlFromInput;
   }
 };
-document.addEventListener("click", function (event) {
+document.addEventListener("click", (event) => {
   if (event.target.id === "checkButton") {
     validRedirect(inputElement.value);
   } else if (event.target.id === "redirectButton") {
