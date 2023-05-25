@@ -6,7 +6,7 @@ firstButton.textContent = "Реалізувати перевірку на http/h
 appContainer.appendChild(firstButton);
 
 const inputElement = document.createElement("input");
-inputElement.value = "www.example.com";
+inputElement.value = "www.ithillel.ua";
 appContainer.appendChild(inputElement);
 
 const secondButton = document.createElement("button");
