@@ -6,7 +6,7 @@ firstButton.textContent = "Реалізувати перевірку на http/h
 appContainer.appendChild(firstButton);
 
 const inputElement = document.createElement("input");
-inputElement.setAttribute("placeholder", "www.example.com");
+inputElement.value = "www.example.com";
 appContainer.appendChild(inputElement);
 
 const secondButton = document.createElement("button");
@@ -14,7 +14,6 @@ secondButton.textContent = "Переадресовується на інший �
 secondButton.id = "redirectButton";
 appContainer.appendChild(secondButton);
 
-let url = "";
 const validRedirect = (urlFromInput) => {
   let regex = /^(https?:\/\/)/;
   if (urlFromInput.trim() === "") {
@@ -22,16 +21,16 @@ const validRedirect = (urlFromInput) => {
       "Будь ласка, введіть дійсну електронну адресу наприклад: www.amazon.com"
     );
     return;
+  } else if (regex.test(urlFromInput)) {
+    inputElement.value = urlFromInput;
   } else {
-    url = regex.test(urlFromInput) ? urlFromInput : "http://" + urlFromInput;
-    return url;
+    inputElement.value = "http://" + urlFromInput;
   }
 };
-
-document.addEventListener("click", (event) => {
+document.addEventListener("click", function (event) {
   if (event.target.id === "checkButton") {
     validRedirect(inputElement.value);
   } else if (event.target.id === "redirectButton") {
-    window.open(url, "_blank");
+    window.open(inputElement.value, "_blank");
   }
 });
