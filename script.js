@@ -15,7 +15,7 @@ secondButton.id = "redirectButton";
 appContainer.appendChild(secondButton);
 
 const validRedirect = (urlFromInput) => {
-  let regex = /^(https?:\/\/)/;
+  const regex = /^(https?:\/\/)/;
   if (urlFromInput.trim() === "") {
     alert(
       "Будь ласка, введіть дійсну електронну адресу наприклад: www.amazon.com"
