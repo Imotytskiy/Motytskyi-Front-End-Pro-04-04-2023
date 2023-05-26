@@ -13,10 +13,21 @@ section {
   width: 25%;
 }
 
-section:nth-child(3) {
+#descrContainer {
   width: 50%;
 }
 
+#formContainer {
+  display: none;
+  margin-left: auto;
+  padding: 0;
+}
+
+iframe {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
 .block {
   padding: 10px 40px;
   margin: 10px 20px;

@@ -2,15 +2,17 @@ import { textTitles, dataShop } from "./data.js";
 
 const appContainer = document.getElementById("root");
 
-const catContainer = appContainer.appendChild(
-  document.createElement("section")
-);
-const prodContainer = appContainer.appendChild(
-  document.createElement("section")
-);
-const descrContainer = appContainer.appendChild(
-  document.createElement("section")
-);
+const catContainer = document.getElementById("catContainer");
+const prodContainer = document.getElementById("prodContainer");
+const descrContainer = document.getElementById("descrContainer");
+const formContainer = document.getElementById("formContainer");
+// console.log(formContainer.style.width);
+// console.log(descrContainer.style.width);
+let descrContainerWidth = descrContainer.offsetWidth;
+window.addEventListener("resize", () => {
+  descrContainerWidth = descrContainer.offsetWidth;
+  formContainer.style.width = descrContainerWidth + "px";
+});
 
 catContainer.textContent = textTitles.categories;
 prodContainer.textContent = textTitles.goodsList;
@@ -29,9 +31,9 @@ const createButton = () => {
   applyStyles(buttonElement);
   descrContainer.appendChild(buttonElement);
   buttonElement.addEventListener("click", function (event) {
-    setTimeout(() => {
-      alert(textTitles.buyed);
-    });
+    formContainer.style.width = descrContainerWidth + "px";
+    formContainer.style.display = "block";
+
     clearBlock();
   });
 };
