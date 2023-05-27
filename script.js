@@ -72,7 +72,6 @@ function makeCategory(event) {
 function productSelect(product) {
   return function (event) {
     descrContainer.innerHTML = textTitles.arcticleInfo;
-
     let descriptionElement = document.createElement("div");
     applyStyles(descriptionElement);
     descriptionElement.textContent = product.description;
