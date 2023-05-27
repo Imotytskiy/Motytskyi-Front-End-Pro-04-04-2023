@@ -24,10 +24,14 @@ section {
 }
 
 iframe {
+  overflow: hidden;
+  min-width: 330px;
+  height: 400px;
   margin: 0;
   padding: 0;
   border: 0;
 }
+
 .block {
   padding: 10px 40px;
   margin: 10px 20px;

@@ -31,7 +31,11 @@ const createButton = () => {
   applyStyles(buttonElement);
   descrContainer.appendChild(buttonElement);
   buttonElement.addEventListener("click", function (event) {
-    formContainer.style.width = descrContainerWidth + "px";
+    if (descrContainerWidth >= 315) {
+      formContainer.style.width = descrContainerWidth + "px";
+    } else {
+      formContainer.style.width = "315px";
+    }
     formContainer.style.display = "block";
 
     clearBlock();

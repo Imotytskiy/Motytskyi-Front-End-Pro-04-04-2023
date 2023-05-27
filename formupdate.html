@@ -1,0 +1,57 @@
+<link rel="stylesheet" href="form.css" />
+<div id="wrapper">
+  <form class="row g-3 needs-validation" id="plus-row" novalidate action="">
+    <h3>ОФОРМЛЕННЯ ЗАМОВЛЕННЯ</h3>
+    <div class="col-auto" id="first-div-form">
+      <label for="city">
+        Місто (вибір зі списку)
+        <select name="city" id="city">
+          <option value="1">Вінниця</option>
+          <option value="2">Дніпро</option>
+          <option value="3">Донецьк</option>
+          <option value="4">Житомир</option>
+          <option value="5">Запоріжжя</option>
+          <option value="6">Івано-Франківськ</option>
+          <option value="7" selected>Київ</option>
+          <option value="8">Кропивницький</option>
+          <option value="9">Луганськ</option>
+          <option value="10">Луцьк</option>
+        </select>
+      </label>
+    </div>
+    <div class="col-auto">
+      <label for="customRange2" class="form-label"
+        >Кількість товару:&nbsp;<span id="rangeValue">1</span></label
+      >
+    </div>
+    <div class="col-auto d-flex justify-content-center">
+      <input
+        class="input-range"
+        type="range"
+        class="form-range"
+        min="1"
+        max="10"
+        value="1"
+        id="customRange2"
+        aria-invalid=""
+      />
+    </div>
+    <textarea
+      class="form-control"
+      id="exampleFormControlTextarea1"
+      rows="5"
+    ></textarea>
+  </form>
+</div>
+
+<script>
+  const rangeInput = document.getElementById("customRange2");
+  const rangeValue = document.getElementById("rangeValue");
+
+  rangeInput.addEventListener("input", function () {
+    rangeValue.textContent = rangeInput.value;
+    const quantity = rangeInput.value;
+    const response = `Кількість товару: ${quantity}`;
+    console.log(response);
+  });
+</script>
