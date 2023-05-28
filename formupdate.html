@@ -1,16 +1,16 @@
 <link rel="stylesheet" href="form.css" />
 <div id="wrapper">
-  <form class="row g-3 needs-validation" id="plus-row" novalidate action="">
+  <form class="row g-3 needs-validation" id="buyerform" novalidate action="/buyerform">
     <h3>ОФОРМЛЕННЯ ЗАМОВЛЕННЯ</h3>
     <div>
     <label for="validationCustom01" class="form-label">Прізвище</label>
-    <input type="text" class="form-control" id="validationCustom01" value="Mark" required>
-    <label for="validationCustom01" class="form-label">Ім'я</label>
-    <input type="text" class="form-control" id="validationCustom01" value="Mark" required>
+    <input type="text" class="form-control" id="validationCustom01" placeholder="Введіть ім'я наприклад """ value="" required>
+    <label for="validationCustom02" class="form-label">Ім'я</label>
+    <input type="text" class="form-control" id="validationCustom02" value="" required>
     </div>
     <div>
-    <label for="validationCustom01" class="form-label">По-батькові</label>
-    <input type="text" class="form-control" id="validationCustom01" value="Mark" required>
+    <label for="validationCustom03" class="form-label">По-батькові</label>
+    <input type="text" class="form-control" id="validationCustom03" value="" required>
     <div class="valid-feedback">
     </div>
     <div class="col-auto" id="first-div-form">
@@ -77,9 +77,13 @@
         aria-invalid=""
       />
     </div>
+    <div>
+    <label aria-hidden="true" for="comment">
+        Коментар до замовлення</label>
+    </div>
     <textarea
       name="comment"
-      placeholder="Коментар до замовлення"
+      placeholder="Додайте коментар"
       class="form-control"
       id="exampleFormControlTextarea1"
       rows="5"
@@ -112,5 +116,13 @@ postInput.addEventListener("input", function () {
     const response = `Кількість товару: ${quantity}`;
     console.log(response);
   });
+
+  const form  = document.getElementById('buyerform');
+
+  form.addEventListener('submit', (event) => {                      // handle the form data
+    event.preventDefault();                                         // stop form submission     
+
+                     
+});
   
 </script>
