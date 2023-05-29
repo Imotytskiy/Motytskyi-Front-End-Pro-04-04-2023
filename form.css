@@ -66,3 +66,8 @@ input:valid {
 textarea:valid {
   background: lightgreen;
 }
+
+#formPost {
+  padding: 20px 80px;
+  margin: 20px 40px;
+}

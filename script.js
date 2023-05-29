@@ -128,6 +128,9 @@ formDisable.addEventListener("submit", (event) => {
   const formDataForBack = JSON.stringify(Array.from(formData));
   console.log(formDataForBack);
 
+  const formPost = document.getElementById("formPost");
+  formPost.textContent = formDataForBack;
+
   for (let i = 0; i < formDisable.elements.length; i++) {
     formDisable.elements[i].disabled = true;
   }
