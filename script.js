@@ -1,7 +1,6 @@
 import { textTitles, dataShop } from "./data.js";
 
 const appContainer = document.getElementById("root");
-
 const catContainer = document.getElementById("catContainer");
 const prodContainer = document.getElementById("prodContainer");
 const descrContainer = document.getElementById("descrContainer");
@@ -79,3 +78,97 @@ function productSelect(product) {
     createButton();
   };
 }
+
+//  script for form
+
+function newPostChecker() {
+  const postInput = document.getElementById("flexCheckDefault");
+  const areaInput = document.getElementById("newPost");
+  postInput.addEventListener("input", function () {
+    areaInput.disabled = !postInput.checked;
+    if (!postInput.checked) {
+      areaInput.value = "";
+      areaInput.placeholder = "заблоковано знову";
+    } else {
+      areaInput.placeholder = "Вкажіть номер складу";
+    }
+    areaInput.focus();
+  });
+}
+newPostChecker();
+
+function rangeInput() {
+  const rangeInput = document.getElementById("customRange2");
+  const rangeValue = document.getElementById("rangeValue");
+
+  rangeInput.addEventListener("input", function () {
+    rangeValue.textContent = rangeInput.value;
+  });
+}
+rangeInput();
+
+const formDisable = document.getElementById("buyerform");
+
+formDisable.addEventListener("submit", (event) => {
+  event.preventDefault();
+  const formData = new FormData(formDisable);
+
+  const firstNameInput = document.getElementById("validationCustom01");
+  const lastNameInput = document.getElementById("validationCustom02");
+  const middleNameInput = document.getElementById("validationCustom03");
+  const newPostCheckbox = document.getElementById("flexCheckDefault");
+  const rangeInput = document.getElementById("customRange2");
+
+  formData.append("Ім'я", firstNameInput.value);
+  formData.append("Прізвище", lastNameInput.value);
+  formData.append("По-батькові", middleNameInput.value);
+  formData.append("Склад Нової пошти для надсилання", newPostCheckbox.checked);
+  formData.append("Кількість товару", rangeInput.value);
+
+  // const newValue = formData.has("testFromJS");
+  const formDataForBack = JSON.stringify(Array.from(formData));
+  // console.log(newValue);
+  console.log(formDataForBack);
+  for (let i = 0; i < formDisable.elements.length; i++) {
+    formDisable.elements[i].disabled = true;
+  }
+});
+
+// document.addEventListener("DOMContentLoaded", function () {
+//   validateForm();
+// });
+
+//  validateForm() => {
+//   let validate = true;
+//   const rangeInput = document.getElementById("customRange2");
+//   const rangeValue = document.getElementById("rangeValue");
+//   const form = document.getElementById("buyerform");
+//   form.addEventListener("submit", function (event) {
+//     let numberInput = document.querySelector('input[type="number"]');
+//     let textInputs = document.querySelectorAll('input[type="text"]');
+//     let commentInput = document.querySelector("textarea");
+
+//     if (
+//       isNaN(numberInput.value) &&
+//       document.getElementById("flexCheckDefault").checked
+//     ) {
+//       event.preventDefault();
+//       alert("Будь ласка, вкажіть номер складу");
+//       validate = false;
+//     }
+
+//     if (commentInput.value.trim() === "") {
+//       event.preventDefault();
+//       alert("Будь ласка, заповніть поле коментар");
+//       validate = false;
+//     }
+
+//     textInputs.forEach((textInput) => {
+//       if (textInput.value.trim() === "") {
+//         event.preventDefault();
+//         alert("Будь ласка, заповніть це поле");
+//         validate = false;
+//       }
+//     });
+//   });
+// }

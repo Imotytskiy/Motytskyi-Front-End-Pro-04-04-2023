@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>HW 23. Модифікувати програму інтернет-магазин.</title>
     <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="form.css" />
     <script type="module" src="script.js" defer></script>
   </head>
   <body>
@@ -15,11 +16,102 @@
       <section id="descrContainer"></section>
     </div>
     <section id="formContainer" style="overflow: hidden">
-      <iframe
-        src="formupdate.html"
-        width="100%"
-        style="border: 0; overflow: hidden"
-      ></iframe>
+      <div id="wrapper">
+        <form class="row g-3 needs-validation" id="buyerform" action="/buyerform">    
+          <h3>ОФОРМЛЕННЯ ЗАМОВЛЕННЯ</h3>
+          <div>
+          <label for="validationCustom01" class="form-label">Прізвище</label>
+          <input type="text" class="form-control" id="validationCustom01" placeholder="Введіть прізвище" value="" required>
+          <label for="validationCustom02" class="form-label">Ім'я</label>
+          <input type="text" class="form-control" id="validationCustom02" placeholder="Введіть ім'я" value="" required>
+          </div>
+          <div>
+          <label for="validationCustom03" class="form-label">По-батькові</label>
+          <input type="text" class="form-control" id="validationCustom03" placeholder="Введіть по-батькові" value="" required>
+          <div class="valid-feedback">
+          </div>
+          <div class="col-auto" id="first-div-form">
+            <label for="city">
+              Місто (вибір зі списку)
+              <select name="city" id="city">
+                <option value="1">Вінниця</option>
+                <option value="2">Дніпро</option>
+                <option value="3">Донецьк</option>
+                <option value="4">Житомир</option>
+                <option value="5">Запоріжжя</option>
+                <option value="6">Івано-Франківськ</option>
+                <option value="7" selected>Київ</option>
+                <option value="8">Кропивницький</option>
+                <option value="9">Луганськ</option>
+                <option value="10">Луцьк</option>
+              </select>
+            </label>
+          </div>
+          <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+              <label class="form-check-label" for="flexCheckDefault">
+                  Склад Нової пошти для надсилання
+              </label>
+              <input id="newPost" class="form-control" type="number" placeholder="Розблокуйте" aria-label="Disabled input example" required disabled>
+            </div>
+          <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="flexRadioDefault"
+                id="flexRadioDefault1"
+              />
+              <label class="form-check-label" for="flexRadioDefault1">
+                Післяплати
+              </label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="flexRadioDefault"
+                id="flexRadioDefault2"
+                checked
+              />
+              <label class="form-check-label" for="flexRadioDefault2">
+                Оплата банківської картою
+              </label>
+            </div>
+          <div class="col-auto">
+            <label for="customRange2" class="form-label" 
+              >Кількість товару:&nbsp;<span id="rangeValue">1</span></label
+            >
+          </div>
+          <div class="col-auto d-flex justify-content-center">
+            <input
+              class="input-range long-range"
+              type="range"
+              class="form-range"
+              min="1"
+              max="20"
+              value="1"
+              id="customRange2"
+              aria-invalid=""
+            />
+          </div>
+          <div>
+          <label aria-hidden="true" for="comment">
+              Коментар до замовлення</label>
+          </div>
+          <textarea
+            name="comment"
+            type="text"
+            placeholder="Додайте коментар за умовами hw23"
+            class="form-control"
+            id="exampleFormControlTextarea1"
+            rows="5"
+            required
+          ></textarea>
+          <div>
+              <button class="block button" type="submit">Submit form</button>
+          </div>
+        </form>
+      </div>
     </section>
   </body>
 </html>
