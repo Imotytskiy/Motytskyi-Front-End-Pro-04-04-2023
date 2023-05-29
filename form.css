@@ -71,5 +71,6 @@ textarea:valid {
   display: block;
   padding: 20px 80px;
   margin: 20px 40px;
+  color: blue;
   font-size: x-large;
 }

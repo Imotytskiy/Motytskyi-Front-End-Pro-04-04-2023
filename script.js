@@ -107,34 +107,40 @@ function rangeInput() {
 }
 rangeInput();
 
-const formDisable = document.getElementById("buyerform");
+(function () {
+  const formDisable = document.getElementById("buyerform");
 
-formDisable.addEventListener("submit", (event) => {
-  event.preventDefault();
-  const formData = new FormData(formDisable);
+  formDisable.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const formData = new FormData(formDisable);
 
-  const firstNameInput = document.getElementById("validationCustom01");
-  const lastNameInput = document.getElementById("validationCustom02");
-  const middleNameInput = document.getElementById("validationCustom03");
-  const newPostCheckbox = document.getElementById("flexCheckDefault");
-  const rangeInput = document.getElementById("customRange2");
+    const firstNameInput = document.getElementById("validationCustom01");
+    const lastNameInput = document.getElementById("validationCustom02");
+    const middleNameInput = document.getElementById("validationCustom03");
+    const newPostCheckbox = document.getElementById("flexCheckDefault");
+    const rangeInput = document.getElementById("customRange2");
 
-  formData.append("Ім'я", firstNameInput.value);
-  formData.append("Прізвище", lastNameInput.value);
-  formData.append("По-батькові", middleNameInput.value);
-  formData.append("Склад Нової пошти для надсилання", newPostCheckbox.checked);
-  formData.append("Кількість товару", rangeInput.value);
+    formData.append("Ім'я", firstNameInput.value);
+    formData.append("Прізвище", lastNameInput.value);
+    formData.append("По-батькові", middleNameInput.value);
+    formData.append(
+      "Склад Нової пошти для надсилання",
+      newPostCheckbox.checked
+    );
+    formData.append("Кількість товару", rangeInput.value);
 
-  const formDataForBack = JSON.stringify(Array.from(formData));
-  console.log(formDataForBack);
+    const formDataForBack = JSON.stringify(Array.from(formData));
+    console.log(formDataForBack);
 
-  const formPost = document.getElementById("formPost");
-  formPost.textContent = formDataForBack;
+    const formPost = document.getElementById("formPost");
+    formPost.textContent =
+      "(інформація про товар та про доставку)" + formDataForBack;
 
-  for (let i = 0; i < formDisable.elements.length; i++) {
-    formDisable.elements[i].disabled = true;
-  }
-});
+    for (let i = 0; i < formDisable.elements.length; i++) {
+      formDisable.elements[i].disabled = true;
+    }
+  });
+})();
 
 // document.addEventListener("DOMContentLoaded", function () {
 //   validateForm();
