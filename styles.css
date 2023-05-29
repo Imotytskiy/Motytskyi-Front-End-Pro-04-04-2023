@@ -23,18 +23,9 @@ section {
   padding: 0;
 }
 
-iframe {
-  overflow: hidden;
-  min-width: 470px;
-  height: 530px;
-  margin: 0;
-  padding: 0;
-  border: 0;
-}
-
 .block {
   padding: 10px 40px;
-  margin: 10px 20px;
+  margin: 10px 40px;
   background: grey;
   color: white;
   cursor: pointer;

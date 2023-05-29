@@ -70,7 +70,8 @@ textarea:valid {
 #formPost {
   display: block;
   padding: 10px 20px;
-  margin: 20px 20px;
+  margin: 40px 40px;
   color: blue;
-  font-size: x-large;
+  font-size: large;
+  text-align: left;
 }
