@@ -5,8 +5,6 @@ const catContainer = document.getElementById("catContainer");
 const prodContainer = document.getElementById("prodContainer");
 const descrContainer = document.getElementById("descrContainer");
 const formContainer = document.getElementById("formContainer");
-// console.log(formContainer.style.width);
-// console.log(descrContainer.style.width);
 let descrContainerWidth = descrContainer.offsetWidth;
 window.addEventListener("resize", () => {
   descrContainerWidth = descrContainer.offsetWidth;
@@ -84,7 +82,7 @@ function productSelect(product) {
 function newPostChecker() {
   const postInput = document.getElementById("flexCheckDefault");
   const areaInput = document.getElementById("newPost");
-  postInput.addEventListener("input", function () {
+  postInput.addEventListener("input", () => {
     areaInput.disabled = !postInput.checked;
     if (!postInput.checked) {
       areaInput.value = "";
@@ -101,7 +99,7 @@ function rangeInput() {
   const rangeInput = document.getElementById("customRange2");
   const rangeValue = document.getElementById("rangeValue");
 
-  rangeInput.addEventListener("input", function () {
+  rangeInput.addEventListener("input", () => {
     rangeValue.textContent = rangeInput.value;
   });
 }
@@ -113,11 +111,8 @@ rangeInput();
   formDisable.addEventListener("submit", (event) => {
     event.preventDefault();
     const formData = new FormData(formDisable);
-    console.log(formData);
-    formData.append("Кількість товару", rangeInput.value);
 
     const formDataForBack = Array.from(formData);
-    console.log(formDataForBack);
 
     let string = "";
     formDataForBack.forEach((entry) => {
