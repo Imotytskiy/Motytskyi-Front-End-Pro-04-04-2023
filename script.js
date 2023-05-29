@@ -129,12 +129,12 @@ rangeInput();
     );
     formData.append("Кількість товару", rangeInput.value);
 
-    const formDataForBack = JSON.stringify(Array.from(formData));
+    const formDataForBack = Array.from(formData);
     console.log(formDataForBack);
 
     const formPost = document.getElementById("formPost");
     formPost.textContent =
-      "(інформація про товар та про доставку)" + formDataForBack;
+      "Iнформація про товар та про доставку" + `\n` + formDataForBack;
 
     for (let i = 0; i < formDisable.elements.length; i++) {
       formDisable.elements[i].disabled = true;
