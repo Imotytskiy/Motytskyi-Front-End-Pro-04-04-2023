@@ -113,6 +113,7 @@ rangeInput();
   formDisable.addEventListener("submit", (event) => {
     event.preventDefault();
     const formData = new FormData(formDisable);
+    console.log(formData);
 
     const firstNameInput = document.getElementById("validationCustom01");
     const lastNameInput = document.getElementById("validationCustom02");
