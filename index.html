@@ -21,15 +21,14 @@
           <h3>ОФОРМЛЕННЯ ЗАМОВЛЕННЯ</h3>
           <div>
           <label for="validationCustom01" class="form-label">Прізвище</label>
-          <input type="text"  id="validationCustom01" placeholder="Введіть прізвище"  value="" required>
+          <input type="text" name="surname"  id="validationCustom01" placeholder="Введіть прізвище"  value="" required>
           <label for="validationCustom02" class="form-label">Ім'я</label>
-          <input type="text"  id="validationCustom02" placeholder="Введіть ім'я" value="" required>
+          <input type="text"  name="name" id="validationCustom02" placeholder="Введіть ім'я" value="" required>
           </div>
           <div>
           <label for="validationCustom03" class="form-label">По-батькові</label>
-          <input type="text"  id="validationCustom03" placeholder="Введіть по-батькові" value="" required>
+          <input type="text" name="father-name"  id="validationCustom03" placeholder="Введіть по-батькові" value="" required>
           <div class="valid-feedback">
-          </div>
           <div  id="first-div-form">
             <label for="city">
               Місто (вибір зі списку)
@@ -84,11 +83,11 @@
           </div>
           <div>
             <input
-  
+              name="items"
               type="range"
               min="1"
               max="20"
-              value="1"
+              value="1"s
               id="customRange2"
               aria-invalid=""
             />
