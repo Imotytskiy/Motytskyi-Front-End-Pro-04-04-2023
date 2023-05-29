@@ -68,6 +68,8 @@ textarea:valid {
 }
 
 #formPost {
+  display: block;
   padding: 20px 80px;
   margin: 20px 40px;
+  font-size: x-large;
 }
