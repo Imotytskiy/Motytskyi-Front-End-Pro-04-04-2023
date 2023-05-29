@@ -59,8 +59,16 @@ textarea {
   width: 200px;
 }
 
+input:invalid {
+  background: lightpink;
+}
+
 input:valid {
   background: lightgreen;
+}
+
+textarea:invalid {
+  background: lightpink;
 }
 
 textarea:valid {
