@@ -1,3 +1,13 @@
+const formTitles = [
+  "Ім'я",
+  "Прізвище",
+  "Дата народження",
+  "Стать",
+  "Місто",
+  "Адреса",
+  "Мови, якими володіє",
+];
+
 function chbx(obj) {
   document.getElementById("ENG").checked = false;
   document.getElementById("UKR").checked = false;
@@ -31,11 +41,11 @@ form.addEventListener("submit", (event) => {
 
   const formData = new FormData(form);
   let i = 1;
-  formData.forEach((value, key) => {
-    // const formKey = document.getElementById(i.toString() + "a");  // можно латинницей attr name давать?
+  formData.forEach((value) => {
+    const formKey = document.getElementById(i.toString() + "a");
     const formValue = document.getElementById(i.toString() + "b");
     if (value) {
-      // formKey.innerHTML = `${key}`;
+      formKey.innerHTML = `${formTitles[i - 1]}`;
       formValue.innerHTML = `${value}`;
       i++;
     }
