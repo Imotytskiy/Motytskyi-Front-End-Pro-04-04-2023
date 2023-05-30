@@ -1,8 +1,42 @@
 #root {
-  margin: 0 auto;
+  margin: 50px auto;
 }
 h1 {
   text-align: center;
-  margin-top: 150px;
   font-size: x-large;
+  margin-bottom: 50px;
+}
+
+#formContainer {
+  margin: 50px 50px;
+  width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 8px;
+  border-width: 3px;
+  border-color: blue;
+  border-style: double;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+label {
+  display: inline-block;
+  width: 150px;
+  margin-right: 10px;
+  font-weight: 400;
+  font-size: large;
+  text-align: left;
+}
+input {
+  display: inline-block;
+  width: 200px;
+  margin-top: 25px;
+  border-color: blue;
+  border: radius 2px;
 }
