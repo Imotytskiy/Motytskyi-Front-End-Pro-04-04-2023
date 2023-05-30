@@ -8,26 +8,6 @@ const formTitles = [
   "Мови, якими володіє",
 ];
 
-// function chbx(obj) {                                                              // жалко удалять задание неправильно прочитал
-//   document.getElementById("ENG").checked = false;
-//   document.getElementById("UKR").checked = false;
-//   document.getElementById("POL").checked = false;
-//   document.getElementById(obj.id).checked = true;
-// }
-
-// document.getElementsByName("lang");
-// document.getElementById("ENG").addEventListener("click", function () {
-//   chbx(this);
-// });
-
-// document.getElementById("UKR").addEventListener("click", function () {
-//   chbx(this);
-// });
-
-// document.getElementById("POL").addEventListener("click", function () {
-//   chbx(this);
-// });
-
 const form = document.querySelector("form");
 
 form.addEventListener("submit", (event) => {
@@ -55,3 +35,23 @@ form.addEventListener("submit", (event) => {
     document.getElementById("7b").innerHTML = str;
   });
 });
+
+// function chbx(obj) {                                                              // жалко удалять задание неправильно прочитал
+//   document.getElementById("ENG").checked = false;
+//   document.getElementById("UKR").checked = false;
+//   document.getElementById("POL").checked = false;
+//   document.getElementById(obj.id).checked = true;
+// }
+
+// document.getElementsByName("lang");
+// document.getElementById("ENG").addEventListener("click", function () {
+//   chbx(this);
+// });
+
+// document.getElementById("UKR").addEventListener("click", function () {
+//   chbx(this);
+// });
+
+// document.getElementById("POL").addEventListener("click", function () {
+//   chbx(this);
+// });
