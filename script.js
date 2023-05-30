@@ -5,21 +5,22 @@ function chbx(obj) {
   document.getElementById(obj.id).checked = true;
 }
 
-document.getElementById("ENG").addEventListener("click", function () {
+document.getElementsByName("lang");
+document.getElementById("ENG").addEventListener("click", () => {
   chbx(this);
 });
 
-document.getElementById("UKR").addEventListener("click", function () {
+document.getElementById("UKR").addEventListener("click", () => {
   chbx(this);
 });
 
-document.getElementById("POL").addEventListener("click", function () {
+document.getElementById("POL").addEventListener("click", () => {
   chbx(this);
 });
 
 const form = document.querySelector("form");
 
-form.addEventListener("submit", function (event) {
+form.addEventListener("submit", (event) => {
   event.preventDefault();
 
   const formContainer = document.getElementById("formContainer");
