@@ -30,8 +30,8 @@ form.addEventListener("submit", function (event) {
   const formData = new FormData(form);
   let i = 1;
   formData.forEach((value, key) => {
-    const formKey = document.getElementById(i.toString() + "1"); // уже таблицу сделал с id не хотел перезначать 1,2.....
-    const formValue = document.getElementById(i.toString() + "2");
+    // const formKey = document.getElementById(i.toString() + "a");
+    const formValue = document.getElementById(i.toString() + "b");
     if (formKey && formValue) {
       formKey.innerHTML = `${key}`;
       formValue.innerHTML = `${value}`;
