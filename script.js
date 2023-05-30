@@ -14,8 +14,6 @@ function chbx(obj) {
   document.getElementById("POL").checked = false;
   document.getElementById(obj.id).checked = true;
 }
-
-document.getElementsByName("lang");
 document.getElementById("ENG").addEventListener("click", () => {
   chbx(this);
 });
