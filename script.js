@@ -28,12 +28,13 @@ form.addEventListener("submit", function (event) {
   tableContainer.style.display = "block";
 
   const formData = new FormData(form);
+  console.log(formData.length);
   let i = 1;
   formData.forEach((value, key) => {
     // const formKey = document.getElementById(i.toString() + "a");  // можно латинницей attr name давать?
     const formValue = document.getElementById(i.toString() + "b");
-    if (formKey && formValue) {
-      formKey.innerHTML = `${key}`;
+    if (value) {
+      // formKey.innerHTML = `${key}`;
       formValue.innerHTML = `${value}`;
       i++;
     }
