@@ -46,13 +46,12 @@ input {
 input[type="radio"] {
   width: 50px;
 }
-select {
+select,
+textarea {
   display: inline-block;
   width: 200px;
   margin-top: 25px;
-  border-color: blue;
-  border: radius 2px;
-  border-width: 3px;
-  border-color: blue;
-  border-style: double;
+  border: 3px double blue;
+  border-radius: 2px;
+  resize: none;
 }
