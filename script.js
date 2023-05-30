@@ -16,6 +16,7 @@ document.getElementById("UKR").addEventListener("click", function () {
 document.getElementById("POL").addEventListener("click", function () {
   chbx(this);
 });
+
 const form = document.querySelector("form");
 
 form.addEventListener("submit", function (event) {
@@ -28,7 +29,6 @@ form.addEventListener("submit", function (event) {
   tableContainer.style.display = "block";
 
   const formData = new FormData(form);
-  console.log(formData.length);
   let i = 1;
   formData.forEach((value, key) => {
     // const formKey = document.getElementById(i.toString() + "a");  // можно латинницей attr name давать?
