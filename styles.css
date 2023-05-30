@@ -11,6 +11,7 @@ h1 {
 }
 
 #formContainer {
+  display: none;
   margin: 50px 50px;
   width: 500px;
   margin: 0 auto;
@@ -74,4 +75,39 @@ textarea {
   margin-left: auto;
   margin-top: 30px;
   font-weight: bold;
+}
+
+#tableContainer {
+  display: block;
+  margin: 50px 50px;
+  width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 8px;
+  border-width: 3px;
+  border-color: blue;
+  border-style: double;
+}
+
+table {
+  width: 100%;
+  margin: 10px;
+  border-collapse: collapse;
+  border: 4px double blue;
+}
+
+th,
+td {
+  padding: 8px;
+  border: 2px solid blue;
+}
+
+th:first-child,
+td:first-child {
+  width: 30%;
+}
+
+th:last-child,
+td:last-child {
+  width: 60%;
 }
