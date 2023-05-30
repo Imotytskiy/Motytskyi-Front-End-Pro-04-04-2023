@@ -117,11 +117,11 @@ rangeInput();
     let string = "";
     formDataForBack.forEach((entry) => {
       const [key, value] = entry;
-      string += `${key}: ${value}<br>`;
+      string += `${key}: ${value}<br><br>`;
     });
 
     const formPost = document.getElementById("formPost");
-    formPost.innerHTML = `Iнформація про товар та про доставку<br>${string}`;
+    formPost.innerHTML = `Iнформація про товар та про доставку<br><br>${string}`;
 
     for (let i = 0; i < formDisable.elements.length; i++) {
       formDisable.elements[i].disabled = true;
