@@ -40,3 +40,6 @@ input {
   border-color: blue;
   border: radius 2px;
 }
+input#s {
+  width: 50px;
+}
