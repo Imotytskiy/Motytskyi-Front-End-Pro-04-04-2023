@@ -14,15 +14,17 @@ function chbx(obj) {
   document.getElementById("POL").checked = false;
   document.getElementById(obj.id).checked = true;
 }
-document.getElementById("ENG").addEventListener("click", () => {
+
+document.getElementsByName("lang");
+document.getElementById("ENG").addEventListener("click", function () {
   chbx(this);
 });
 
-document.getElementById("UKR").addEventListener("click", () => {
+document.getElementById("UKR").addEventListener("click", function () {
   chbx(this);
 });
 
-document.getElementById("POL").addEventListener("click", () => {
+document.getElementById("POL").addEventListener("click", function () {
   chbx(this);
 });
 
@@ -39,13 +41,13 @@ form.addEventListener("submit", (event) => {
 
   const formData = new FormData(form);
   let i = 1;
-  formData.forEach((value) => {
+  formData.forEach((value, key) => {
     const formKey = document.getElementById(i.toString() + "a");
     const formValue = document.getElementById(i.toString() + "b");
     if (value) {
       formKey.innerHTML = `${formTitles[i - 1]}`;
       formValue.innerHTML = `${value}`;
-      i++;
+      i += 2;
     }
   });
 });
