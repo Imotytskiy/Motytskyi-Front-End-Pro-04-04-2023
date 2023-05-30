@@ -47,7 +47,7 @@ form.addEventListener("submit", (event) => {
     if (value) {
       formKey.innerHTML = `${formTitles[i - 1]}`;
       formValue.innerHTML = `${value}`;
-      i += 2;
+      i++;
     }
   });
 });
