@@ -11,7 +11,7 @@ h1 {
 }
 
 #formContainer {
-  display: none;
+  display: block;
   margin: 50px 50px;
   width: 500px;
   margin: 0 auto;
@@ -78,7 +78,7 @@ textarea {
 }
 
 #tableContainer {
-  display: block;
+  display: none;
   margin: 50px 50px;
   width: 500px;
   margin: 0 auto;

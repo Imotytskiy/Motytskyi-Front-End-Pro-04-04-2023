@@ -16,8 +16,9 @@ document.getElementById("UKR").addEventListener("click", function () {
 document.getElementById("POL").addEventListener("click", function () {
   chbx(this);
 });
+const form = document.querySelector("form");
 
-document.querySelector("form").addEventListener("submit", function (event) {
+form.addEventListener("submit", function (event) {
   event.preventDefault();
 
   const formContainer = document.getElementById("formContainer");
@@ -25,4 +26,16 @@ document.querySelector("form").addEventListener("submit", function (event) {
 
   const tableContainer = document.getElementById("tableContainer");
   tableContainer.style.display = "block";
+
+  const formData = new FormData(form);
+  let i = 1;
+  formData.forEach((value, key) => {
+    const formKey = document.getElementById(i.toString() + "1"); // уже таблицу сделал с id не хотел перезначать 1,2.....
+    const formValue = document.getElementById(i.toString() + "2");
+    if (formKey && formValue) {
+      formKey.innerHTML = `${key}`;
+      formValue.innerHTML = `${value}`;
+      i++;
+    }
+  });
 });
