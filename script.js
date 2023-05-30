@@ -30,7 +30,7 @@ form.addEventListener("submit", function (event) {
   const formData = new FormData(form);
   let i = 1;
   formData.forEach((value, key) => {
-    // const formKey = document.getElementById(i.toString() + "a");
+    // const formKey = document.getElementById(i.toString() + "a");  // можно латинницей attr name давать?
     const formValue = document.getElementById(i.toString() + "b");
     if (formKey && formValue) {
       formKey.innerHTML = `${key}`;
