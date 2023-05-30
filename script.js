@@ -1,11 +1,8 @@
 function chbx(obj) {
-  let id = obj.id;
   document.getElementById("ENG").checked = false;
   document.getElementById("UKR").checked = false;
   document.getElementById("POL").checked = false;
-  setTimeout(() => {
-    document.getElementById(id).checked = true;
-  }, 0);
+  document.getElementById(obj.id).checked = true;
 }
 
 document.getElementById("ENG").addEventListener("click", function () {
