@@ -1,84 +1,84 @@
 <!DOCTYPE html>
 <html lang="uk">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>HW 24. Форма для реєстрації</title>
-    <link rel="stylesheet" href="styles.css" />
-    <script type="module" src="script.js" defer></script>
-  </head>
-  <body>
-    <div id="root">
-      <section id="formContainer">
-        <h1>РЕЄСТРАЦІЙНА ФОРМА</h1>
-        <form action="">
-          <div>
-            <label for="name">Ім'я</label>
-            <input type="text" name="first-name" required />
-          </div>
-          <div>
-            <label for="name">Прізвище</label>
-            <input type="text" name="first-name" required />
-          </div>
-          <div>
-            <label for="name">Дата народження</label>
-            <input type="text" name="first-name" required />
-          </div>
-          <div>
-            <label for="male"> Чоловік </label>
-            <input type="radio" name="gender" id="s" value="" />
-          </div>
-          <div>
-            <label for="female"> Жінка </label>
-            <input type="radio" name="gender" id="s" value="" checked />
-          </div>
-          <div>
-            <label for="city"> Місто</label>
-            <select name="city" id="city">
-              <option value="Вінниця">Вінниця</option>
-              <option value="Дніпро">Дніпро</option>
-              <option value="Донецьк">Донецьк</option>
-              <option value="Житомир">Житомир</option>
-              <option value="Запоріжжя">Запоріжжя</option>
-              <option value="Івано-Франківськ">Івано-Франківськ</option>
-              <option value="Київ" selected>Київ</option>
-              <option value="Кропивницький">Кропивницький</option>
-              <option value="Луганськ">Луганськ</option>
-              <option value="Луцьк">Луцьк</option>
-            </select>
-          </div>
-          <div>
-            <label for="adress">Адреса</label>
-            <textarea
-              name="adress"
-              type="text"
-              placeholder="Додайте адресу більше 50 символів"
-              id=""
-              rows="3"
-              maxlength="50"
-              required
-            ></textarea>
-          </div>
-          <div>
-            <label id="ENG" for="ENG">Англійська мова</label>
-            <input type="checkbox" name="lang" value="ENG" />
-          </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HW 24. Форма для реєстрації</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div id="root">
+    <section id="formContainer">
+      <h1>РЕЄСТРАЦІЙНА ФОРМА</h1>
+      <form action="">
+        <div>
+          <label for="name">Ім'я</label>
+          <input type="text" name="first-name" required />
+        </div>
+        <div>
+          <label for="name">Прізвище</label>
+          <input type="text" name="last-name" required />
+        </div>
+        <div>
+          <label for="name">Дата народження</label>
+          <input type="text" name="birthdate" required />
+        </div>
+        <div>
+          <label for="male">Чоловік</label>
+          <input type="radio" name="gender" id="male" value="" />
+        </div>
+        <div>
+          <label for="female">Жінка</label>
+          <input type="radio" name="gender" id="female" value="" checked />
+        </div>
+        <div>
+          <label for="city">Місто</label>
+          <select name="city" id="city">
+            <option value="Вінниця">Вінниця</option>
+            <option value="Дніпро">Дніпро</option>
+            <option value="Донецьк">Донецьк</option>
+            <option value="Житомир">Житомир</option>
+            <option value="Запоріжжя">Запоріжжя</option>
+            <option value="Івано-Франківськ">Івано-Франківськ</option>
+            <option value="Київ" selected>Київ</option>
+            <option value="Кропивницький">Кропивницький</option>
+            <option value="Луганськ">Луганськ</option>
+            <option value="Луцьк">Луцьк</option>
+          </select>
+        </div>
+        <div>
+          <label for="adress">Адреса</label>
+          <textarea
+            name="address"
+            type="text"
+            placeholder="Додайте адресу більше 50 символів"
+            id="address"
+            rows="3"
+            maxlength="50"
+            required
+          ></textarea>
+        </div>
+        <div>
+          <label for="ENG">Англійська мова</label>
+          <input type="checkbox" name="lang" value="ENG" id="ENG" />
+        </div>
 
-          <div>
-            <label id="UKR" for="UKR">Українська мова</label>
-            <input type="checkbox" name="lang" value="UKR" />
-          </div>
+        <div>
+          <label for="UKR">Українська мова</label>
+          <input type="checkbox" name="lang" value="UKR" id="UKR" />
+        </div>
 
-          <div>
-            <label id="POL" for="POL">Польська мова</label>
-            <input type="checkbox" name="lang" value="POL" />
-          </div>
-          <div>
-            <button class="block button" type="submit">ЗБЕРЕГТИ</button>
-          </div>
-        </form>
-      </section>
-    </div>
-  </body>
-</html>
+        <div>
+          <label for="POL">Польська мова</label>
+          <input type="checkbox" name="lang" value="POL" id="POL"  />
+        </div>
+        <div>
+          <button class="block button" type="submit">ЗБЕРЕГТИ</button>
+        </div>
+      </form>
+    </section>
+  </div>
+</body>
+</html
