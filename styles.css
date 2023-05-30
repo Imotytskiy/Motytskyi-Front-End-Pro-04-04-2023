@@ -1,43 +1,8 @@
 #root {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
+  margin: 0 auto;
 }
-
-section {
-  display: block;
+h1 {
   text-align: center;
-  border: 1px solid black;
-  padding: 10px;
-  margin: 10px;
-  width: 25%;
-}
-
-#descrContainer {
-  width: 50%;
-}
-
-#formContainer {
-  display: none;
-  margin-left: auto;
-  padding: 0;
-}
-
-.block {
-  padding: 10px 40px;
-  margin: 10px 40px;
-  background: grey;
-  color: white;
-  cursor: pointer;
-  text-align: center;
-  border-radius: 5px;
-  border: none;
-  transition-duration: 0.4s;
-  display: block;
-}
-
-.button {
-  background-color: #00d2ff;
-  margin-left: auto;
-  margin-top: 30px;
+  margin-top: 150px;
+  font-size: x-large;
 }
