@@ -7,7 +7,7 @@ const formTitles = [
   "Адреса",
   "Мови, якими володіє",
 ];
-
+console.log(formTitles.length);
 const form = document.querySelector("form");
 
 form.addEventListener("submit", (event) => {
@@ -24,9 +24,9 @@ form.addEventListener("submit", (event) => {
   let str = "";
   formData.forEach((value) => {
     const formKey = document.getElementById(i.toString() + "a");
-    const formValue = document.getElementById(i.toString() + "b");
     formKey.innerHTML = formTitles[i - 1];
-    if (i <= 6) {
+    const formValue = document.getElementById(i.toString() + "b");
+    if (i <= formTitles.length - 1) {
       formValue.innerHTML = value;
       i++;
     } else {
