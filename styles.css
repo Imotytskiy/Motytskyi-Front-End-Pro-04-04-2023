@@ -1,3 +1,6 @@
+* {
+  font-family: Arial, Helvetica, sans-serif;
+}
 #root {
   margin: 50px auto;
 }
@@ -40,6 +43,16 @@ input {
   border-color: blue;
   border: radius 2px;
 }
-input#s {
+input[type="radio"] {
   width: 50px;
+}
+select {
+  display: inline-block;
+  width: 200px;
+  margin-top: 25px;
+  border-color: blue;
+  border: radius 2px;
+  border-width: 3px;
+  border-color: blue;
+  border-style: double;
 }
