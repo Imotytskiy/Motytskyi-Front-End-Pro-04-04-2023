@@ -4,6 +4,7 @@ export let textTitles = {
   arcticleInfo: "ІНФОРМАЦІЯ ПРО ТОВАР",
   buy: "КУПИТИ",
   buyed: "ТОВАР КУПЛЕНИЙ",
+  orders: "МОЇ ЗАМОВЛЕННЯ",
 };
 
 export let dataShop = [
