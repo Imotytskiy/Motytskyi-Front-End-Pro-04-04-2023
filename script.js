@@ -99,7 +99,7 @@ function rangeInput() {
   const rangeValue = document.getElementById("rangeValue");
 
   rangeInput.addEventListener("input", () => {
-    rangeValue.textContent = rangeInput.value;
+    document.getElementById("rangeValue").textContent = rangeInput.value;
   });
 }
 rangeInput();
