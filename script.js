@@ -96,7 +96,6 @@ newPostChecker();
 
 function rangeInput() {
   const rangeInput = document.getElementById("customRange2");
-  const rangeValue = document.getElementById("rangeValue");
 
   rangeInput.addEventListener("input", () => {
     document.getElementById("rangeValue").textContent = rangeInput.value;
