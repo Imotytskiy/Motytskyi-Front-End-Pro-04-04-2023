@@ -28,11 +28,10 @@ const createButton = () => {
   applyStyles(buttonElement);
   descrContainer.appendChild(buttonElement);
   buttonElement.addEventListener("click", function (event) {
-    if (descrContainerWidth >= 315) {
-      formContainer.style.width = descrContainerWidth + "px";
-    } else {
-      formContainer.style.width = "315px";
-    }
+    descrContainerWidth >= 315
+      ? (formContainer.style.width = descrContainerWidth + "px")
+      : (formContainer.style.width = "315px");
+
     formContainer.style.display = "block";
 
     clearBlock();
@@ -112,16 +111,14 @@ rangeInput();
     event.preventDefault();
     const formData = new FormData(formDisable);
 
-    const formDataForBack = Array.from(formData);
-
     let string = "";
-    formDataForBack.forEach((entry) => {
-      const [key, value] = entry;
-      string += `${key}: ${value}<br><br>`;
+    formData.forEach((key, value) => {
+      string += `${value}  :  ${key}<br><br>`;
     });
 
-    const formPost = document.getElementById("formPost");
-    formPost.innerHTML = `Iнформація про товар та про доставку<br><br>${string}`;
+    document.getElementById(
+      "formPost"
+    ).innerHTML = `Iнформація про товар та про доставку<br><br>${string}`;
 
     for (let i = 0; i < formDisable.elements.length; i++) {
       formDisable.elements[i].disabled = true;
