@@ -31,7 +31,6 @@ const createButton = () => {
     descrContainerWidth >= 315
       ? (formContainer.style.width = descrContainerWidth + "px")
       : (formContainer.style.width = "315px");
-
     formContainer.style.display = "block";
 
     clearBlock();
@@ -42,26 +41,6 @@ const clearBlock = () => {
   prodContainer.innerHTML = textTitles.goodsList;
   descrContainer.innerHTML = textTitles.arcticleInfo;
 };
-
-const clearFirstBlock = () => {
-  catContainer.innerHTML = textTitles.categories;
-};
-
-const createOrderElement = () => {
-  const orderElement = document.createElement("div");
-  applyStyles(orderElement);
-  orderElement.classList.add("order");
-  orderElement.textContent = textTitles.order;
-  catContainer.appendChild(orderElement);
-  return orderElement;
-};
-
-const orderElement = createOrderElement();
-
-orderElement.addEventListener("click", function (event) {
-  clearFirstBlock();
-  orderElement = createOrderElement();
-});
 
 dataShop.forEach((category) => {
   const categoryElement = document.createElement("div");
@@ -116,10 +95,9 @@ newPostChecker();
 
 function rangeInput() {
   const rangeInput = document.getElementById("customRange2");
-  const rangeValue = document.getElementById("rangeValue");
 
   rangeInput.addEventListener("input", () => {
-    rangeValue.textContent = rangeInput.value;
+    document.getElementById("rangeValue").textContent = rangeInput.value;
   });
 }
 rangeInput();
@@ -130,16 +108,17 @@ rangeInput();
   formDisable.addEventListener("submit", (event) => {
     event.preventDefault();
     const formData = new FormData(formDisable);
-
     let string = "";
     formData.forEach((key, value) => {
-      string += `<div class="formarray">${value}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${key}<br></div>`;
+      string += `<div class="formarray">${value}:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${key}</div>`;
     });
 
     document.getElementById(
       "formPost"
-    ).innerHTML = `<div class="formarray">Iнформація про товар та про доставку<br><br>${string} </div>`;
+    ).innerHTML = `<div class="formarray">Iнформація про товар та про доставку<br>${string} </div>`;
 
+    const button = document.querySelector(".button");
+    button.style.display = "none";
     for (let i = 0; i < formDisable.elements.length; i++) {
       formDisable.elements[i].disabled = true;
     }
