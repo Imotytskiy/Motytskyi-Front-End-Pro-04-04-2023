@@ -31,7 +31,6 @@ const createButton = () => {
     descrContainerWidth >= 315
       ? (formContainer.style.width = descrContainerWidth + "px")
       : (formContainer.style.width = "315px");
-
     formContainer.style.display = "block";
 
     clearBlock();
@@ -117,6 +116,8 @@ rangeInput();
     document.getElementById(
       "formPost"
     ).innerHTML = `<div class="formarray">Iнформація про товар та про доставку<br>${string} </div>`;
+    const button = document.querySelector(".button");
+    button.style.display = "none";
 
     for (let i = 0; i < formDisable.elements.length; i++) {
       formDisable.elements[i].disabled = true;

@@ -51,6 +51,7 @@ textarea {
 }
 
 .button {
+  display: block;
   background-color: #00d2ff;
   margin-top: 20px;
 }
