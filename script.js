@@ -112,12 +112,12 @@ rangeInput();
 
     let string = "";
     formData.forEach((key, value) => {
-      string += `${value}  :  ${key}<br><br>`;
+      string += `<div class="fromarray">&nbsp;&nbsp;&nbsp;&nbsp;${value}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${key}<br></div>`;
     });
 
     document.getElementById(
       "formPost"
-    ).innerHTML = `Iнформація про товар та про доставку<br><br>${string}`;
+    ).innerHTML = `<div class="fromarray">Iнформація про товар та про доставку<br>${string}</div>`;
 
     for (let i = 0; i < formDisable.elements.length; i++) {
       formDisable.elements[i].disabled = true;
