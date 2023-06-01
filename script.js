@@ -43,9 +43,10 @@ const clearBlock = () => {
   descrContainer.innerHTML = textTitles.arcticleInfo;
 };
 
-const categoryElement = document.createElement("div"); // button мої замовлення
-applyStyles(categoryElement);
-categoryElement.textContent = textTitles.order;
+const categoryElement = document.createElement("div"); // Creating a new div element
+applyStyles(categoryElement); // Applying styles to the element
+categoryElement.classList.add("order"); // Adding the "order" class to the element
+categoryElement.textContent = textTitles.order; // Setting the text content of the element
 catContainer.appendChild(categoryElement);
 
 dataShop.forEach((category) => {
