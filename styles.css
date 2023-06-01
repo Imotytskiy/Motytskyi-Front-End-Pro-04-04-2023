@@ -46,3 +46,10 @@ section {
   background: green;
   font-size: large;
 }
+.formarray {
+  text-align: left;
+  border: 2px solid #ccc;
+  padding: 5px;
+  padding-left: 40px;
+  margin-bottom: 10px;
+}
