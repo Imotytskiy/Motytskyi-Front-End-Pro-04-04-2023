@@ -1,7 +1,12 @@
 #root {
   display: flex;
+  flex-direction: column;
+}
+
+#firstRow,
+#secondRow {
+  display: flex;
   flex-direction: row;
-  justify-content: space-around;
 }
 
 section {
@@ -10,7 +15,11 @@ section {
   border: 1px solid black;
   padding: 10px;
   margin: 10px;
-  width: 25%;
+  width: 30%;
+}
+
+#secondRow {
+  justify-content: flex-end;
 }
 
 #descrContainer {
@@ -19,8 +28,8 @@ section {
 
 #formContainer {
   display: none;
-  margin-left: auto;
-  padding: 0;
+  width: 30%;
+  margin-right: 50px;
 }
 
 .block {
