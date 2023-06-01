@@ -109,21 +109,35 @@ rangeInput();
   formDisable.addEventListener("submit", (event) => {
     event.preventDefault();
     const formData = new FormData(formDisable);
-
     let string = "";
     formData.forEach((key, value) => {
-      string += `<div class="fromarray">&nbsp;&nbsp;&nbsp;&nbsp;${value}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${key}<br></div>`;
+      string += `<div class="formarray">${value}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${key}<br></div>`;
     });
 
     document.getElementById(
       "formPost"
-    ).innerHTML = `<div class="fromarray">Iнформація про товар та про доставку<br>${string}</div>`;
+    ).innerHTML = `<div class="formarray">Iнформація про товар та про доставку<br><br>${string} </div>`;
 
     for (let i = 0; i < formDisable.elements.length; i++) {
       formDisable.elements[i].disabled = true;
     }
   });
 })();
+
+//     let string = "";
+//     formData.forEach((key, value) => {
+//       string += `<div class="fromarray">&nbsp;&nbsp;&nbsp;&nbsp;${value}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${key}<br></div>`;
+//     });
+
+//     document.getElementById(
+//       "formPost"
+//     ).innerHTML = `<div class="fromarray">Iнформація про товар та про доставку<br>${string}</div>`;
+
+//     for (let i = 0; i < formDisable.elements.length; i++) {
+//       formDisable.elements[i].disabled = true;
+//     }
+//   });
+// })();
 
 // document.addEventListener("DOMContentLoaded", function () {
 //   validateForm();
