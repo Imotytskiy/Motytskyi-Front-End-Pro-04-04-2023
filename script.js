@@ -43,11 +43,25 @@ const clearBlock = () => {
   descrContainer.innerHTML = textTitles.arcticleInfo;
 };
 
-const categoryElement = document.createElement("div"); // Creating a new div element
-applyStyles(categoryElement); // Applying styles to the element
-categoryElement.classList.add("order"); // Adding the "order" class to the element
-categoryElement.textContent = textTitles.order; // Setting the text content of the element
-catContainer.appendChild(categoryElement);
+const clearFirstBlock = () => {
+  catContainer.innerHTML = textTitles.categories;
+};
+
+const createOrderElement = () => {
+  const orderElement = document.createElement("div");
+  applyStyles(orderElement);
+  orderElement.classList.add("order");
+  orderElement.textContent = textTitles.order;
+  catContainer.appendChild(orderElement);
+  return orderElement;
+};
+
+const orderElement = createOrderElement();
+
+orderElement.addEventListener("click", function (event) {
+  clearFirstBlock();
+  orderElement = createOrderElement();
+});
 
 dataShop.forEach((category) => {
   const categoryElement = document.createElement("div");
