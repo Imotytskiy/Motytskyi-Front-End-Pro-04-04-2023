@@ -64,12 +64,14 @@ function makeCategory(event) {
     productElement.addEventListener("click", productSelect(product));
   });
 }
+const id = +number;
 function productSelect(product) {
   return function (event) {
     descrContainer.innerHTML = textTitles.arcticleInfo;
     let descriptionElement = document.createElement("div");
     applyStyles(descriptionElement);
     descriptionElement.textContent = product.description;
+    id = product.id;
     descrContainer.appendChild(descriptionElement);
     createButton();
   };
@@ -121,9 +123,25 @@ rangeInput();
     button.style.display = "none";
     for (let i = 0; i < formDisable.elements.length; i++) {
       formDisable.elements[i].disabled = true;
+      append.formData = id;
+      append.formData = cookie;
+      document.cookie;
+      addcookie();
     }
   });
 })();
+
+function generateRandomNumber() {
+  var result = (Math.floor(Math.random() * 90000) + 10000) * Date.now();
+  return result;
+}
+function addcookie() {
+  const idcookie = generateRandomNumber();
+  let date = new Date(Date.now() + 86400e3);
+  date = date.toUTCString();
+  const cookie = "user=idcookie; expires=" + date;
+  return cookie;
+}
 
 // document.addEventListener("DOMContentLoaded", function () {
 //   validateForm();
