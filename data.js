@@ -78,3 +78,5 @@ export let dataShop = [
     ],
   },
 ];
+
+export let users = [];
