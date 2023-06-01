@@ -83,3 +83,10 @@ textarea:valid {
   font-size: large;
   text-align: left;
 }
+
+.formarray {
+  text-align: center;
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+}
