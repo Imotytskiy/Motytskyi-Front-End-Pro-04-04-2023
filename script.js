@@ -110,7 +110,7 @@ rangeInput();
     const formData = new FormData(formDisable);
     let string = "";
     formData.forEach((key, value) => {
-      string += `<div class="formarray">${value}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${key}</div>`;
+      string += `<div class="formarray">${value}:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${key}</div>`;
     });
 
     document.getElementById(
