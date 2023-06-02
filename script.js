@@ -22,16 +22,13 @@ const applyStyles = (element) => {
   }
 };
 
-const createButton = (container, text) => {
-  const buttonElement = document.createElement("button");
+function createButton(container, text, clickHandler) {
+  var buttonElement = document.createElement("button");
   buttonElement.textContent = text;
   applyStyles(buttonElement);
   container.appendChild(buttonElement);
-  buttonElement.addEventListener("click", function (event) {
-    formContainer.style.display = "block";
-    clearBlock();
-  });
-};
+  buttonElement.addEventListener("click", clickHandler);
+}
 
 const clearBlock = () => {
   prodContainer.innerHTML = textTitles.goodsList;
@@ -63,11 +60,14 @@ function makeCategory(event) {
 function productSelect(product) {
   return function (event) {
     descrContainer.innerHTML = textTitles.arcticleInfo;
-    let descriptionElement = document.createElement("div");
+    var descriptionElement = document.createElement("div");
     applyStyles(descriptionElement);
     descriptionElement.textContent = product.description;
     descrContainer.appendChild(descriptionElement);
-    createButton(descrContainer, textTitles.buy);
+    createButton(descrContainer, textTitles.buy, function (event) {
+      formContainer.style.display = "block";
+      clearBlock();
+    });
   };
 }
 
@@ -112,11 +112,34 @@ rangeInput();
     document.getElementById(
       "formPost"
     ).innerHTML = `<div class="formarray">Iнформація про товар та про доставку<br>${string} </div>`;
-    const button = document.querySelector(".button");
-    button.style.display = "none";
-
+    createButton(formContainer, textTitles.edit, enableFormElements);
+    createButton(formContainer, textTitles.confirm, function () {
+      location.reload();
+      const buyButton = document.querySelector(
+        'button[textContent="ПРИЙНЯТИ"]'
+      );
+      buyButton.style.display = "none";
+    });
     for (let i = 0; i < formDisable.elements.length; i++) {
       formDisable.elements[i].disabled = true;
+    }
+
+    // confirmButton.remove();
+    // editButton.remove();
+
+    function createButton(container, text, clickHandler) {
+      var buttonElement = document.createElement("button");
+      buttonElement.textContent = text;
+      applyStyles(buttonElement);
+      container.appendChild(buttonElement);
+      buttonElement.addEventListener("click", clickHandler);
+    }
+
+    function enableFormElements() {
+      for (let i = 0; i < formDisable.elements.length; i++) {
+        formDisable.elements[i].disabled = false;
+      }
+      // buyButton.style.display = "none";
     }
   });
 })();
