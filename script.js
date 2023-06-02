@@ -73,31 +73,6 @@ function productSelect(product) {
 
 //  script for form
 
-function newPostChecker() {
-  const postInput = document.getElementById("flexCheckDefault");
-  const areaInput = document.getElementById("newPost");
-  postInput.addEventListener("input", () => {
-    areaInput.disabled = !postInput.checked;
-    if (!postInput.checked) {
-      areaInput.value = "";
-      areaInput.placeholder = "заблоковано знову";
-    } else {
-      areaInput.placeholder = "Вкажіть номер складу";
-    }
-    areaInput.focus();
-  });
-}
-newPostChecker();
-
-function rangeInput() {
-  const rangeInput = document.getElementById("customRange2");
-
-  rangeInput.addEventListener("input", () => {
-    document.getElementById("rangeValue").textContent = rangeInput.value;
-  });
-}
-rangeInput();
-
 (function () {
   const formDisable = document.getElementById("buyerform");
 
@@ -105,39 +80,68 @@ rangeInput();
     event.preventDefault();
     const formData = new FormData(formDisable);
     let string = "";
-    formData.forEach((key, value) => {
-      string += `<div class="formarray">${value}:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${key}</div>`;
+    formData.forEach((value, key) => {
+      string += `<div class="formarray">${key}:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${value}</div>`;
     });
 
     document.getElementById(
       "formPost"
     ).innerHTML = `<div class="formarray">Iнформація про товар та про доставку<br>${string} </div>`;
+    deleteButtons();
     createButton(formContainer, textTitles.edit, () => {
       enableFormElements();
     });
-
     createButton(formContainer, textTitles.confirm, function () {
       location.reload();
     });
     for (let i = 0; i < formDisable.elements.length; i++) {
       formDisable.elements[i].disabled = true;
     }
-
-    function createButton(container, text, clickHandler) {
-      var buttonElement = document.createElement("button");
-      buttonElement.textContent = text;
-      applyStyles(buttonElement);
-      container.appendChild(buttonElement);
-      buttonElement.addEventListener("click", clickHandler);
-    }
-
-    function enableFormElements() {
-      for (let i = 0; i < formDisable.elements.length; i++) {
-        formDisable.elements[i].disabled = false;
-      }
-    }
   });
+
+  function deleteButtons() {
+    const buttons = document.querySelectorAll("button");
+    buttons.forEach((button) => {
+      if (
+        button.textContent.trim() === "РЕДАГУВАТИ" ||
+        button.textContent.trim() === "ПІДТВЕРДИТИ"
+      ) {
+        button.remove();
+      }
+    });
+  }
+
+  function createButton(container, text, clickHandler) {
+    var buttonElement = document.createElement("button");
+    buttonElement.textContent = text;
+    applyStyles(buttonElement);
+    container.appendChild(buttonElement);
+    buttonElement.addEventListener("click", clickHandler);
+  }
+
+  function enableFormElements() {
+    for (let i = 0; i < formDisable.elements.length; i++) {
+      formDisable.elements[i].disabled = false;
+    }
+  }
 })();
+
+// function deleteButtons() {
+//   const editButton = document.querySelector(
+//     'button[textContent="РЕДАГУВАТИ"]'
+//   );
+//   const confirmButton = document.querySelector(
+//     'button[textContent="ПІДТВЕРДИТИ"]'
+//   );
+
+//   if (editButton) {
+//     editButton.remove();
+//   }
+
+//   if (confirmButton) {
+//     confirmButton.remove();
+//   }
+// }
 
 // document.getElementById(
 //   "formPost"
