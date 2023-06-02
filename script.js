@@ -75,10 +75,10 @@ function productSelect(product) {
     document.getElementById("rangeValue").textContent = rangeInput.value;
   });
 
-  const formDisable = document.getElementById("buyerform");
-  formDisable.addEventListener("submit", (event) => {
+  const formDataUse = document.getElementById("buyerform");
+  formDataUse.addEventListener("submit", (event) => {
     event.preventDefault();
-    const formData = new FormData(formDisable);
+    const formData = new FormData(formDataUse);
     let string = "";
     formData.forEach((value, key) => {
       string += `<div class="formarray">${key}:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${value}</div>`;
@@ -92,12 +92,14 @@ function productSelect(product) {
       enableFormElements();
     });
     createButton(formContainer, textTitles.confirm, function () {
+      /// start hw  25          collect JSON
       location.reload();
     });
-    for (let i = 0; i < formDisable.elements.length; i++) {
-      formDisable.elements[i].disabled = true;
+    for (let i = 0; i < formDataUse.elements.length; i++) {
+      formDataUse.elements[i].disabled = true;
     }
   });
+  //////////////////////////////////////////////////////for 25 hw///////////////////////////////////////////////////////////////////////////////////////////////////////////
 
   function deleteButtons() {
     const buttons = document.querySelectorAll("button");
