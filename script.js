@@ -112,20 +112,16 @@ rangeInput();
     document.getElementById(
       "formPost"
     ).innerHTML = `<div class="formarray">Iнформація про товар та про доставку<br>${string} </div>`;
-    createButton(formContainer, textTitles.edit, enableFormElements);
+    createButton(formContainer, textTitles.edit, () => {
+      enableFormElements();
+    });
+
     createButton(formContainer, textTitles.confirm, function () {
       location.reload();
-      const buyButton = document.querySelector(
-        'button[textContent="ПРИЙНЯТИ"]'
-      );
-      buyButton.style.display = "none";
     });
     for (let i = 0; i < formDisable.elements.length; i++) {
       formDisable.elements[i].disabled = true;
     }
-
-    // confirmButton.remove();
-    // editButton.remove();
 
     function createButton(container, text, clickHandler) {
       var buttonElement = document.createElement("button");
@@ -139,7 +135,6 @@ rangeInput();
       for (let i = 0; i < formDisable.elements.length; i++) {
         formDisable.elements[i].disabled = false;
       }
-      // buyButton.style.display = "none";
     }
   });
 })();
