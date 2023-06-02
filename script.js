@@ -120,3 +120,24 @@ rangeInput();
     }
   });
 })();
+
+// document.getElementById(
+//   "formPost"
+// ).innerHTML = `<div class="formarray">Iнформація про товар та про доставку<br>${string} </div>`;
+// const button = document.querySelector(".button");
+// button.style.display = "none";
+// for (let i = 0; i < formOnOff.elements.length; i++) {
+//   formOnOff.elements[i].disabled = true;
+// }
+
+// createButton(formContainer, textTitles.edit, formOn);
+// function formOn() {
+//   button.style.display = "block";
+//   for (let i = 0; i < formOnOff.elements.length; i++) {
+//     formOnOff.elements[i].disabled = false;
+//   }
+// }
+
+// createButton(formContainer, textTitles.confirm);
+// });
+// })();
