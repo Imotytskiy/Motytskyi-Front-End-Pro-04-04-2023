@@ -5,11 +5,6 @@ const catContainer = document.getElementById("catContainer");
 const prodContainer = document.getElementById("prodContainer");
 const descrContainer = document.getElementById("descrContainer");
 const formContainer = document.getElementById("formContainer");
-let descrContainerWidth = descrContainer.offsetWidth;
-window.addEventListener("resize", () => {
-  descrContainerWidth = descrContainer.offsetWidth;
-  formContainer.style.width = descrContainerWidth + "px";
-});
 
 catContainer.textContent = textTitles.categories;
 prodContainer.textContent = textTitles.goodsList;
