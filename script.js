@@ -22,17 +22,13 @@ const applyStyles = (element) => {
   }
 };
 
-const createButton = () => {
+const createButton = (container, text) => {
   const buttonElement = document.createElement("button");
-  buttonElement.textContent = textTitles.buy;
+  buttonElement.textContent = text;
   applyStyles(buttonElement);
-  descrContainer.appendChild(buttonElement);
+  container.appendChild(buttonElement);
   buttonElement.addEventListener("click", function (event) {
-    descrContainerWidth >= 315
-      ? (formContainer.style.width = descrContainerWidth + "px")
-      : (formContainer.style.width = "315px");
     formContainer.style.display = "block";
-
     clearBlock();
   });
 };
@@ -71,7 +67,7 @@ function productSelect(product) {
     applyStyles(descriptionElement);
     descriptionElement.textContent = product.description;
     descrContainer.appendChild(descriptionElement);
-    createButton();
+    createButton(descrContainer, textTitles.buy);
   };
 }
 
