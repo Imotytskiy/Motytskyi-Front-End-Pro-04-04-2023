@@ -135,13 +135,11 @@ function generateRandomNumber() {
   var result = (Math.floor(Math.random() * 90000) + 10000) * Date.now();
   return result;
 }
-function addcookie() {
-  const idcookie = generateRandomNumber();
-  let date = new Date(Date.now() + 86400e3);
-  date = date.toUTCString();
-  const cookie = "user=idcookie; expires=" + date;
-  return cookie;
-}
+var idcookie = generateRandomNumber();
+var date = new Date(Date.now() + 86400e3);
+date = date.toUTCString();
+var cookie = "user=" + idcookie + "; expires=" + date;
+document.cookie = cookie;
 
 // document.addEventListener("DOMContentLoaded", function () {
 //   validateForm();
