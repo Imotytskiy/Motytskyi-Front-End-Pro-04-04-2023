@@ -69,8 +69,13 @@ function productSelect(product) {
 //  script for form
 
 (function () {
-  const formDisable = document.getElementById("buyerform");
+  const rangeInput = document.getElementById("customRange2");
 
+  rangeInput.addEventListener("input", () => {
+    document.getElementById("rangeValue").textContent = rangeInput.value;
+  });
+
+  const formDisable = document.getElementById("buyerform");
   formDisable.addEventListener("submit", (event) => {
     event.preventDefault();
     const formData = new FormData(formDisable);
