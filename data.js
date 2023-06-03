@@ -1,11 +1,12 @@
 export let textTitles = {
-  categories: "ПЕРЕЛІК КАТЕГОРІЙ",
+  categories: "ПЕРЕЛІК КАТЕГОРІЙ ТА ЗАМОВЛЕНЬ",
   goodsList: "СПИСОК ТОВАРІВ",
   arcticleInfo: "ІНФОРМАЦІЯ ПРО ТОВАР",
   buy: "КУПИТИ",
   buyed: "ТОВАР КУПЛЕНИЙ",
   edit: "РЕДАГУВАТИ",
   confirm: "ПІДТВЕРДИТИ",
+  order: "МОЇ ЗАМОВЛЕННЯ",
 };
 
 export let dataShop = [
