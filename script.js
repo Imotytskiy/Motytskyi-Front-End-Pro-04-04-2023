@@ -69,22 +69,16 @@ function productSelect(product) {
 //  script for form
 
 (function () {
-<<<<<<< HEAD
   const rangeInput = document.getElementById("customRange2");
 
   rangeInput.addEventListener("input", () => {
     document.getElementById("rangeValue").textContent = rangeInput.value;
   });
 
-  const formDataUse = document.getElementById("buyerform");
-  formDataUse.addEventListener("submit", (event) => {
-=======
   const formDisable = document.getElementById("buyerform");
-
   formDisable.addEventListener("submit", (event) => {
->>>>>>> parent of 4035608 (add end 23 fixed quintati)
     event.preventDefault();
-    const formData = new FormData(formDataUse);
+    const formData = new FormData(formDisable);
     let string = "";
     formData.forEach((value, key) => {
       string += `<div class="formarray">${key}:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${value}</div>`;
@@ -98,14 +92,12 @@ function productSelect(product) {
       enableFormElements();
     });
     createButton(formContainer, textTitles.confirm, function () {
-      /// start hw  25          collect JSON
       location.reload();
     });
-    for (let i = 0; i < formDataUse.elements.length; i++) {
-      formDataUse.elements[i].disabled = true;
+    for (let i = 0; i < formDisable.elements.length; i++) {
+      formDisable.elements[i].disabled = true;
     }
   });
-  //////////////////////////////////////////////////////for 25 hw///////////////////////////////////////////////////////////////////////////////////////////////////////////
 
   function deleteButtons() {
     const buttons = document.querySelectorAll("button");
@@ -133,3 +125,41 @@ function productSelect(product) {
     }
   }
 })();
+
+// function deleteButtons() {
+//   const editButton = document.querySelector(
+//     'button[textContent="РЕДАГУВАТИ"]'
+//   );
+//   const confirmButton = document.querySelector(
+//     'button[textContent="ПІДТВЕРДИТИ"]'
+//   );
+
+//   if (editButton) {
+//     editButton.remove();
+//   }
+
+//   if (confirmButton) {
+//     confirmButton.remove();
+//   }
+// }
+
+// document.getElementById(
+//   "formPost"
+// ).innerHTML = `<div class="formarray">Iнформація про товар та про доставку<br>${string} </div>`;
+// const button = document.querySelector(".button");
+// button.style.display = "none";
+// for (let i = 0; i < formOnOff.elements.length; i++) {
+//   formOnOff.elements[i].disabled = true;
+// }
+
+// createButton(formContainer, textTitles.edit, formOn);
+// function formOn() {
+//   button.style.display = "block";
+//   for (let i = 0; i < formOnOff.elements.length; i++) {
+//     formOnOff.elements[i].disabled = false;
+//   }
+// }
+
+// createButton(formContainer, textTitles.confirm);
+// });
+// })();
