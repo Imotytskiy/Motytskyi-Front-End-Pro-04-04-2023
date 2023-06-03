@@ -69,6 +69,7 @@ function productSelect(product) {
 //  script for form
 
 (function () {
+<<<<<<< HEAD
   const rangeInput = document.getElementById("customRange2");
 
   rangeInput.addEventListener("input", () => {
@@ -77,6 +78,11 @@ function productSelect(product) {
 
   const formDataUse = document.getElementById("buyerform");
   formDataUse.addEventListener("submit", (event) => {
+=======
+  const formDisable = document.getElementById("buyerform");
+
+  formDisable.addEventListener("submit", (event) => {
+>>>>>>> parent of 4035608 (add end 23 fixed quintati)
     event.preventDefault();
     const formData = new FormData(formDataUse);
     let string = "";
