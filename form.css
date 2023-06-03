@@ -54,6 +54,7 @@ textarea {
   display: block;
   background-color: #00d2ff;
   margin-top: 10px;
+  width: 170px;
 }
 
 .button[disabled] {
