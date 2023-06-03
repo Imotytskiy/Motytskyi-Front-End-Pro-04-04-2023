@@ -92,6 +92,7 @@ function productSelect(product) {
       enableFormElements();
     });
     createButton(formContainer, textTitles.confirm, function () {
+      document.getElementById("buyerform").reset();
       location.reload();
     });
     for (let i = 0; i < formDisable.elements.length; i++) {
