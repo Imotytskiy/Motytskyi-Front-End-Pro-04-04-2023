@@ -81,7 +81,7 @@ orderElement.addEventListener("click", function (event) {
   }
 
   // Викликати функцію createAccordionSections з бажаною кількістю секцій
-  createAccordionSections(5);
+  createAccordionSections(localStorage.length);
 
   var acc = document.getElementsByClassName("accordion");
   var i;
