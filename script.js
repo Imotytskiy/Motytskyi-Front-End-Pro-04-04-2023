@@ -112,10 +112,30 @@ function productSelect(product) {
     });
 
     ////////////////////////////////////////////////////////////////////////////////HW25/////////////////////////////////////////////////////////////////////////
+
+    const dateForJson = function () {
+      let now = new Date();
+
+      let year = now.getFullYear();
+      let month = now.getMonth() + 1;
+      let day = now.getDate();
+      let hour = now.getHours();
+      let minute = now.getMinutes();
+
+      month = month < 10 ? "0" + month : month;
+      day = day < 10 ? "0" + day : day;
+      minute = minute < 10 ? "0" + minute : minute;
+
+      let formattedDate =
+        year + "-" + month + "-" + day + " " + hour + ":" + minute;
+      return formattedDate;
+    };
+
     createButton(formContainer, textTitles.confirm, function () {
-      let jsonData = buildJsonFormData(formData);
-      console.log(jsonData);
-      localStorage.setItem("Date", dateForJson());
+      const jsonFormData = {};
+      jsonFormData.quantity = formDisable["quantity"].value;
+      jsonFormData.date = dateForJson();
+      localStorage.setItem("Date", JSON.stringify(jsonFormData));
       // document.getElementById("buyerform").reset();
       // location.reload();
     });
@@ -123,30 +143,6 @@ function productSelect(product) {
       formDisable.elements[i].disabled = true;
     }
   });
-
-  function buildJsonFormData(form) {
-    const jsonFormData = {};
-    jsonFormData.quantity = formDisable["quantity"].value;
-    jsonFormData.date = dateForJson();
-    return jsonFormData;
-  }
-  const dateForJson = function () {
-    let now = new Date();
-
-    let year = now.getFullYear();
-    let month = now.getMonth() + 1;
-    let day = now.getDate();
-    let hour = now.getHours();
-    let minute = now.getMinutes();
-
-    month = month < 10 ? "0" + month : month;
-    day = day < 10 ? "0" + day : day;
-    minute = minute < 10 ? "0" + minute : minute;
-
-    let formattedDate =
-      year + "-" + month + "-" + day + " " + hour + ":" + minute;
-    return formattedDate;
-  };
 
   //////////////////////////////////////////////////////////////////////////////////hw25/////////////////////////////////////
   function deleteButtons() {
