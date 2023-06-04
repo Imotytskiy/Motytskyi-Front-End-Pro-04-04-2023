@@ -47,6 +47,10 @@ const createOrderElement = () => {
 const orderElement = createOrderElement();
 
 orderElement.addEventListener("click", function (event) {
+  if (localStorage.length === 0) {
+    alert("Замовлення відсутні");
+    return;
+  }
   clearFirstBlock();
   catContainer.style.display = "none";
   const accordionContainer = document.getElementById("accordion-container");
@@ -80,8 +84,7 @@ orderElement.addEventListener("click", function (event) {
     }
   }
 
-  // Викликати функцію createAccordionSections з бажаною кількістю секцій
-  createAccordionSections(5);
+  createAccordionSections(localStorage.length);
 
   var acc = document.getElementsByClassName("accordion");
   var i;
