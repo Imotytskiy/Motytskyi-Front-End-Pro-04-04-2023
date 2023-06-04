@@ -75,12 +75,15 @@ orderElement.addEventListener("click", function (event) {
 
     // Додаємо кнопку акордеона і панель до контейнера акордеона
     accordionContainer.appendChild(button);
+
     accordionContainer.appendChild(panel);
   }
 
   function createAccordionSections(count) {
-    for (let i = 1; i <= count; i++) {
-      createAccordionSection("Section " + i, "Section " + i);
+    for (let i = 0; i < count; i++) {
+      const key = localStorage.key(i);
+      const value = localStorage.getItem(key);
+      createAccordionSection(key, value);
     }
   }
 
