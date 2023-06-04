@@ -1,6 +1,10 @@
 * {
   margin-top: 10px;
 }
+#accordion {
+  display: none;
+}
+
 #wrapper {
   overflow: hidden;
   width: 100%;

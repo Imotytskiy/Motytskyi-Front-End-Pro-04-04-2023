@@ -1,7 +1,8 @@
-import { textTitles, dataShop } from "./data.js";
+import { textTitles, prices, dataShop } from "./data.js";
 
 const appContainer = document.getElementById("root");
 const catContainer = document.getElementById("catContainer");
+const accordion = document.getElementById("accordion");
 const prodContainer = document.getElementById("prodContainer");
 const descrContainer = document.getElementById("descrContainer");
 const formContainer = document.getElementById("formContainer");
@@ -47,7 +48,59 @@ const orderElement = createOrderElement();
 
 orderElement.addEventListener("click", function (event) {
   clearFirstBlock();
-  orderElement = createOrderElement();
+  catContainer.style.display = "none";
+  const accordionContainer = document.getElementById("accordion-container");
+  accordionContainer.style.display = "block";
+
+  function createAccordionSection(sectionTitle, sectionContent) {
+    // Створюємо елементи акордеона
+    const button = document.createElement("button");
+    button.classList.add("accordion");
+    button.textContent = sectionTitle;
+
+    const panel = document.createElement("div");
+    panel.classList.add("panel");
+    const paragraph = document.createElement("p");
+    paragraph.textContent = sectionContent;
+    panel.appendChild(paragraph);
+
+    // Додаємо обробник події для розкривання/згортання секції при кліку на кнопку акордеона
+    button.addEventListener("click", function () {
+      panel.classList.toggle("active");
+    });
+
+    // Додаємо кнопку акордеона і панель до контейнера акордеона
+    accordionContainer.appendChild(button);
+    accordionContainer.appendChild(panel);
+  }
+
+  function createAccordionSections(count) {
+    for (let i = 1; i <= count; i++) {
+      createAccordionSection("Section " + i, "Section " + i);
+    }
+  }
+
+  // Викликати функцію createAccordionSections з бажаною кількістю секцій
+  createAccordionSections(5);
+
+  var acc = document.getElementsByClassName("accordion");
+  var i;
+
+  for (i = 0; i < acc.length; i++) {
+    acc[i].addEventListener("click", function () {
+      /* Toggle between adding and removing the "active" class,
+    to highlight the button that controls the panel */
+      this.classList.toggle("active");
+
+      /* Toggle between hiding and showing the active panel */
+      var panel = this.nextElementSibling;
+      if (panel.style.display === "block") {
+        panel.style.display = "none";
+      } else {
+        panel.style.display = "block";
+      }
+    });
+  }
 });
 dataShop.forEach((category) => {
   const categoryElement = document.createElement("div");
@@ -71,12 +124,16 @@ function makeCategory(event) {
     productElement.addEventListener("click", productSelect(product));
   });
 }
+let jsonProduct = "";
+let jsonIdProduct = "";
 function productSelect(product) {
   return function (event) {
     descrContainer.innerHTML = textTitles.arcticleInfo;
     var descriptionElement = document.createElement("div");
     applyStyles(descriptionElement);
     descriptionElement.textContent = product.description;
+    jsonProduct = product.name;
+    jsonIdProduct = product.id;
     descrContainer.appendChild(descriptionElement);
     createButton(descrContainer, textTitles.buy, function (event) {
       formContainer.style.display = "block";
@@ -112,7 +169,6 @@ function productSelect(product) {
     });
 
     ////////////////////////////////////////////////////////////////////////////////HW25/////////////////////////////////////////////////////////////////////////
-
     const dateForJson = function () {
       let now = new Date();
 
@@ -121,23 +177,38 @@ function productSelect(product) {
       let day = now.getDate();
       let hour = now.getHours();
       let minute = now.getMinutes();
+      let second = now.getSeconds();
 
       month = month < 10 ? "0" + month : month;
       day = day < 10 ? "0" + day : day;
       minute = minute < 10 ? "0" + minute : minute;
+      second = second < 10 ? "0" + second : second;
 
       let formattedDate =
-        year + "-" + month + "-" + day + " " + hour + ":" + minute;
+        year +
+        "-" +
+        month +
+        "-" +
+        day +
+        " " +
+        hour +
+        ":" +
+        minute +
+        ":" +
+        second;
       return formattedDate;
     };
 
     createButton(formContainer, textTitles.confirm, function () {
       const jsonFormData = {};
+      jsonFormData.id = jsonIdProduct;
       jsonFormData.quantity = formDisable["quantity"].value;
-      jsonFormData.date = dateForJson();
-      localStorage.setItem("Date", JSON.stringify(jsonFormData));
-      // document.getElementById("buyerform").reset();
-      // location.reload();
+      jsonFormData.product = jsonProduct;
+      jsonFormData.date = dateForJson().slice(0, -9);
+      jsonFormData.price = prices[jsonIdProduct].toString();
+      localStorage.setItem(dateForJson(), JSON.stringify(jsonFormData));
+      document.getElementById("buyerform").reset();
+      location.reload();
     });
     for (let i = 0; i < formDisable.elements.length; i++) {
       formDisable.elements[i].disabled = true;
@@ -171,3 +242,7 @@ function productSelect(product) {
     }
   }
 })();
+//////
+$(function () {
+  $("#accordion").accordion();
+});
