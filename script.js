@@ -43,11 +43,15 @@ const createOrderElement = () => {
   catContainer.appendChild(orderElement);
   return orderElement;
 };
+function deleteCookie(name) {
+  document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/";
+}
 
 document
   .getElementById("alldelete")
   .addEventListener("click", function (event) {
     localStorage.clear();
+    deleteCookie("myCookie");
     location.reload();
   });
 
@@ -181,6 +185,12 @@ function productSelect(product) {
     createButton(descrContainer, textTitles.buy, function (event) {
       formContainer.style.display = "block";
       clearBlock();
+      // const cookieValue = getCookie("cookieKey");
+      // const surnameInput = document.getElementById("validationCustom01");
+      // surnameInput.value = cookieValue.substring(0, cookieValue.indexOf(" "));
+
+      // const nameInput = document.getElementById("validationCustom02");
+      // nameInput.value = cookieValue.substring(cookieValue.indexOf(" ") + 1);
     });
   };
 }
@@ -252,7 +262,10 @@ function productSelect(product) {
       jsonFormData.price = prices[jsonIdProduct].toString();
       jsonFormData.description = jsonDescription;
       localStorage.setItem(jsonFormData.key, JSON.stringify(jsonFormData));
-      setCookie(formDisable["name"].value, formDisable["surname"].value);
+      setCookie(
+        "cookieKey",
+        formDisable["name"].value + "_" + formDisable["surname"].value
+      );
       document.getElementById("buyerform").reset();
       location.reload();
     });
