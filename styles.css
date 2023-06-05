@@ -20,6 +20,7 @@
   text-align: center;
   margin-left: auto;
 }
+
 .delete-button:hover {
   background: darkred;
 }

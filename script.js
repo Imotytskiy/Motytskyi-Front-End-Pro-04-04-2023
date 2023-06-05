@@ -51,6 +51,10 @@ document
     location.reload();
   });
 
+document.getElementById("reload").addEventListener("click", function (event) {
+  location.reload();
+});
+
 const orderElement = createOrderElement();
 
 orderElement.addEventListener("click", function (event) {

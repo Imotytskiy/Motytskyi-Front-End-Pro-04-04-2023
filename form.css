@@ -66,8 +66,14 @@ textarea {
   text-align: center;
   margin: auto;
   background: red;
+  margin-bottom: 10px;
 }
-
+.reload {
+  width: auto;
+  text-align: center;
+  margin: auto;
+  background: green;
+}
 .button[disabled] {
   opacity: 0.5;
   cursor: not-allowed;
