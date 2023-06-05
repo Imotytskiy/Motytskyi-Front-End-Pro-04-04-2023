@@ -10,6 +10,20 @@
   display: none;
 }
 
+.delete-button {
+  display: block;
+  font-size: bold;
+  color: white;
+  background: red;
+  border-radius: 4px;
+  width: 100px;
+  text-align: center;
+  margin-left: auto;
+}
+.delete-button:hover {
+  background: darkred;
+}
+
 #firstRow,
 #secondRow {
   display: flex;

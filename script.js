@@ -44,6 +44,13 @@ const createOrderElement = () => {
   return orderElement;
 };
 
+document
+  .getElementById("alldelete")
+  .addEventListener("click", function (event) {
+    localStorage.clear();
+    location.reload();
+  });
+
 const orderElement = createOrderElement();
 
 orderElement.addEventListener("click", function (event) {
@@ -57,10 +64,14 @@ orderElement.addEventListener("click", function (event) {
   accordionContainer.style.display = "block";
 
   function createAccordionSection(sectionTitle, sectionContent) {
-    // Створюємо елементи акордеона
     const button = document.createElement("button");
+    button.id = idButton;
     button.classList.add("accordion");
     button.textContent = sectionTitle;
+
+    const innerButton = document.createElement("span");
+    innerButton.classList.add("delete-button");
+    innerButton.textContent = "ВИДАЛИТИ";
 
     const panel = document.createElement("div");
     panel.classList.add("panel");
@@ -68,22 +79,42 @@ orderElement.addEventListener("click", function (event) {
     paragraph.textContent = sectionContent;
     panel.appendChild(paragraph);
 
-    // Додаємо обробник події для розкривання/згортання секції при кліку на кнопку акордеона
-    button.addEventListener("click", function () {
-      panel.classList.toggle("active");
-    });
-
-    // Додаємо кнопку акордеона і панель до контейнера акордеона
     accordionContainer.appendChild(button);
-
+    button.appendChild(innerButton);
     accordionContainer.appendChild(panel);
+
+    innerButton.addEventListener("click", function () {
+      const closestElement = innerButton.closest(".accordion");
+      const closestElementId = closestElement.id;
+      if (panel.style.display === "block") {
+        panel.style.display = "none";
+      }
+      localStorage.removeItem(closestElementId);
+      closestElement.remove();
+    });
   }
 
+  let idButton = "";
   function createAccordionSections(count) {
     for (let i = 0; i < count; i++) {
-      const key = localStorage.key(i);
-      const value = localStorage.getItem(key);
-      createAccordionSection(key, value);
+      let key = localStorage.key(i);
+      const forValue = JSON.parse(localStorage.getItem(key));
+      idButton = forValue.key;
+      // let sum = Number(forValue.quantity) * Number(forValue.price);
+      // console.log(forValue.quantity, typeof forValue.quantity);
+      // console.log(forValue.price, typeof forValue.quantity);
+      // console.log(sum);
+      let orderInfo =
+        "Замовлено " +
+        localStorage.key(i).slice(0, -8) +
+        " ціна за одн." +
+        forValue.price +
+        "$ " +
+        "до сплати " +
+        // parseInt(forValue.quantity) * parseInt(forValue.price) +
+        "$";
+      const description = forValue.description;
+      createAccordionSection(orderInfo, description);
     }
   }
 
@@ -132,12 +163,14 @@ function makeCategory(event) {
 }
 let jsonProduct = "";
 let jsonIdProduct = "";
+let jsonDescription = "";
 function productSelect(product) {
   return function (event) {
     descrContainer.innerHTML = textTitles.arcticleInfo;
     var descriptionElement = document.createElement("div");
     applyStyles(descriptionElement);
     descriptionElement.textContent = product.description;
+    jsonDescription = product.description;
     jsonProduct = product.name;
     jsonIdProduct = product.id;
     descrContainer.appendChild(descriptionElement);
@@ -207,12 +240,14 @@ function productSelect(product) {
 
     createButton(formContainer, textTitles.confirm, function () {
       const jsonFormData = {};
+      jsonFormData.key = dateForJson();
       jsonFormData.id = jsonIdProduct;
       jsonFormData.quantity = formDisable["quantity"].value;
       jsonFormData.product = jsonProduct;
-      jsonFormData.date = dateForJson().slice(0, -9);
+      jsonFormData.date = jsonFormData.key.slice(0, -9);
       jsonFormData.price = prices[jsonIdProduct].toString();
-      localStorage.setItem(dateForJson(), JSON.stringify(jsonFormData));
+      jsonFormData.description = jsonDescription;
+      localStorage.setItem(jsonFormData.key, JSON.stringify(jsonFormData));
       document.getElementById("buyerform").reset();
       location.reload();
     });
@@ -249,6 +284,3 @@ function productSelect(product) {
   }
 })();
 //////
-$(function () {
-  $("#accordion").accordion();
-});

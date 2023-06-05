@@ -61,6 +61,13 @@ textarea {
   width: 170px;
 }
 
+.delete {
+  width: auto;
+  text-align: center;
+  margin: auto;
+  background: red;
+}
+
 .button[disabled] {
   opacity: 0.5;
   cursor: not-allowed;
