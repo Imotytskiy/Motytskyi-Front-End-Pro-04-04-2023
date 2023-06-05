@@ -252,6 +252,7 @@ function productSelect(product) {
       jsonFormData.price = prices[jsonIdProduct].toString();
       jsonFormData.description = jsonDescription;
       localStorage.setItem(jsonFormData.key, JSON.stringify(jsonFormData));
+      setCookie(formDisable["name"].value, formDisable["surname"].value);
       document.getElementById("buyerform").reset();
       location.reload();
     });
@@ -259,6 +260,13 @@ function productSelect(product) {
       formDisable.elements[i].disabled = true;
     }
   });
+
+  function setCookie(name, surname) {
+    var expirationDate = new Date();
+    expirationDate.setTime(expirationDate.getTime() + 24 * 60 * 60 * 1000); // 24 hours in milliseconds
+    var expires = "expires=" + expirationDate.toUTCString();
+    document.cookie = name + "=" + surname + ";" + expires + ";path=/";
+  }
 
   //////////////////////////////////////////////////////////////////////////////////hw25/////////////////////////////////////
   function deleteButtons() {
