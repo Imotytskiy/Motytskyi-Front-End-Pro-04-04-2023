@@ -4,7 +4,15 @@ function takeInfo() {
   form.addEventListener("submit", function (event) {
     event.preventDefault();
     const number = form.elements.post.value;
-    console.log(number);
+
+    fetch(`https://jsonplaceholder.typicode.com/todos/${number}`)
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   });
 }
 
