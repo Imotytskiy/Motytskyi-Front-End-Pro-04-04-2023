@@ -1,12 +1,10 @@
 function takeInfo() {
-  var form = document.getElementById("myForm");
+  const form = document.getElementById("form");
 
-  document
-    .getElementsByTagName("button")
-    .addEventListener("submit", function (event) {
-      event.preventDefault();
-      console.log(event);
-    });
+  form.addEventListener("submit", function (event) {
+    event.preventDefault();
+    console.log(event);
+  });
 }
 takeInfo();
 // function searchPost() {}
