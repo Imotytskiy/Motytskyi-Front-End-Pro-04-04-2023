@@ -36,3 +36,6 @@ input {
 .button-color {
   background-color: #00d2ff;
 }
+.button-color:hover {
+  background-color: blue;
+}

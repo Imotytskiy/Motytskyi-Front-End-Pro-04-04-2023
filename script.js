@@ -3,8 +3,9 @@ function takeInfo() {
 
   form.addEventListener("submit", function (event) {
     event.preventDefault();
-    console.log(event);
+    const number = form.elements.post.value;
+    console.log(number);
   });
 }
+
 takeInfo();
-// function searchPost() {}
