@@ -1,3 +1,7 @@
+<!-- Використовуючи API https://jsonplaceholder.typicode.com/ зробити пошук поста за ід.
+Ід має бути введений в інпут (валідація: ід від 1 до 100) Якщо знайдено пост, то вивести на сторінку блок з постом і зробити кнопку для отримання комкоментарів до посту.
+Зробити завдання використовуючи проміси, перехопити помилки. -->
+
 <!DOCTYPE html>
 <html lang="uk">
   <head>
@@ -9,6 +13,23 @@
     <script type="module" src="script.js" defer></script>
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <section id="">
+        <form action="">
+          <label for="post"></label>
+          <input
+            name="post"
+            type="number"
+            min="1"
+            max="100"
+            id="post"
+            required
+          />
+          <button class="button-color block" type="submit">
+            ВВЕСТИ НОМЕР ПОСТУ
+          </button>
+        </form>
+      </section>
+    </div>
   </body>
 </html>
