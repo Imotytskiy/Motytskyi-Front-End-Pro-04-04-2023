@@ -194,12 +194,15 @@ function productSelect(product) {
 function formWarehouse() {
   const checkBox = document.getElementById("warehouse");
   const wareHouse = document.getElementById("newPost");
-  checkBox.addEventListener("click", () => {
-    if (checkBox.checked === true) {
+  checkBox.addEventListener("input", () => {
+    if (!checkBox.checked) {
       wareHouse.disabled = false;
+      wareHouse.placeholder = "Введіть номер складу";
       wareHouse.value = "";
     } else {
       wareHouse.disabled = true;
+      wareHouse.placeholder = "Заблоковано";
+      wareHouse.value = "";
     }
   });
 }
