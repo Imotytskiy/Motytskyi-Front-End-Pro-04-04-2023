@@ -8,7 +8,9 @@ function takeInfo() {
     fetch(`https://jsonplaceholder.typicode.com/todos/${number}`)
       .then((response) => response.json())
       .then((data) => {
-        console.log(data, typeof data);
+        document.getElementById("choose-post").style.display = "none";
+        document.getElementById("post-button").style.display = "block";
+        console.log(data);
       })
       .catch((error) => {
         console.error(error);

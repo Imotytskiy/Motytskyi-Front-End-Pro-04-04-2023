@@ -39,3 +39,7 @@ input {
 .button-color:hover {
   background-color: blue;
 }
+
+.write-obj {
+  display: none;
+}
