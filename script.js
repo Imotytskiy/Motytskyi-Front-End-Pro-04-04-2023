@@ -1,8 +1,6 @@
 import { textTitles, prices, dataShop } from "./data.js";
 
-const appContainer = document.getElementById("root");
 const catContainer = document.getElementById("catContainer");
-const accordion = document.getElementById("accordion");
 const prodContainer = document.getElementById("prodContainer");
 const descrContainer = document.getElementById("descrContainer");
 const formContainer = document.getElementById("formContainer");
@@ -108,20 +106,12 @@ orderElement.addEventListener("click", function (event) {
       let key = localStorage.key(i);
       const forValue = JSON.parse(localStorage.getItem(key));
       idButton = forValue.key;
-      // let sum = Number(forValue.quantity) * Number(forValue.price);
-      // console.log(forValue.quantity, typeof forValue.quantity);
-      // console.log(forValue.price, typeof forValue.quantity);
-      // console.log(sum);
-      let orderInfo =
-        "Замовлено " +
-        localStorage.key(i).slice(0, -8) +
-        " ціна за одн." +
-        forValue.price +
-        "$ " +
-        "до сплати " +
-        // parseInt(forValue.quantity) * parseInt(forValue.price) +
-        "$";
-      const description = forValue.description;
+      let orderInfo = `Замовлено ${localStorage
+        .key(i)
+        .slice(0, -8)} ціна за одн. ${forValue.price}$ до сплати ${(
+        Number(forValue.quantity) * Number(forValue.price)
+      ).toString()}$`;
+      const description = `Замовлено кількість товару: ${forValue.quantity} одиниць ${forValue.description}`;
       createAccordionSection(orderInfo, description);
     }
   }
@@ -201,6 +191,21 @@ function productSelect(product) {
 
 //  script for form
 
+function formWarehouse() {
+  const checkBox = document.getElementById("warehouse");
+  const wareHouse = document.getElementById("newPost");
+  checkBox.addEventListener("click", () => {
+    if (checkBox.checked === true) {
+      wareHouse.disabled = false;
+      wareHouse.value = "";
+    } else {
+      wareHouse.disabled = true;
+    }
+  });
+}
+
+formWarehouse();
+
 (function () {
   const rangeInput = document.getElementById("customRange2");
 
@@ -266,10 +271,14 @@ function productSelect(product) {
       jsonFormData.price = prices[jsonIdProduct].toString();
       jsonFormData.description = jsonDescription;
       localStorage.setItem(jsonFormData.key, JSON.stringify(jsonFormData));
-      // setCookie(
-      //   "cookieKey",
-      //   formDisable["name"].value + "_" + formDisable["surname"].value
-      // );
+      setCookie(
+        "cookieKey",
+        formDisable["name"].value +
+          " " +
+          formDisable["surname"].value +
+          " " +
+          formDisable["father-name"].value
+      );
       document.getElementById("buyerform").reset();
       location.reload();
     });
@@ -278,12 +287,12 @@ function productSelect(product) {
     }
   });
 
-  // function setCookie(name, surname) {
-  //   var expirationDate = new Date();
-  //   expirationDate.setTime(expirationDate.getTime() + 24 * 60 * 60 * 1000); // 24 hours in milliseconds
-  //   var expires = "expires=" + expirationDate.toUTCString();
-  //   document.cookie = name + "=" + surname + ";" + expires + ";path=/";
-  // }
+  function setCookie(name, surname) {
+    var expirationDate = new Date();
+    expirationDate.setTime(expirationDate.getTime() + 24 * 60 * 60 * 1000); // 24 hours in milliseconds
+    var expires = "expires=" + expirationDate.toUTCString();
+    document.cookie = name + "=" + surname + ";" + expires + ";path=/";
+  }
 
   //////////////////////////////////////////////////////////////////////////////////hw25/////////////////////////////////////
   function deleteButtons() {
