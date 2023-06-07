@@ -246,18 +246,7 @@ formWarehouse();
       minute = minute < 10 ? "0" + minute : minute;
       second = second < 10 ? "0" + second : second;
 
-      let formattedDate =
-        year +
-        "-" +
-        month +
-        "-" +
-        day +
-        " " +
-        hour +
-        ":" +
-        minute +
-        ":" +
-        second;
+      let formattedDate = `${year}-${month}-${day} ${hour}:${minute}:${second}`;
       return formattedDate;
     };
 
