@@ -111,8 +111,7 @@ orderElement.addEventListener("click", function (event) {
         .slice(0, -8)} ціна за одн. ${forValue.price}$ до сплати ${(
         Number(forValue.quantity) * Number(forValue.price)
       ).toString()}$`;
-      const description = `Замовлено кількість товару: ${forValue.quantity} одиниць ${forValue.description}`;
-      createAccordionSection(orderInfo, description);
+      createAccordionSection(orderInfo, forValue.description);
     }
   }
 
@@ -175,16 +174,6 @@ function productSelect(product) {
     createButton(descrContainer, textTitles.buy, function (event) {
       formContainer.style.display = "block";
       clearBlock();
-      // if (getCookie("cookieKey")) {
-      //   const cookieValue = getCookie("cookieKey");
-      //   const surnameInput = document.getElementById("validationCustom01");
-      //   console.log(cookieValue.substring(0, cookieValue.indexOf(" ")));
-      //   surnameInput.value = cookieValue.substring(0, cookieValue.indexOf(" "));
-
-      //   const nameInput = document.getElementById("validationCustom02");
-      //   console.log(cookieValue.substring(cookieValue.indexOf(" ") + 1));
-      //   nameInput.value = cookieValue.substring(cookieValue.indexOf(" ") + 1);
-      // }
     });
   };
 }
@@ -261,16 +250,15 @@ formWarehouse();
       jsonFormData.product = jsonProduct;
       jsonFormData.date = jsonFormData.key.slice(0, -9);
       jsonFormData.price = prices[jsonIdProduct].toString();
-      jsonFormData.description = jsonDescription;
+      jsonFormData.description = `Замовник: ${formDisable["name"].value} ${formDisable["surname"].value} ${formDisable["father-name"].value}
+       Місто доставки: ${formDisable["city"].value} Спосіб оплати: ${formDisable["paymentmethod"].value} Товар: ${jsonDescription}`;
+      if (formDisable["number-of-post"].value) {
+        jsonFormData.description += ` Склад Нової пошти для надсилання № ${formDisable["number-of-post"].value}`;
+      }
+      if (formDisable["comment"].value) {
+        jsonFormData.description += ` Коментар:  ${formDisable["comment"].value}`;
+      }
       localStorage.setItem(jsonFormData.key, JSON.stringify(jsonFormData));
-      setCookie(
-        "cookieKey",
-        formDisable["name"].value +
-          " " +
-          formDisable["surname"].value +
-          " " +
-          formDisable["father-name"].value
-      );
       document.getElementById("buyerform").reset();
       location.reload();
     });
@@ -278,14 +266,6 @@ formWarehouse();
       formDisable.elements[i].disabled = true;
     }
   });
-
-  function setCookie(name, surname) {
-    var expirationDate = new Date();
-    expirationDate.setTime(expirationDate.getTime() + 24 * 60 * 60 * 1000); // 24 hours in milliseconds
-    var expires = "expires=" + expirationDate.toUTCString();
-    document.cookie = name + "=" + surname + ";" + expires + ";path=/";
-  }
-
   //////////////////////////////////////////////////////////////////////////////////hw25/////////////////////////////////////
   function deleteButtons() {
     const buttons = document.querySelectorAll("button");
@@ -313,4 +293,22 @@ formWarehouse();
     }
   }
 })();
-//////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// function setCookie(name, surname) {
+//   var expirationDate = new Date();
+//   expirationDate.setTime(expirationDate.getTime() + 24 * 60 * 60 * 1000); // 24 hours in milliseconds
+//   var expires = "expires=" + expirationDate.toUTCString();
+//   document.cookie = name + "=" + surname + ";" + expires + ";path=/";
+// }
+
+// if (getCookie("cookieKey")) {
+//   const cookieValue = getCookie("cookieKey");
+//   const surnameInput = document.getElementById("validationCustom01");
+//   console.log(cookieValue.substring(0, cookieValue.indexOf(" ")));
+//   surnameInput.value = cookieValue.substring(0, cookieValue.indexOf(" "));
+
+//   const nameInput = document.getElementById("validationCustom02");
+//   console.log(cookieValue.substring(cookieValue.indexOf(" ") + 1));
+//   nameInput.value = cookieValue.substring(cookieValue.indexOf(" ") + 1);
+// }
