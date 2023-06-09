@@ -43,7 +43,7 @@ const createOrderElement = () => {
 };
 
 document
-  .getElementById("alldelete")
+  .getElementById("alldelete") // button delete all
   .addEventListener("click", function (event) {
     localStorage.clear();
     location.reload();
@@ -119,6 +119,7 @@ orderElement.addEventListener("click", function (event) {
   var i;
 
   for (i = 0; i < acc.length; i++) {
+    // from w3schools.com + css + html accordion
     acc[i].addEventListener("click", function () {
       /* Toggle between adding and removing the "active" class,
     to highlight the button that controls the panel */
@@ -198,7 +199,7 @@ function formWarehouse() {
   });
 }
 
-formWarehouse();
+formWarehouse(); // check box для склада Новой почты
 
 const inputName = document.getElementById("name");
 const inputSurname = document.getElementById("surname");
@@ -210,7 +211,7 @@ function makeUpperCaseForName(input) {
   });
 }
 
-makeUpperCaseForName(inputName);
+makeUpperCaseForName(inputName); // uppercase для ФИО
 makeUpperCaseForName(inputSurname);
 makeUpperCaseForName(inputFatherName);
 
@@ -218,13 +219,13 @@ makeUpperCaseForName(inputFatherName);
   const rangeInput = document.getElementById("customRange2");
 
   rangeInput.addEventListener("input", () => {
-    document.getElementById("rangeValue").textContent = rangeInput.value;
+    document.getElementById("rangeValue").textContent = rangeInput.value; // бегунок формы обновляем realtime value
   });
 
-  const formDisable = document.getElementById("buyerform");
-  formDisable.addEventListener("submit", (event) => {
+  const actualForm = document.getElementById("buyerform");
+  actualForm.addEventListener("submit", (event) => {
     event.preventDefault();
-    const formData = new FormData(formDisable);
+    const formData = new FormData(actualForm);
     let string = "";
     formData.forEach((value, key) => {
       string += `<div class="formarray">${key}:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${value}</div>`;
@@ -238,7 +239,6 @@ makeUpperCaseForName(inputFatherName);
       enableFormElements();
     });
 
-    ////////////////////////////////////////////////////////////////////////////////HW25/////////////////////////////////////////////////////////////////////////
     const dateForJson = function () {
       let now = new Date();
 
@@ -263,20 +263,20 @@ makeUpperCaseForName(inputFatherName);
 
       jsonFormData.key = dateForJson();
       jsonFormData.id = jsonIdProduct;
-      jsonFormData.quantity = formDisable["quantity"].value;
+      jsonFormData.quantity = actualForm["quantity"].value;
       jsonFormData.product = jsonProduct;
       jsonFormData.date = jsonFormData.key.slice(0, -6);
       jsonFormData.price = prices[jsonIdProduct].toString();
 
-      jsonFormData.description = `Замовник: ${formDisable["name"].value} ${formDisable["surname"].value} ${formDisable["father-name"].value}. 
-        Місто доставки: ${formDisable["city"].value}. Спосіб оплати: ${formDisable["paymentmethod"].value}. Товар: ${jsonDescription}`;
+      jsonFormData.description = `Замовник: ${actualForm["name"].value} ${actualForm["surname"].value} ${actualForm["father-name"].value}. 
+        Місто доставки: ${actualForm["city"].value}. Спосіб оплати: ${actualForm["paymentmethod"].value}. Товар: ${jsonDescription}`;
 
-      if (formDisable["number-of-post"].value) {
-        jsonFormData.description += ` Склад Нової пошти для надсилання № ${formDisable["number-of-post"].value}.`;
+      if (actualForm["number-of-post"].value) {
+        jsonFormData.description += ` Склад Нової пошти для надсилання № ${actualForm["number-of-post"].value}.`;
       }
 
-      if (formDisable["comment"].value) {
-        jsonFormData.description += ` Коментар:  ${formDisable["comment"].value}.`;
+      if (actualForm["comment"].value) {
+        jsonFormData.description += ` Коментар:  ${actualForm["comment"].value}.`;
       }
 
       return jsonFormData;
@@ -291,12 +291,14 @@ makeUpperCaseForName(inputFatherName);
       document.getElementById("buyerform").reset();
       location.reload();
     });
-    for (let i = 0; i < formDisable.elements.length; i++) {
-      formDisable.elements[i].disabled = true;
+    for (let i = 0; i < actualForm.elements.length; i++) {
+      //   все elements form Off
+      actualForm.elements[i].disabled = true;
     }
   });
-  //////////////////////////////////////////////////////////////////////////////////hw25/////////////////////////////////////
+
   function deleteButtons() {
+    // button edit and approve for form
     const buttons = document.querySelectorAll("button");
     buttons.forEach((button) => {
       if (
@@ -317,13 +319,13 @@ makeUpperCaseForName(inputFatherName);
   }
 
   function enableFormElements() {
-    for (let i = 0; i < formDisable.elements.length; i++) {
-      formDisable.elements[i].disabled = false;
+    // все elements form ON
+    for (let i = 0; i < actualForm.elements.length; i++) {
+      actualForm.elements[i].disabled = false;
     }
   }
 })();
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
+////////////////////////////////////////////////////////////////
 // function setCookie(name, surname) {
 //   var expirationDate = new Date();
 //   expirationDate.setTime(expirationDate.getTime() + 24 * 60 * 60 * 1000); // 24 hours in milliseconds
