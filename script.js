@@ -95,7 +95,7 @@ orderElement.addEventListener("click", function (event) {
       if (panel.style.display === "block") {
         panel.style.display = "none";
       }
-      localStorage.removeItem(closestElementId);
+      localStorage.removeItem(closestElementId + "order");
       closestElement.remove();
     });
   }
@@ -108,7 +108,7 @@ orderElement.addEventListener("click", function (event) {
       idButton = forValue.key;
       let orderInfo = `Замовлено ${localStorage
         .key(i)
-        .slice(0, -6)} року. Ціна за одн. ${
+        .slice(0, -11)} року. Ціна за одн. ${
         forValue.price
       }$. Загальна сумма до сплати ${(
         Number(forValue.quantity) * Number(forValue.price)
@@ -129,11 +129,15 @@ orderElement.addEventListener("click", function (event) {
       this.classList.toggle("active");
 
       /* Toggle between hiding and showing the active panel */
-      var panel = this.nextElementSibling;
-      if (panel.style.display === "block") {
-        panel.style.display = "none";
-      } else {
-        panel.style.display = "block";
+      try {
+        var panel = this.nextElementSibling;
+        if (panel.style.display === "block") {
+          panel.style.display = "none";
+        } else {
+          panel.style.display = "block";
+        }
+      } catch (error) {
+        console.log("Во время удаления order, при открытом аккардионе", error);
       }
     });
   }
@@ -199,6 +203,20 @@ function formWarehouse() {
 }
 
 formWarehouse();
+
+const inputName = document.getElementById("name");
+const inputSurname = document.getElementById("surname");
+const inputFatherName = document.getElementById("father-name");
+
+function makeUpperCaseForName(input) {
+  input.addEventListener("input", () => {
+    input.value = input.value.toUpperCase();
+  });
+}
+
+makeUpperCaseForName(inputName);
+makeUpperCaseForName(inputSurname);
+makeUpperCaseForName(inputFatherName);
 
 (function () {
   const rangeInput = document.getElementById("customRange2");
@@ -270,7 +288,10 @@ formWarehouse();
 
     createButton(formContainer, textTitles.confirm, () => {
       const jsonFormData = createJsonFormData();
-      localStorage.setItem(jsonFormData.key, JSON.stringify(jsonFormData));
+      localStorage.setItem(
+        jsonFormData.key + "order",
+        JSON.stringify(jsonFormData)
+      );
       document.getElementById("buyerform").reset();
       location.reload();
     });
