@@ -255,7 +255,7 @@ formWarehouse();
       jsonFormData.price = prices[jsonIdProduct].toString();
 
       jsonFormData.description = `Замовник: ${formDisable["name"].value} ${formDisable["surname"].value} ${formDisable["father-name"].value}. 
-        Місто доставки: ${formDisable["city"].value}. Спосіб оплати: ${formDisable["paymentmethod"].value}. Товар: ${jsonDescription}.`;
+        Місто доставки: ${formDisable["city"].value}. Спосіб оплати: ${formDisable["paymentmethod"].value}. Товар: ${jsonDescription}`;
 
       if (formDisable["number-of-post"].value) {
         jsonFormData.description += ` Склад Нової пошти для надсилання № ${formDisable["number-of-post"].value}.`;
