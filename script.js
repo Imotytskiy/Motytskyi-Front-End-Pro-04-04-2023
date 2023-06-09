@@ -104,9 +104,9 @@ orderElement.addEventListener("click", function (event) {
       idButton = forValue.key;
       let orderInfo = `Замовлено ${localStorage
         .key(i)
-        .slice(0, -11)} року. Ціна за одн. ${
-        forValue.price
-      }$. Загальна сумма до сплати ${(
+        .slice(0, -11)} року. Ціна за одн. ${forValue.price}$. Кількість ${
+        forValue.quantity
+      } шт. Загальна сумма до сплати ${(
         Number(forValue.quantity) * Number(forValue.price)
       ).toString()} дол. США`;
       createAccordionSection(orderInfo, forValue.description);
