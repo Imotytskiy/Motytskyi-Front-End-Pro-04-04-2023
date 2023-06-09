@@ -251,6 +251,7 @@ makeUpperCaseForName(inputFatherName);
 
       month = month < 10 ? "0" + month : month;
       day = day < 10 ? "0" + day : day;
+      hour = hour < 10 ? "0" + hour : hour;
       minute = minute < 10 ? "0" + minute : minute;
       second = second < 10 ? "0" + second : second;
 
