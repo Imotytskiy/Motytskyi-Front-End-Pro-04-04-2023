@@ -41,15 +41,11 @@ const createOrderElement = () => {
   catContainer.appendChild(orderElement);
   return orderElement;
 };
-function deleteCookie(name) {
-  document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/";
-}
 
 document
   .getElementById("alldelete")
   .addEventListener("click", function (event) {
     localStorage.clear();
-    deleteCookie("myCookie");
     location.reload();
   });
 
@@ -345,3 +341,7 @@ makeUpperCaseForName(inputFatherName);
 //   console.log(cookieValue.substring(cookieValue.indexOf(" ") + 1));
 //   nameInput.value = cookieValue.substring(cookieValue.indexOf(" ") + 1);
 // }
+// function deleteCookie(name) {
+//   document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/";
+// }
+// deleteCookie("myCookie");
