@@ -265,7 +265,7 @@ makeUpperCaseForName(inputFatherName);
       jsonFormData.id = jsonIdProduct;
       jsonFormData.quantity = actualForm["quantity"].value;
       jsonFormData.product = jsonProduct;
-      jsonFormData.date = jsonFormData.key.slice(0, -5);
+      jsonFormData.date = jsonFormData.key.slice(0, -6);
       jsonFormData.price = prices[jsonIdProduct].toString();
 
       jsonFormData.description = `Замовник: ${actualForm["name"].value} ${actualForm["surname"].value} ${actualForm["father-name"].value}. 
