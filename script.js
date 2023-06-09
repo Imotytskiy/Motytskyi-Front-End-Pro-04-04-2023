@@ -242,22 +242,32 @@ formWarehouse();
       return formattedDate;
     };
 
-    createButton(formContainer, textTitles.confirm, function () {
+    const createJsonFormData = () => {
       const jsonFormData = {};
+
       jsonFormData.key = dateForJson();
       jsonFormData.id = jsonIdProduct;
       jsonFormData.quantity = formDisable["quantity"].value;
       jsonFormData.product = jsonProduct;
       jsonFormData.date = jsonFormData.key.slice(0, -9);
       jsonFormData.price = prices[jsonIdProduct].toString();
+
       jsonFormData.description = `Замовник: ${formDisable["name"].value} ${formDisable["surname"].value} ${formDisable["father-name"].value}
-       Місто доставки: ${formDisable["city"].value} Спосіб оплати: ${formDisable["paymentmethod"].value} Товар: ${jsonDescription}`;
+        Місто доставки: ${formDisable["city"].value} Спосіб оплати: ${formDisable["paymentmethod"].value} Товар: ${jsonDescription}`;
+
       if (formDisable["number-of-post"].value) {
         jsonFormData.description += ` Склад Нової пошти для надсилання № ${formDisable["number-of-post"].value}`;
       }
+
       if (formDisable["comment"].value) {
         jsonFormData.description += ` Коментар:  ${formDisable["comment"].value}`;
       }
+
+      return jsonFormData;
+    };
+
+    createButton(formContainer, textTitles.confirm, () => {
+      const jsonFormData = createJsonFormData();
       localStorage.setItem(jsonFormData.key, JSON.stringify(jsonFormData));
       document.getElementById("buyerform").reset();
       location.reload();
