@@ -108,9 +108,11 @@ orderElement.addEventListener("click", function (event) {
       idButton = forValue.key;
       let orderInfo = `Замовлено ${localStorage
         .key(i)
-        .slice(0, -8)} ціна за одн. ${forValue.price}$ до сплати ${(
+        .slice(0, -6)} року. Ціна за одн. ${
+        forValue.price
+      }$. Загальна сумма до сплати ${(
         Number(forValue.quantity) * Number(forValue.price)
-      ).toString()}$`;
+      ).toString()} дол. США`;
       createAccordionSection(orderInfo, forValue.description);
     }
   }
@@ -238,7 +240,7 @@ formWarehouse();
       minute = minute < 10 ? "0" + minute : minute;
       second = second < 10 ? "0" + second : second;
 
-      let formattedDate = `${year}-${month}-${day} ${hour}:${minute}:${second}`;
+      let formattedDate = `${day} ${month} ${year}${hour}${minute}${second}`;
       return formattedDate;
     };
 
@@ -249,18 +251,18 @@ formWarehouse();
       jsonFormData.id = jsonIdProduct;
       jsonFormData.quantity = formDisable["quantity"].value;
       jsonFormData.product = jsonProduct;
-      jsonFormData.date = jsonFormData.key.slice(0, -9);
+      jsonFormData.date = jsonFormData.key.slice(0, -6);
       jsonFormData.price = prices[jsonIdProduct].toString();
 
-      jsonFormData.description = `Замовник: ${formDisable["name"].value} ${formDisable["surname"].value} ${formDisable["father-name"].value}
-        Місто доставки: ${formDisable["city"].value} Спосіб оплати: ${formDisable["paymentmethod"].value} Товар: ${jsonDescription}`;
+      jsonFormData.description = `Замовник: ${formDisable["name"].value} ${formDisable["surname"].value} ${formDisable["father-name"].value}. 
+        Місто доставки: ${formDisable["city"].value}. Спосіб оплати: ${formDisable["paymentmethod"].value}. Товар: ${jsonDescription}.`;
 
       if (formDisable["number-of-post"].value) {
-        jsonFormData.description += ` Склад Нової пошти для надсилання № ${formDisable["number-of-post"].value}`;
+        jsonFormData.description += ` Склад Нової пошти для надсилання № ${formDisable["number-of-post"].value}.`;
       }
 
       if (formDisable["comment"].value) {
-        jsonFormData.description += ` Коментар:  ${formDisable["comment"].value}`;
+        jsonFormData.description += ` Коментар:  ${formDisable["comment"].value}.`;
       }
 
       return jsonFormData;
