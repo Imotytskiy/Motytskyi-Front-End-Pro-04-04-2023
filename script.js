@@ -45,7 +45,12 @@ const createOrderElement = () => {
 document
   .getElementById("alldelete") // button delete all
   .addEventListener("click", function (event) {
-    localStorage.clear();
+    for (let i = 0; i < localStorage.length; i++) {
+      let key = localStorage.key(i);
+      if (key.includes("order")) {
+        localStorage.removeItem(key);
+      }
+    }
     location.reload();
   });
 
