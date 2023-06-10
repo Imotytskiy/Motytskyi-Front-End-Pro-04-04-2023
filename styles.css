@@ -40,6 +40,6 @@ input {
   background-color: blue;
 }
 
-.write-obj {
+#write-obj {
   display: none;
 }
