@@ -42,4 +42,6 @@ input {
 
 #write-obj {
   display: none;
+  width: 40%;
+  margin: 50px;
 }
