@@ -14,7 +14,6 @@ function takePost() {
       .then((data) => {
         document.getElementById("choose-post").style.display = "none";
         document.getElementById("post-button").style.display = "block";
-        console.log(data);
         show(data);
       })
       .catch((error) => {
@@ -46,6 +45,15 @@ function show(info) {
   document.getElementById("write-obj").style.display = "block";
   console.log(info, info.title);
   const post = document.getElementById("seepost");
-  post.innerText =
-    info.userId + "\n" + info.id + "\n" + info.title + "\n" + info.body;
+  console.log(info, typeof info);
+  if (comments) {
+    let str = "";
+    for (let i = 0; i < info.length; i++) {
+      str += `${info[i].name} <br>`;
+    }
+    post.innerHTML = str;
+  } else {
+    post.innerText =
+      info.userId + "\n" + info.id + "\n" + info.title + "\n" + info.body;
+  }
 }
