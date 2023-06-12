@@ -1,11 +1,16 @@
 #root {
   display: flex;
-  flex-direction: row;
-  justify-content: space-around;
+  flex-direction: column;
+  justify-content: center;
+}
+
+h1 {
+  text-align: center;
 }
 
 section {
   text-align: center;
+  width: 40%;
   border: 1px solid black;
   padding: 10px;
   margin: 10px;
@@ -15,6 +20,7 @@ section {
 }
 
 input {
+  margin-top: 50px;
   margin-bottom: 20px;
   border-radius: 6px;
   border-style: groove;
@@ -23,6 +29,7 @@ input {
 .block {
   padding: 10px 40px;
   margin: auto;
+  margin-top: 20px;
   background: grey;
   color: white;
   cursor: pointer;
@@ -40,8 +47,12 @@ input {
   background-color: blue;
 }
 
-#write-obj {
-  display: none;
+.show-comments {
+  text-align: left;
+  margin-left: 100px;
+}
+
+.write-obj {
   width: 40%;
   margin: 50px;
 }
