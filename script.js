@@ -7,7 +7,7 @@ function takePost() {
     takePostComments(postId);
 
     fetch(`https://jsonplaceholder.typicode.com/posts/${postId}`)
-      .then((res) => (res.ok ? res : Promise.reject(res)))
+      .then((res) => (res.ok ? res : Promise.reject(res))) //  200-299
       .then((res) => res.json())
       .then((data) => showPost(data))
       .catch((error) => console.error(error));
