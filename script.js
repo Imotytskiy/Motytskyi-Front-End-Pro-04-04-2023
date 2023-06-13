@@ -9,13 +9,13 @@ const takePost = () => {
 
     fetch(`https://jsonplaceholder.typicode.com/posts/${postId}`)
       .then((res) => {
+        if (res.status === 404) {
+          const errorMsg = "Пост не знайдено";
+          console.error(errorMsg);
+          postContainer.innerText = errorMsg;
+          throw new Error(errorMsg);
+        }
         if (!res.ok) {
-          if (res.status === 404) {
-            const errorMsg = "Пост не знайдено";
-            console.error(errorMsg);
-            postContainer.innerText = errorMsg;
-            throw new Error(errorMsg);
-          }
           throw new Error(res.statusText);
         }
         return res.json();
@@ -35,21 +35,15 @@ const takePostComments = (postId) => {
   const postContainer = document.getElementById("seepost");
 
   form.addEventListener("click", function (event) {
-    if (postId > 100 || postId < 1) {
-      const errorMsg = "ID посту повинен бути між 1 та 100";
-      console.error(errorMsg);
-      postContainer.innerText = errorMsg;
-      return;
-    }
     fetch(`https://jsonplaceholder.typicode.com/posts/${postId}/comments`)
       .then((res) => {
+        if (res.status === 404) {
+          const errorMsg = "Коментарі до цього посту не знайдено";
+          console.error(errorMsg);
+          postContainer.innerText = errorMsg;
+          throw new Error(errorMsg);
+        }
         if (!res.ok) {
-          if (res.status === 404) {
-            const errorMsg = "Коментарі до цього посту не знайдено";
-            console.error(errorMsg);
-            postContainer.innerText = errorMsg;
-            throw new Error(errorMsg);
-          }
           throw new Error(res.statusText);
         }
         return res.json();
