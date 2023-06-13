@@ -5,18 +5,11 @@ function takePost() {
   form.addEventListener("submit", function (event) {
     event.preventDefault();
     const postId = form.elements.post.value;
-    // if (postId > 100 || postId < 1) {
-    //   const errorMsg = "ID посту повинен бути зазначене від 1 до 100";
-    //   console.error(errorMsg);
-    //   postContainer.innerText = errorMsg;
-    //   return;
-    // }
     takePostComments(postId);
 
     fetch(`https://jsonplaceholder.typicode.com/posts/${postId}`)
       .then((res) => {
         if (!res.ok) {
-          // 200-299
           if (res.status === 404) {
             const errorMsg = "Пост не знайдено";
             console.error(errorMsg);
@@ -90,3 +83,9 @@ function showComments(comments) {
     } <br> КОМЕНТАР №${i + 1}: ${comments[i].body} <br><br>`;
   document.getElementById("seepost").innerHTML = str;
 }
+// if (postId > 100 || postId < 1) {
+//   const errorMsg = "ID посту повинен бути зазначене від 1 до 100";
+//   console.error(errorMsg);
+//   postContainer.innerText = errorMsg;
+//   return;
+// }
