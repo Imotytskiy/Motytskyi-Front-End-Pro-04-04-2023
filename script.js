@@ -59,14 +59,13 @@ const takePostComments = (postId) => {
 const showPost = (post) => {
   console.log(post, post.title);
   const postContainer = document.getElementById("seepost");
-  postContainer.style.display = "block";
+  document.getElementById("comment-button").style.display = "block";
   postContainer.innerHTML = `
     <p><strong>userId:</strong> ${post.userId}</p>
     <p><strong>id:</strong> ${post.id}</p>
     <p><strong>title:</strong> ${post.title}</p>
     <p><strong>body:</strong> ${post.body}</p>
   `;
-  document.getElementById("comment-button").style.display = "block";
 };
 
 const showComments = (comments) => {
