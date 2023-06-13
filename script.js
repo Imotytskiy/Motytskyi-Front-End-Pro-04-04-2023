@@ -1,16 +1,36 @@
 function takePost() {
   const form = document.getElementById("form");
+  const postContainer = document.getElementById("seepost");
 
   form.addEventListener("submit", function (event) {
     event.preventDefault();
     const postId = form.elements.post.value;
+    if (postId > 100 || postId < 1) {
+      const errorMsg = "ID посту повинен бути між 1 та 100";
+      console.error(errorMsg);
+      postContainer.innerText = errorMsg;
+      return;
+    }
     takePostComments(postId);
 
     fetch(`https://jsonplaceholder.typicode.com/posts/${postId}`)
-      .then((res) => (res.ok ? res : Promise.reject(res))) //  200-299
-      .then((res) => res.json())
+      .then((res) => {
+        if (!res.ok) {
+          if (res.status === 404) {
+            const errorMsg = "Пост не знайдено";
+            console.error(errorMsg);
+            postContainer.innerText = errorMsg;
+            throw new Error(errorMsg);
+          }
+          throw new Error(res.statusText);
+        }
+        return res.json();
+      })
       .then((data) => showPost(data))
-      .catch((error) => console.error(error));
+      .catch((error) => {
+        console.error("Помилка завантаження: ", error);
+        postContainer.innerText = "Помилка завантаження: " + error.message;
+      });
   });
 }
 
@@ -18,13 +38,33 @@ takePost();
 
 function takePostComments(postId) {
   const form = document.getElementById("comment-button");
+  const postContainer = document.getElementById("seepost");
 
   form.addEventListener("click", function (event) {
-    fetch(`https://jsonplaceholder.typicode.com/post/${postId}/comments`)
-      .then((res) => (res.ok ? res : Promise.reject(res)))
-      .then((res) => res.json())
+    if (postId > 100 || postId < 1) {
+      const errorMsg = "ID посту повинен бути між 1 та 100";
+      console.error(errorMsg);
+      postContainer.innerText = errorMsg;
+      return;
+    }
+    fetch(`https://jsonplaceholder.typicode.com/posts/${postId}/comments`)
+      .then((res) => {
+        if (!res.ok) {
+          if (res.status === 404) {
+            const errorMsg = "Коментарі до цього посту не знайдено";
+            console.error(errorMsg);
+            postContainer.innerText = errorMsg;
+            throw new Error(errorMsg);
+          }
+          throw new Error(res.statusText);
+        }
+        return res.json();
+      })
       .then((data) => showComments(data))
-      .catch((error) => console.error(error));
+      .catch((error) => {
+        console.error("Помилка завантаження: ", error);
+        postContainer.innerText = "Помилка завантаження: " + error.message;
+      });
   });
 }
 
