@@ -2,7 +2,7 @@ const takePost = () => {
   const form = document.getElementById("form");
   const postContainer = document.getElementById("seepost");
 
-  form.addEventListener("submit", (event) => {
+  form.addEventListener("submit", function (event) {
     event.preventDefault();
     const postId = form.elements.post.value;
     takePostComments(postId);
@@ -34,7 +34,7 @@ const takePostComments = (postId) => {
   const form = document.getElementById("comment-button");
   const postContainer = document.getElementById("seepost");
 
-  form.addEventListener("click", (event) => {
+  form.addEventListener("click", function (event) {
     if (postId > 100 || postId < 1) {
       const errorMsg = "ID посту повинен бути між 1 та 100";
       console.error(errorMsg);

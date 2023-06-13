@@ -36,6 +36,9 @@
   margin: 4px 2px;
   cursor: pointer;
 }
+.button-color:hover {
+  background-color: blue;
+}
 .show-comments {
   border: 1px solid #ccc;
   border-radius: 3px;
