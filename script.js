@@ -57,7 +57,6 @@ const takePostComments = (postId) => {
 };
 
 const showPost = (post) => {
-  console.log(post, post.title);
   const postContainer = document.getElementById("seepost");
   document.getElementById("comment-button").style.display = "block";
   postContainer.innerHTML = `
