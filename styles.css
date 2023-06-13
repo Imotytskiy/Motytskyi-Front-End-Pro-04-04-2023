@@ -1,58 +1,32 @@
 #root {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  font-family: Arial, sans-serif;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
 }
-
-h1 {
-  text-align: center;
-}
-
-section {
-  text-align: center;
-  width: 40%;
-  border: 1px solid black;
-  padding: 10px;
-  margin: 10px;
-  border-radius: 6px;
-  border-color: blue;
-  border-style: double;
-}
-
-input {
-  margin-top: 50px;
+#choose-post,
+#write-obj {
   margin-bottom: 20px;
-  border-radius: 6px;
-  border-style: groove;
 }
-
-.block {
-  padding: 10px 40px;
-  margin: auto;
-  margin-top: 20px;
-  background: grey;
-  color: white;
-  cursor: pointer;
-  text-align: center;
-  border-radius: 5px;
-  border: none;
-  transition-duration: 0.4s;
-  display: block;
+#post {
+  margin: 10px 0;
+  padding: 10px;
+  width: 100%;
 }
-
 .button-color {
-  background-color: #00d2ff;
+  background-color: #008cba;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
 }
-.button-color:hover {
-  background-color: blue;
-}
-
 .show-comments {
-  text-align: left;
-  margin-left: 100px;
-}
-
-.write-obj {
-  width: 40%;
-  margin: 50px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 20px;
 }
