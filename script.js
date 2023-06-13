@@ -35,6 +35,7 @@ const takePostComments = (postId) => {
   const postContainer = document.getElementById("seepost");
 
   form.addEventListener("click", function (event) {
+    document.getElementById("comment-button").style.display = "none";
     fetch(`https://jsonplaceholder.typicode.com/posts/${postId}/comments`)
       .then((res) => {
         if (res.status === 404) {
