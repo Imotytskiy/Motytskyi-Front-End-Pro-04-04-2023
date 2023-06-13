@@ -1,14 +1,35 @@
+<!-- Використовуючи API https://jsonplaceholder.typicode.com/ зробити пошук поста за ід.
+Ід має бути введений в інпут (валідація: ід від 1 до 100) Якщо знайдено пост, то вивести на сторінку блок з постом і зробити кнопку для отримання комкоментарів до посту.
+Зробити завдання використовуючи проміси, перехопити помилки. -->
+
 <!DOCTYPE html>
 <html lang="uk">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>HW 21. Реалізувати подобу інтернет-магазину.</title>
+    <title>HW 26. Promise</title>
     <link rel="stylesheet" href="styles.css" />
-    <script type="module" src="script.js" defer></script>
+    <script src="script.js" defer></script>
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <h1>HW 26. Promise</h1>
+      <section id="choose-post">
+        <form id="form" action="">
+          <label for="post">Введіть ID</label>
+          <input name="post" type="number" min="1" id="post" required />
+          <button id="post-button" class="button-color block" type="submit">
+            ЗРОБИТИ ПОШУК ПОСТУ
+          </button>
+        </form>
+      </section>
+      <section id="write-obj">
+        <div id="seepost" class="show-comments"></div>
+        <button id="comment-button" class="button-color block">
+          ОТРИМАТИ КОМЕНТАРІ ДО ПОСТУ
+        </button>
+      </section>
+    </div>
   </body>
 </html>

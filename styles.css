@@ -1,29 +1,48 @@
 #root {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
+  font-family: Arial, sans-serif;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
 }
-
-.newdiv {
-  text-align: center;
-  border: 1px solid black;
+#choose-post,
+#write-obj {
+  margin-bottom: 20px;
+}
+#post {
+  margin: 10px 0;
   padding: 10px;
-  margin: 10px;
+  width: 100%;
+}
+#comment-button {
+  display: none;
+}
+#seepost p {
+  margin-bottom: 10px;
 }
 
-.block {
-  padding: 10px 40px;
-  margin: 10px 20px;
-  background: grey;
-  color: white;
-  cursor: pointer;
-  text-align: center;
-  border-radius: 5px;
-  border: none;
-  transition-duration: 0.4s;
-  display: block;
+#seepost strong {
+  font-weight: bold;
+  margin-right: 5px;
 }
-
 .button-color {
-  background-color: #00d2ff;
+  background-color: #008cba;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+.button-color:hover {
+  background-color: blue;
+}
+.show-comments {
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  padding: 10px;
+  margin-bottom: 20px;
+  width: 100%;
 }

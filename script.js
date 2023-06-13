@@ -1,60 +1,84 @@
-const getId = document.getElementById("root");
+const takePost = () => {
+  const form = document.getElementById("form");
+  const postContainer = document.getElementById("seepost");
 
-const clearBlock = () => {
-  getId.children[1].innerHTML = textTitles[1];
-  getId.children[2].innerHTML = textTitles[2];
-};
+  form.addEventListener("submit", function (event) {
+    event.preventDefault();
+    const postId = form.elements.post.value;
+    takePostComments(postId);
 
-const applyStyles = (element) => {
-  element.classList.add("block");
-};
-
-(function () {
-  let widthBlock = 15;
-  for (let i = 1; i <= 3; i++) {
-    widthBlock += widthBlock;
-    let childBlock = document.createElement("div");
-    childBlock.textContent = textTitles[i - 1];
-    childBlock.style.width = `${widthBlock}%`;
-    childBlock.classList.add("newdiv");
-    getId.appendChild(childBlock);
-  }
-})();
-dataShop.forEach((category) => {
-  const categoryElement = document.createElement("div");
-  applyStyles(categoryElement);
-  categoryElement.textContent = category.name;
-  getId.children[0].appendChild(categoryElement);
-  categoryElement.addEventListener("click", function (event) {
-    clearBlock();
-    dataShop
-      .find((cat) => cat.name === category.name)
-      .products.forEach((product) => {
-        let productElement = document.createElement("div");
-        applyStyles(productElement);
-        productElement.textContent = product.name;
-        getId.children[1].appendChild(productElement);
-        productElement.addEventListener("click", function (event) {
-          getId.children[2].innerHTML = textTitles[2];
-          let descriptionElement = document.createElement("div");
-          applyStyles(descriptionElement);
-          descriptionElement.textContent = product.description;
-          getId.children[2].appendChild(descriptionElement);
-          createButton();
-        });
+    fetch(`https://jsonplaceholder.typicode.com/posts/${postId}`)
+      .then((res) => {
+        if (res.status === 404) {
+          const errorMsg = "Пост не знайдено";
+          console.error(errorMsg);
+          postContainer.innerText = errorMsg;
+          throw new Error(errorMsg);
+        }
+        if (!res.ok) {
+          throw new Error(res.statusText);
+        }
+        return res.json();
+      })
+      .then((data) => showPost(data))
+      .catch((error) => {
+        console.error("Помилка завантаження: ", error);
+        postContainer.innerText = "Помилка завантаження: " + error.message;
       });
   });
-});
-function createButton() {
-  let buttonElement = document.createElement("button");
-  buttonElement.addEventListener("click", function (event) {
-    setTimeout(function () {
-      alert(textTitles[4]);
-    });
-    clearBlock();
+};
+
+takePost();
+
+const takePostComments = (postId) => {
+  const form = document.getElementById("comment-button");
+  const postContainer = document.getElementById("seepost");
+
+  form.addEventListener("click", function (event) {
+    document.getElementById("comment-button").style.display = "none";
+    fetch(`https://jsonplaceholder.typicode.com/posts/${postId}/comments`)
+      .then((res) => {
+        if (res.status === 404) {
+          const errorMsg = "Коментарі до цього посту не знайдено";
+          console.error(errorMsg);
+          postContainer.innerText = errorMsg;
+          throw new Error(errorMsg);
+        }
+        if (!res.ok) {
+          throw new Error(res.statusText);
+        }
+        return res.json();
+      })
+      .then((data) => showComments(data))
+      .catch((error) => {
+        console.error(`Помилка завантаження: , ${error}`);
+        postContainer.innerText = `Помилка завантаження: ${error.message}`;
+      });
   });
-  applyStyles(buttonElement);
-  buttonElement.classList.add("button-color");
-  buttonElement.textContent = textTitles[3];
-  getId.children[2].appendChild(buttonElement);
-}
+};
+
+const showPost = (post) => {
+  const postContainer = document.getElementById("seepost");
+  document.getElementById("comment-button").style.display = "block";
+  postContainer.innerHTML = `
+    <p><strong>userId:</strong> ${post.userId}</p>
+    <p><strong>id:</strong> ${post.id}</p>
+    <p><strong>title:</strong> ${post.title}</p>
+    <p><strong>body:</strong> ${post.body}</p>
+  `;
+};
+
+const showComments = (comments) => {
+  let str = "";
+  for (let i = 0; i < comments.length; i++)
+    str += `Ім'я: ${comments[i].name} <br> E-mail: ${
+      comments[i].email
+    } <br> КОМЕНТАР №${i + 1}: ${comments[i].body} <br><br>`;
+  document.getElementById("seepost").innerHTML = str;
+};
+// if (postId > 100 || postId < 1) {
+//   const errorMsg = "ID посту повинен бути зазначене від 1 до 100";
+//   console.error(errorMsg);
+//   postContainer.innerText = errorMsg;
+//   return;
+// }
