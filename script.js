@@ -1,8 +1,8 @@
-function takePost() {
+const takePost = () => {
   const form = document.getElementById("form");
   const postContainer = document.getElementById("seepost");
 
-  form.addEventListener("submit", function (event) {
+  form.addEventListener("submit", (event) => {
     event.preventDefault();
     const postId = form.elements.post.value;
     takePostComments(postId);
@@ -26,15 +26,15 @@ function takePost() {
         postContainer.innerText = "Помилка завантаження: " + error.message;
       });
   });
-}
+};
 
 takePost();
 
-function takePostComments(postId) {
+const takePostComments = (postId) => {
   const form = document.getElementById("comment-button");
   const postContainer = document.getElementById("seepost");
 
-  form.addEventListener("click", function (event) {
+  form.addEventListener("click", (event) => {
     if (postId > 100 || postId < 1) {
       const errorMsg = "ID посту повинен бути між 1 та 100";
       console.error(errorMsg);
@@ -60,9 +60,9 @@ function takePostComments(postId) {
         postContainer.innerText = "Помилка завантаження: " + error.message;
       });
   });
-}
+};
 
-function showPost(post) {
+const showPost = (post) => {
   console.log(post, post.title);
   const postContainer = document.getElementById("seepost");
   postContainer.style.display = "block";
@@ -73,16 +73,16 @@ function showPost(post) {
     <p><strong>body:</strong> ${post.body}</p>
   `;
   document.getElementById("comment-button").style.display = "block";
-}
+};
 
-function showComments(comments) {
+const showComments = (comments) => {
   let str = "";
   for (let i = 0; i < comments.length; i++)
     str += `Ім'я: ${comments[i].name} <br> E-mail: ${
       comments[i].email
     } <br> КОМЕНТАР №${i + 1}: ${comments[i].body} <br><br>`;
   document.getElementById("seepost").innerHTML = str;
-}
+};
 // if (postId > 100 || postId < 1) {
 //   const errorMsg = "ID посту повинен бути зазначене від 1 до 100";
 //   console.error(errorMsg);
