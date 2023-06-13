@@ -51,8 +51,8 @@ const takePostComments = (postId) => {
       })
       .then((data) => showComments(data))
       .catch((error) => {
-        console.error("Помилка завантаження: ", error);
-        postContainer.innerText = "Помилка завантаження: " + error.message;
+        console.error(`Помилка завантаження: , ${error}`);
+        postContainer.innerText = `Помилка завантаження: ${error.message}`;
       });
   });
 };
