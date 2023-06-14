@@ -8,8 +8,7 @@ const getWeatherData = (pushData) => {
   weather.onreadystatechange = () => {
     if (weather.readyState === 4) {
       if (weather.status === 200) {
-        let readyWeather = JSON.parse(weather.responseText);
-        pushData(readyWeather);
+        pushData(JSON.parse(weather.responseText));
       } else {
         console.error("Помилка завантаження: " + weather.status);
       }
