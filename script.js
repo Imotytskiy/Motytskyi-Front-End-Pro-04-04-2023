@@ -33,6 +33,5 @@ const iconImg = (icon) => {
     "icon"
   ).src = `https://openweathermap.org/img/w/${icon}.png`;
 };
-
-getWeatherData(realWeatherData);
 iconImg("10d");
+getWeatherData(realWeatherData);
