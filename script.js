@@ -15,7 +15,7 @@ weather.open(
   "https://api.openweathermap.org/data/2.5/weather?q=LVIV&units=metric&APPID=5d066958a60d315387d9492393935c19",
   true
 );
-weather.onreadystatechange = function () {
+weather.onreadystatechange = () => {
   if (weather.readyState === 4) {
     if (weather.status === 200) {
       let readyWeather = JSON.parse(weather.responseText);
