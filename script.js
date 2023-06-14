@@ -25,4 +25,6 @@ weather.onreadystatechange = function () {
   }
 };
 weather.send();
-document.getElementById("icon").src = "http://openweathermap.org/img/w/10d.png";
+const icon = "10d";
+document.getElementById("icon").src =
+  "http://openweathermap.org/img/w/${icon}.png";
