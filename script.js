@@ -28,4 +28,4 @@ weather.send();
 const icon = "10d";
 document.getElementById(
   "icon"
-).src = `http://openweathermap.org/img/w/${icon}.png`;
+).src = `https://openweathermap.org/img/w/${icon}.png`;
