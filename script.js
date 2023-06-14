@@ -20,7 +20,7 @@ weather.onreadystatechange = function () {
       document.getElementById("wind").innerText = readyWeather.wind.speed;
       document.getElementById("deg").innerText = readyWeather.wind.deg;
     } else {
-      console.error("Error: " + weather.status);
+      console.error("Помилка завантаження: " + weather.status);
     }
   }
 };
