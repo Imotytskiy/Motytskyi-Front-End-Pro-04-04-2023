@@ -1,3 +1,14 @@
+const realWeatherData = (readyWeather) => {
+  document.getElementById("city").innerText = readyWeather.name;
+  document.getElementById("temp").innerText = readyWeather.main.temp;
+  document.getElementById("pressure").innerText = readyWeather.main.pressure;
+  document.getElementById("description").innerText =
+    readyWeather.weather[0].description;
+  document.getElementById("humidity").innerText = readyWeather.main.humidity;
+  document.getElementById("wind").innerText = readyWeather.wind.speed;
+  document.getElementById("deg").innerText = readyWeather.wind.deg;
+};
+
 let weather = new XMLHttpRequest();
 weather.open(
   "GET",
@@ -8,24 +19,18 @@ weather.onreadystatechange = function () {
   if (weather.readyState === 4) {
     if (weather.status === 200) {
       let readyWeather = JSON.parse(weather.responseText);
-      console.log(readyWeather);
-      document.getElementById("city").innerText = readyWeather.name;
-      document.getElementById("temp").innerText = readyWeather.main.temp;
-      document.getElementById("pressure").innerText =
-        readyWeather.main.pressure;
-      document.getElementById("description").innerText =
-        readyWeather.weather[0].description;
-      document.getElementById("humidity").innerText =
-        readyWeather.main.humidity;
-      document.getElementById("wind").innerText = readyWeather.wind.speed;
-      document.getElementById("deg").innerText = readyWeather.wind.deg;
+      realWeatherData(readyWeather);
     } else {
       console.error("Помилка завантаження: " + weather.status);
     }
   }
 };
 weather.send();
-const icon = "10d";
-document.getElementById(
-  "icon"
-).src = `https://openweathermap.org/img/w/${icon}.png`;
+
+const iconImg = (icon) => {
+  document.getElementById(
+    "icon"
+  ).src = `https://openweathermap.org/img/w/${icon}.png`;
+};
+
+iconImg("10d");
