@@ -17,7 +17,7 @@ weather.onreadystatechange = function () {
         readyWeather.weather[0].description;
       document.getElementById("humidity").innerText =
         readyWeather.main.humidity;
-      document.getElementById("wind-speed").innerText = readyWeather.wind.speed;
+      document.getElementById("wind").innerText = readyWeather.wind.speed;
       document.getElementById("deg").innerText = readyWeather.wind.deg;
     } else {
       console.error("Error: " + weather.status);
@@ -26,5 +26,6 @@ weather.onreadystatechange = function () {
 };
 weather.send();
 const icon = "10d";
-document.getElementById("icon").src =
-  "http://openweathermap.org/img/w/${icon}.png";
+document.getElementById(
+  "icon"
+).src = `http://openweathermap.org/img/w/${icon}.png`;
