@@ -60,8 +60,17 @@ document.getElementById("reload").addEventListener("click", function (event) {
 
 const orderElement = createOrderElement();
 
+const findStorageOrder = (count) => {
+  for (let i = 0; i < count; i++) {
+    if (localStorage.key(i).includes("order")) {
+      return false;
+    }
+  }
+  return;
+};
+
 orderElement.addEventListener("click", function (event) {
-  if (localStorage.length === 0) {
+  if (findStorageOrder(localStorage.length)) {
     alert("Замовлення відсутні");
     return;
   }
@@ -104,17 +113,19 @@ orderElement.addEventListener("click", function (event) {
   let idButton = "";
   function createAccordionSections(count) {
     for (let i = 0; i < count; i++) {
-      let key = localStorage.key(i);
-      const forValue = JSON.parse(localStorage.getItem(key));
-      idButton = forValue.key;
-      let orderInfo = `Замовлено ${localStorage
-        .key(i)
-        .slice(0, -11)} року. Ціна за одн. ${forValue.price}$. Кількість ${
-        forValue.quantity
-      } шт. Загальна сумма до сплати ${(
-        Number(forValue.quantity) * Number(forValue.price)
-      ).toString()} дол. США`;
-      createAccordionSection(orderInfo, forValue.description);
+      if (localStorage.key.includes("order")) {
+        let key = localStorage.key(i);
+        const forValue = JSON.parse(localStorage.getItem(key));
+        idButton = forValue.key;
+        let orderInfo = `Замовлено ${localStorage
+          .key(i)
+          .slice(0, -11)} року. Ціна за одн. ${forValue.price}$. Кількість ${
+          forValue.quantity
+        } шт. Загальна сумма до сплати ${(
+          Number(forValue.quantity) * Number(forValue.price)
+        ).toString()} дол. США`;
+        createAccordionSection(orderInfo, forValue.description);
+      }
     }
   }
 
@@ -259,7 +270,8 @@ makeUpperCaseForName(inputFatherName);
       hour = hour < 10 ? "0" + hour : hour;
       minute = minute < 10 ? "0" + minute : minute;
       second = second < 10 ? "0" + second : second;
-      let formattedDate = `${day} ${month} ${year}${hour}${minute}${second}`;
+      let formattedDate = `${day} ${month} ${year}${hour}${minute}${second}order`;
+      console.log(formattedDate);
       return formattedDate;
     };
 
@@ -270,7 +282,7 @@ makeUpperCaseForName(inputFatherName);
       jsonFormData.id = jsonIdProduct;
       jsonFormData.quantity = actualForm["quantity"].value;
       jsonFormData.product = jsonProduct;
-      jsonFormData.date = jsonFormData.key.slice(0, -6);
+      jsonFormData.date = jsonFormData.key.slice(0, -11);
       jsonFormData.price = prices[jsonIdProduct].toString();
 
       jsonFormData.description = `Замовник: ${actualForm["name"].value} ${actualForm["surname"].value} ${actualForm["father-name"].value}. 
@@ -289,10 +301,7 @@ makeUpperCaseForName(inputFatherName);
 
     createButton(formContainer, textTitles.confirm, () => {
       const jsonFormData = createJsonFormData();
-      localStorage.setItem(
-        jsonFormData.key + "order",
-        JSON.stringify(jsonFormData)
-      );
+      localStorage.setItem(jsonFormData.key, JSON.stringify(jsonFormData));
       document.getElementById("buyerform").reset();
       location.reload();
     });
