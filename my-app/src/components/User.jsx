@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import { useState } from "react";
 const User = ({name}) => {
-    let counter = 0;
     const state = useState(0);
     console.log(state);
-    const clickHandler = (event) => counter++;
+    let counter = 0;
+    const clickHandler = (event) => {
+    counter++;}
     return( 
         <div className="">
             <div className="user_avatar">
