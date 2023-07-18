@@ -1,0 +1,23 @@
+.header {
+  width: 1320px;
+  height: 200px;
+}
+.container {
+  display: flex;
+  flex-direction: row;
+  margin: 0;
+  padding: 0;
+}
+
+.Navleft {
+  flex: 20%;
+}
+
+.Container {
+  flex: 80%;
+}
+
+.nav-link {
+  color: whitesmoke;
+  background-color: black;
+}
