@@ -66,7 +66,7 @@ const findStorageOrder = (count) => {
       return false;
     }
   }
-  return;
+  return true;
 };
 
 orderElement.addEventListener("click", function (event) {
@@ -113,7 +113,7 @@ orderElement.addEventListener("click", function (event) {
   let idButton = "";
   function createAccordionSections(count) {
     for (let i = 0; i < count; i++) {
-      if (localStorage.key.includes("order")) {
+      if (localStorage.key(i).includes("order")) {
         let key = localStorage.key(i);
         const forValue = JSON.parse(localStorage.getItem(key));
         idButton = forValue.key;
