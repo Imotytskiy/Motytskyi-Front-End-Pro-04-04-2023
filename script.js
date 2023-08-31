@@ -105,7 +105,7 @@ orderElement.addEventListener("click", function (event) {
       if (panel.style.display === "block") {
         panel.style.display = "none";
       }
-      localStorage.removeItem(closestElementId + "order");
+      localStorage.removeItem(closestElementId);
       closestElement.remove();
     });
   }
